@@ -253,11 +253,11 @@ const ALTRI=[['TicketOne',q=>'https://www.ticketone.it/search/?searchterm='+enco
   ['Ticketsms',q=>'https://www.ticketsms.it/it/search?q='+encodeURIComponent(q)],['Mailticket',q=>'https://www.mailticket.it/ricerca?q='+encodeURIComponent(q)]];
 function openCmp(e){
   $('#dT').textContent=e.artist;
-  const offs=e.offers||[]; const best=offs.find(o=>o.min!=null);
+  const offs=offSort(e.offers||[]); const best=offs.find(o=>o.min!=null);
   let h='<div class="meta" style="margin-bottom:10px">'+esc(fmtDate(e))+'<br>'+esc([e.venue,e.address,e.city].filter(Boolean).join(', '))+'</div>';
   h+='<table class="cmp"><tr><th>Rivenditore</th><th>Prezzo</th><th></th></tr>';
   for(const o of offs){ const isB=best&&o===best&&offs.filter(x=>x.min!=null).length>1;
-    h+='<tr'+(isB?' class="best"':'')+'><td>'+(isB?'<span class="best-l">PIÙ CONVENIENTE</span>':'')+'<span class="tag '+o.src+'">'+SIGLE[o.src]+'</span> '+esc(o.nome)+(o.stato?'<br><span class="meta">'+esc(o.stato)+'</span>':'')+'</td>'
+    h+='<tr'+(isB?' class="best"':'')+'><td>'+(isB?'<span class="best-l">PIÙ CONVENIENTE</span>':'')+'<span class="tag '+o.src+'">'+SIGLE[o.src]+'</span> '+esc(o.nome)+(offVar(o,offs)?'<br><span class="meta">'+esc(offVar(o,offs))+'</span>':'')+(o.stato?'<br><span class="meta">'+esc(o.stato)+'</span>':'')+'</td>'
       +'<td>'+(o.min!=null?'<b>'+esc(fmtPrice(o.min,o.max))+'</b>':'<span class="meta">sul sito</span>')+'</td><td><a class="icb" href="'+esc(o.url)+'" target="_blank" rel="noopener">Apri ↗</a></td></tr>'; }
   h+='</table>';
   if(e.onsale) h+='<div class="note">Vendita al pubblico dal '+esc(new Date(e.onsale).toLocaleString('it-IT',{dateStyle:'medium',timeStyle:'short'}))+'</div>';
@@ -274,6 +274,14 @@ $('#dX').onclick=()=>$('#dlg').close(); $('#dlg').addEventListener('click',ev=>{
 /* ---------- calendario ---------- */
 const icsE=s=>String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
 function dt(e,h=0){ const [y,m,d]=e.date.split('-').map(Number), [hh,mm]=(e.time||'21:00').split(':').map(Number); const x=new Date(Date.UTC(y,m-1,d,hh,mm)+h*36e5); return x.getUTCFullYear()+pad(x.getUTCMonth()+1)+pad(x.getUTCDate())+'T'+pad(x.getUTCHours())+pad(x.getUTCMinutes())+'00'; }
+/* stesso rivenditore più volte (vendita generale, posti riservati, VIP…): etichetta che le distingue */
+const OFF_SPEC=/riservat|mastercard|amex|american express|vip|hospitality|pacchett|package|premium|upgrade|esperienz|experience|meet ?(&|and) ?greet|soundcheck|parcheggi|parking|pullman|bus|navett|prevendita|presale/i;
+function offSort(offs){return offs.map((o,i)=>[o,i]).sort((a,b)=>((a[0].min??1e9)-(b[0].min??1e9))||(OFF_SPEC.test(a[0].det||"")-OFF_SPEC.test(b[0].det||""))||a[1]-b[1]).map(x=>x[0])}
+function offVar(o,offs){const g=offs.filter(x=>x.src===o.src&&(x.nome||"")===(o.nome||""));if(g.length<2)return "";
+  const diff=split=>{const all=g.filter(x=>x.det).map(x=>split(x.det)),mine=split(o.det),k=t=>t.toLowerCase();const com=mine.filter(p=>all.every(a=>a.some(q=>k(q)===k(p))));return com.length?mine.filter(p=>!com.some(c=>k(c)===k(p))).join(split===seg?" · ":" "):null};
+  const seg=t=>String(t||"").split(/\s+[-–|·:]\s+/).map(x=>x.trim()).filter(Boolean),wrd=t=>String(t||"").split(/\s+/).filter(Boolean);
+  let r=diff(seg);if(r==null)r=diff(wrd);if(r==null)r=o.det||"";
+  return r||(o.det?"Vendita generale":"Proposta "+(g.indexOf(o)+1))}
 function link(e){ return (e.offers&&e.offers[0]&&e.offers[0].url)||''; }
 function dlIcs(arr,name){
   const now=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';

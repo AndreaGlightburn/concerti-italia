@@ -299,6 +299,8 @@ export function samePlace(a, b) {
   return !!ca && ca === cb;
 }
 const NOMI = { tm: 'Ticketmaster', to: 'TicketOne', bit: 'Bandsintown', vt: 'Vivaticket', web: 'Sito ufficiale' };
+// varianti dello stesso concerto che i rivenditori pubblicano come eventi a parte
+export const SPECIALE = /riservat|mastercard|amex|american express|vip|hospitality|pacchett|package|premium|upgrade|esperienz|experience|meet ?(&|and) ?greet|soundcheck|parcheggi|parking|pullman|bus|navett|prevendita|presale/i;
 export function merge(list) {
   const byDate = new Map();
   const PRI = { tm: 0, to: 1, vt: 2, web: 3, bit: 4 };
@@ -306,7 +308,7 @@ export function merge(list) {
   for (const e of list) {
     if (!e.date) continue;
     const arr = byDate.get(e.date) || []; byDate.set(e.date, arr);
-    const offer = { src: e.src, nome: e.fonte && e.src === 'web' ? e.fonte : (NOMI[e.src] || e.src), url: e.url, min: e.priceMin, max: e.priceMax, valuta: e.currency, stato: e.status || '' };
+    const offer = { src: e.src, nome: e.fonte && e.src === 'web' ? e.fonte : (NOMI[e.src] || e.src), url: e.url, min: e.priceMin, max: e.priceMax, valuta: e.currency, stato: e.status || '', det: e.title || '' };
     const m = arr.find(x => samePlace(x, e) && sameArtist(x, e));
     if (!m) {
       arr.push({ ...e, sources: [e.src], ids: [e.id], offers: [offer] });
@@ -316,6 +318,8 @@ export function merge(list) {
     m.ids.push(e.id); if (!m.sources.includes(e.src)) m.sources.push(e.src);
     if (!m.offers.some(o => o.url === offer.url)) m.offers.push(offer);
     for (const f of ['image', 'time', 'genre', 'address', 'venue', 'onsale']) if (!m[f] && e[f]) m[f] = e[f];
+    // titolo della scheda: meglio la vendita generale che una variante (posti riservati, VIP, pacchetti…)
+    if (SPECIALE.test(m.title || '') && e.title && !SPECIALE.test(e.title)) m.title = e.title;
     if (m.lat == null && e.lat != null) { m.lat = e.lat; m.lon = e.lon; }
   }
   const out = [];
