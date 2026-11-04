@@ -1,12 +1,12 @@
 {
- "aggiornato": "2026-11-04T23:05:16.734Z",
+ "aggiornato": "2026-11-04T23:10:21.829Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
-   "ok": false,
-   "errore": "secret TM_KEY non impostato",
-   "eventi": 0
+   "ok": true,
+   "eventi": 511,
+   "secondi": 7
   },
   {
    "id": "to",
@@ -37,9 +37,9 @@
    "eventi": 0
   }
  ],
- "eventi": 0,
- "confrontabili": 0,
- "nuoviPreferiti": 0,
+ "eventi": 447,
+ "confrontabili": 55,
+ "nuoviPreferiti": 10,
  "avvisiInviati": 0,
- "durataSecondi": 28
+ "durataSecondi": 119
 }
