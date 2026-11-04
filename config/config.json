@@ -4,30 +4,190 @@
   "finestraGiorni": 365,
   "geocodingMax": 80,
   "prezziMax": 120,
-
   "ticketone": {
     "attiva": true,
     "webId": "web__ticketone-it",
     "language": "it",
-    "categorie": ["Concerti"],
+    "categorie": [
+      "Concerti"
+    ],
     "maxPagine": 80
   },
-
   "vivaticket": {
     "attiva": true,
-    "maxDettagli": 60,
+    "maxDettagli": 40,
     "pagine": [
       "https://www.vivaticket.com/it/category/concerti/"
     ]
   },
-
   "siti": {
     "attiva": true,
-    "maxDettagli": 40,
+    "maxDettagli": 25,
+    "_nota": "Locali, palazzetti e festival. Aggiungi o togli righe liberamente: lo stato di ogni pagina è in data/status.json → pagine.",
     "pagine": [
-      { "url": "https://www.alcatrazmilano.it/", "sigla": "web" },
-      { "url": "https://www.magazzinigenerali.it/", "sigla": "web" },
-      { "url": "https://www.santeria.milano.it/", "sigla": "web" }
+      {
+        "url": "https://www.alcatrazmilano.it/",
+        "sigla": "web",
+        "nome": "Alcatraz",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.magazzinigenerali.it/",
+        "sigla": "web",
+        "nome": "Magazzini Generali",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.santeria.milano.it/",
+        "sigla": "web",
+        "nome": "Santeria Toscana 31",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.fabriquemilano.it/",
+        "sigla": "web",
+        "nome": "Fabrique",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.legendclub.it/",
+        "sigla": "web",
+        "nome": "Legend Club",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.bluenotemilano.com/",
+        "sigla": "web",
+        "nome": "Blue Note Milano",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.teatroarcimboldi.it/",
+        "sigla": "web",
+        "nome": "Teatro degli Arcimboldi",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.teatrodalverme.it/",
+        "sigla": "web",
+        "nome": "Teatro Dal Verme",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.unipolforum.it/",
+        "sigla": "web",
+        "nome": "Unipol Forum (Assago)",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.carroponte.org/",
+        "sigla": "web",
+        "nome": "Carroponte (Sesto S. Giovanni)",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.circolomagnolia.it/",
+        "sigla": "web",
+        "nome": "Circolo Magnolia (Segrate)",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.liveclub.it/",
+        "sigla": "web",
+        "nome": "Live Club (Trezzo sull'Adda)",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.druso.it/",
+        "sigla": "web",
+        "nome": "Druso (Ranica, Bergamo)",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.latteriamolloy.com/",
+        "sigla": "web",
+        "nome": "Latteria Molloy (Brescia)",
+        "regione": "Lombardia"
+      },
+      {
+        "url": "https://www.granteatrogeox.com/",
+        "sigla": "web",
+        "nome": "Gran Teatro Geox (Padova)",
+        "regione": "Veneto"
+      },
+      {
+        "url": "https://www.kioenearena.it/",
+        "sigla": "web",
+        "nome": "Kioene Arena (Padova)",
+        "regione": "Veneto"
+      },
+      {
+        "url": "https://www.newageclub.it/",
+        "sigla": "web",
+        "nome": "New Age Club (Roncade)",
+        "regione": "Veneto"
+      },
+      {
+        "url": "https://www.sherwood.it/",
+        "sigla": "web",
+        "nome": "Sherwood Festival (Padova)",
+        "regione": "Veneto"
+      },
+      {
+        "url": "https://www.arena.it/",
+        "sigla": "web",
+        "nome": "Arena di Verona",
+        "regione": "Veneto"
+      },
+      {
+        "url": "https://www.teatrolafenice.it/",
+        "sigla": "web",
+        "nome": "Teatro La Fenice (Venezia)",
+        "regione": "Veneto"
+      },
+      {
+        "url": "https://www.amamusicfestival.com/",
+        "sigla": "web",
+        "nome": "AMA Music Festival (Romano d'Ezzelino)",
+        "regione": "Veneto"
+      },
+      {
+        "url": "https://www.operaestate.it/",
+        "sigla": "web",
+        "nome": "Operaestate Festival (Bassano)",
+        "regione": "Veneto"
+      }
     ]
+  },
+  "biglietterie": {
+    "attiva": true,
+    "maxDettagli": 30,
+    "_nota": "Biglietterie senza API pubblica: si leggono le pagine e i dati strutturati (schema.org) degli eventi. 'link' è facoltativo: espressione per riconoscere i link ai singoli eventi.",
+    "pagine": [
+      {
+        "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
+        "sigla": "dice",
+        "nome": "DICE",
+        "link": "/event/"
+      },
+      {
+        "url": "https://www.ticketsms.it/it/",
+        "sigla": "sms",
+        "nome": "Ticketsms"
+      },
+      {
+        "url": "https://www.mailticket.it/",
+        "sigla": "mt",
+        "nome": "Mailticket"
+      },
+      {
+        "url": "https://www.diyticket.it/",
+        "sigla": "diy",
+        "nome": "Do It Yourself"
+      }
+    ]
+  },
+  "bandsintown": {
+    "_nota": "Solo per gli artisti di config/artisti.txt. Se l'app_id predefinito non viene accettato, chiedine uno a Bandsintown e mettilo nel secret BIT_APP_ID."
   }
 }

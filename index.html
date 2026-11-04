@@ -53,7 +53,7 @@ input:focus,select:focus{border-color:var(--acc)}
 .price small{font-weight:500;color:var(--mut)}
 .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .tag{display:inline-block;font-size:10px;border-radius:6px;padding:1px 6px;margin:0 4px 2px 0;font-weight:700}
-.tag.tm{background:#026cdf;color:#fff}.tag.to{background:#0b3d91;color:#fff}.tag.vt{background:#e6007e;color:#fff}.tag.bit{background:#00b4b3;color:#fff}.tag.web{background:#6b5bd2;color:#fff}
+.tag.tm{background:#026cdf;color:#fff}.tag.to{background:#0b3d91;color:#fff}.tag.vt{background:#e6007e;color:#fff}.tag.bit{background:#00b4b3;color:#fff}.tag.web{background:#6b5bd2;color:#fff}.tag.dice{background:#000;color:#fff}.tag.sms{background:#ff5a1f;color:#fff}.tag.mt{background:#c8102e;color:#fff}.tag.diy{background:#ffd400;color:#000}
 .tag.new{background:var(--ok);color:#0b2a1e}.tag.fav{background:var(--acc2);color:#2a1600}.tag.gen{background:var(--line);color:var(--tx);font-weight:500}.tag.st{background:var(--warn);color:#000}
 .icb{background:var(--bg);border:1px solid var(--line);color:var(--tx);border-radius:9px;padding:6px 9px;font-size:13px;cursor:pointer;text-decoration:none;white-space:nowrap}
 .icb.hl{border-color:var(--acc);color:var(--acc);font-weight:600}
@@ -163,8 +163,8 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' e ').replace(/[^a-z0-9]+/g,' ').trim();
 const pad=n=>String(n).padStart(2,'0'), ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 const MESI=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'], GIORNI=['dom','lun','mar','mer','gio','ven','sab'];
-const NOMI={tm:'Ticketmaster',to:'TicketOne',vt:'Vivaticket',web:'Sito',bit:'Bandsintown'};
-const SIGLE={tm:'TM',to:'T1',vt:'VT',web:'WEB',bit:'BIT'};
+const NOMI={tm:'Ticketmaster',to:'TicketOne',vt:'Vivaticket',web:'Sito',bit:'Bandsintown',dice:'DICE',sms:'Ticketsms',mt:'Mailticket',diy:'Do It Yourself'};
+const SIGLE={tm:'TM',to:'T1',vt:'VT',web:'WEB',bit:'BIT',dice:'DICE',sms:'SMS',mt:'MT',diy:'DIY'};
 function toast(m,ms=2600){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),ms);}
 function hav(a,b,c,d){const R=6371,r=x=>x*Math.PI/180;const h=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(h));}
 const eur=v=>new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:v%1?2:0}).format(v);
@@ -248,9 +248,11 @@ document.addEventListener('click',ev=>{
 });
 
 /* ---------- confronto ---------- */
-const ALTRI=[['TicketOne',q=>'https://www.ticketone.it/search/?searchterm='+encodeURIComponent(q),'to'],['Vivaticket',q=>'https://www.vivaticket.com/it/search?q='+encodeURIComponent(q),'vt'],
-  ['Ticketmaster',q=>'https://www.ticketmaster.it/search?q='+encodeURIComponent(q),'tm'],['DICE',q=>'https://dice.fm/search?query='+encodeURIComponent(q)],
-  ['Ticketsms',q=>'https://www.ticketsms.it/it/search?q='+encodeURIComponent(q)],['Mailticket',q=>'https://www.mailticket.it/ricerca?q='+encodeURIComponent(q)]];
+/* ricerca diretta dove l'indirizzo è noto, altrimenti ricerca Google limitata al sito */
+const gsite=(d,q)=>'https://www.google.com/search?q='+encodeURIComponent('site:'+d+' "'+q+'"');
+const ALTRI=[['TicketOne',q=>'https://www.ticketone.it/search/?searchterm='+encodeURIComponent(q),'to'],['Ticketmaster',q=>'https://www.ticketmaster.it/search?q='+encodeURIComponent(q),'tm'],
+  ['Vivaticket',q=>gsite('vivaticket.com',q),'vt'],['DICE',q=>gsite('dice.fm',q),'dice'],['Ticketsms',q=>gsite('ticketsms.it',q),'sms'],
+  ['Mailticket',q=>gsite('mailticket.it',q),'mt'],['Do It Yourself',q=>gsite('diyticket.it',q),'diy'],['Bandsintown',q=>gsite('bandsintown.com',q),'bit']];
 function openCmp(e){
   $('#dT').textContent=e.artist;
   const offs=offSort(e.offers||[]); const best=offs.find(o=>o.min!=null);

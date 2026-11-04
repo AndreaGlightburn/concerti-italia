@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
 const ENV = process.env;
-const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
 const GEO_UA = 'ConcertiItalia/1.0 (aggiornamento automatico GitHub Actions)';
 
 /* ---------------- utilità ---------------- */
@@ -32,7 +32,10 @@ async function http(url, { json = true, headers = {}, retries = 2, method = 'GET
   for (let t = 0; ; t++) {
     let r;
     try {
-      r = await fetch(url, { method, body, headers: { 'User-Agent': UA, 'Accept-Language': 'it-IT,it;q=0.9', Accept: json ? 'application/json' : 'text/html,application/xhtml+xml', ...headers }, signal: AbortSignal.timeout(30000) });
+      const h = json ? { Accept: 'application/json, text/plain, */*', 'Sec-Fetch-Dest': 'empty', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Site': 'same-site' }
+        : { Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8', 'Sec-Fetch-Dest': 'document', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-User': '?1', 'Upgrade-Insecure-Requests': '1' };
+      r = await fetch(url, { method, body, redirect: 'follow', headers: { 'User-Agent': UA, 'Accept-Language': 'it-IT,it;q=0.9,en;q=0.6', 'Cache-Control': 'no-cache', Pragma: 'no-cache',
+        'sec-ch-ua': '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"', 'sec-ch-ua-mobile': '?0', 'sec-ch-ua-platform': '"Windows"', ...h, ...headers }, signal: AbortSignal.timeout(30000) });
     } catch (e) { if (t < retries) { await sleep(1500 * (t + 1)); continue; } throw new Error('rete: ' + e.message); }
     if ((r.status === 429 || r.status >= 500) && t < retries) { await sleep(2000 * (t + 1)); continue; }
     if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -136,7 +139,7 @@ async function fonteTicketone(cfg) {
     for (let p = 1; p <= Math.min(totalPages, c.maxPagine); p++) {
       const q = new URLSearchParams({ webId: c.webId, language: c.language, page: String(p), top: '50', sort: 'DateAsc', date_from: from, date_to: to });
       if (useCat) for (const k of c.categorie) q.append('categories', k);
-      const j = await http(base + '?' + q, { retries: 3 });
+      const j = await http(base + '?' + q, { retries: 3, headers: { Origin: 'https://www.ticketone.it', Referer: 'https://www.ticketone.it/' } });
       totalPages = j.totalPages || 1;
       for (const pr of j.products || []) {
         const e = eventimNorm(pr, 'to');
@@ -156,12 +159,12 @@ async function fonteTicketone(cfg) {
 
 /* ================= FONTE 3: BANDSINTOWN (artisti preferiti) ================= */
 async function fonteBandsintown(cfg, artisti) {
-  const id = ENV.BIT_APP_ID;
-  if (!id) throw new Error('secret BIT_APP_ID non impostato (facoltativo)');
+  const id = ENV.BIT_APP_ID || cfg.bandsintown?.appId || 'concerti-italia';
+  if (!artisti.length) throw new Error('nessun artista in config/artisti.txt');
   const out = [];
   for (const name of artisti) {
     const u = 'https://rest.bandsintown.com/artists/' + encodeURIComponent(name.replace(/\//g, '%252F')) + '/events?date=upcoming&app_id=' + encodeURIComponent(id);
-    let j; try { j = await http(u, { retries: 1 }); } catch (e) { log('Bandsintown', name, e.message); continue; }
+    let j; try { j = await http(u, { retries: 1 }); } catch (e) { log('Bandsintown', name, e.message); if (/HTTP 40[13]/.test(e.message)) throw new Error(e.message + ': app_id non accettato, serve BIT_APP_ID'); continue; }
     if (!Array.isArray(j)) continue;
     for (const e of j) {
       if (!e.venue || !/^(italy|italia|it)$/i.test(e.venue.country || '')) continue;
@@ -222,31 +225,52 @@ export function jsonLdNorm(o, src, pageUrl) {
     status: cancelled ? 'Annullato' : postponed ? 'Rinviato' : sold ? 'Esaurito' : '', onsale: offers.find(x => x.validFrom)?.validFrom || ''
   };
 }
-async function fontePagine(cfg, chiave) {
+/* link ai singoli eventi trovati nell'HTML (quando la pagina elenco non ha dati strutturati) */
+const LINK_EVENTO = '/(eventi?|events?|evento|concerti?|concerts?|shows?|spettacol[io]|programma|tickets?|biglietti)/[^?#"\'\\s<>]{3,}';
+export function eventLinks(html, base, pattern) {
+  const re = new RegExp(pattern || LINK_EVENTO, 'i'), host = new URL(base).hostname.replace(/^www\./, '');
+  const out = new Set(); const a = /<a\b[^>]*href=["']([^"'#]+)["']/gi; let m;
+  while ((m = a.exec(html))) {
+    let u; try { u = new URL(m[1].replace(/&amp;/g, '&'), base); } catch { continue; }
+    if (!/^https?:$/.test(u.protocol) || u.hostname.replace(/^www\./, '') !== host) continue;
+    if (!re.test(u.pathname)) continue;
+    u.hash = ''; if (u.href.replace(/\/$/, '') !== base.replace(/\/$/, '')) out.add(u.href);
+  }
+  return [...out];
+}
+async function fontePagine(cfg, chiave, esiti) {
   const lista = (cfg[chiave] && cfg[chiave].pagine) || [];
   if (!lista.length) throw new Error('nessuna pagina configurata in config.json');
-  const maxDettagli = cfg[chiave].maxDettagli ?? 60;
+  const maxDettagli = cfg[chiave].maxDettagli ?? 30;
   const out = new Map(); const errors = [];
-  for (const item of lista) {
-    const u = typeof item === 'string' ? item : item.url;
-    const src = (typeof item === 'object' && item.sigla) || (chiave === 'vivaticket' ? 'vt' : 'web');
+  const add = (o, src, l, item, u) => { const e = jsonLdNorm(o, src, l); if (!e || !e.date) return 0;
+    e.fonte = item.nome || new URL(u).hostname.replace(/^www\./, ''); out.set(e.id, e); return 1; };
+  for (const raw of lista) {
+    const item = typeof raw === 'string' ? { url: raw } : raw; const u = item.url;
+    const src = item.sigla || (chiave === 'vivaticket' ? 'vt' : 'web');
+    const es = { fonte: chiave, url: u, ...(item.regione ? { regione: item.regione } : {}), eventi: 0 };
     try {
       const html = await http(u, { json: false });
       const { events, links } = extractJsonLd(html);
-      for (const o of events) { const e = jsonLdNorm(o, src, u); if (e && e.date) { e.fonte = new URL(u).hostname.replace(/^www\./, ''); out.set(e.id, e); } }
-      // pagine elenco: segue i link dei singoli eventi (limitato)
-      if (!events.length && links.length) {
-        for (const l of links.slice(0, maxDettagli)) {
+      for (const o of events) es.eventi += add(o, src, u, item, u);
+      // pagine elenco: segue i link dei singoli eventi (dati strutturati o, in mancanza, link nell'HTML)
+      if (!events.length) {
+        const det = (links.length ? links : eventLinks(html, u, item.link)).slice(0, item.max ?? maxDettagli);
+        es.link = det.length; let falliti = 0;
+        for (const l of det) {
           try { const h2 = await http(new URL(l, u).href, { json: false, retries: 1 });
-            for (const o of extractJsonLd(h2).events) { const e = jsonLdNorm(o, src, l); if (e && e.date) { e.fonte = new URL(u).hostname.replace(/^www\./, ''); out.set(e.id, e); } }
-          } catch {}
-          await sleep(500);
+            for (const o of extractJsonLd(h2).events) es.eventi += add(o, src, l, item, u);
+          } catch { falliti++; }
+          await sleep(450);
         }
+        if (falliti) es.linkFalliti = falliti;
+        if (!es.eventi) es.nota = det.length ? 'pagine evento senza dati strutturati' : 'nessun evento né link a eventi trovati';
       }
-    } catch (e) { errors.push(u + ' → ' + e.message); }
-    await sleep(700);
+    } catch (e) { es.errore = e.message; errors.push(u + ' → ' + e.message); }
+    if (esiti) esiti.push(es);
+    await sleep(600);
   }
-  if (!out.size && errors.length) throw new Error(errors.join(' | '));
+  if (!out.size && errors.length) throw new Error(errors.length + ' pagine in errore: ' + errors.slice(0, 4).join(' | '));
   log(chiave + ':', out.size, 'eventi', errors.length ? '(' + errors.length + ' pagine in errore)' : '');
   return [...out.values()];
 }
@@ -298,17 +322,17 @@ export function samePlace(a, b) {
   const ca = norm(a.city).split(' ')[0], cb = norm(b.city).split(' ')[0];
   return !!ca && ca === cb;
 }
-const NOMI = { tm: 'Ticketmaster', to: 'TicketOne', bit: 'Bandsintown', vt: 'Vivaticket', web: 'Sito ufficiale' };
+const NOMI = { tm: 'Ticketmaster', to: 'TicketOne', bit: 'Bandsintown', vt: 'Vivaticket', web: 'Sito ufficiale', dice: 'DICE', sms: 'Ticketsms', mt: 'Mailticket', diy: 'Do It Yourself' };
 // varianti dello stesso concerto che i rivenditori pubblicano come eventi a parte
 export const SPECIALE = /riservat|mastercard|amex|american express|vip|hospitality|pacchett|package|premium|upgrade|esperienz|experience|meet ?(&|and) ?greet|soundcheck|parcheggi|parking|pullman|bus|navett|prevendita|presale/i;
 export function merge(list) {
   const byDate = new Map();
-  const PRI = { tm: 0, to: 1, vt: 2, web: 3, bit: 4 };
+  const PRI = { tm: 0, to: 1, vt: 2, dice: 3, sms: 4, mt: 5, diy: 6, web: 7, bit: 8 };
   list.sort((a, b) => (PRI[a.src] ?? 9) - (PRI[b.src] ?? 9));
   for (const e of list) {
     if (!e.date) continue;
     const arr = byDate.get(e.date) || []; byDate.set(e.date, arr);
-    const offer = { src: e.src, nome: e.fonte && e.src === 'web' ? e.fonte : (NOMI[e.src] || e.src), url: e.url, min: e.priceMin, max: e.priceMax, valuta: e.currency, stato: e.status || '', det: e.title || '' };
+    const offer = { src: e.src, nome: e.fonte && (e.src === 'web' || !NOMI[e.src]) ? e.fonte : (NOMI[e.src] || e.src), url: e.url, min: e.priceMin, max: e.priceMax, valuta: e.currency, stato: e.status || '', det: e.title || '' };
     const m = arr.find(x => samePlace(x, e) && sameArtist(x, e));
     if (!m) {
       arr.push({ ...e, sources: [e.src], ids: [e.id], offers: [offer] });
@@ -403,11 +427,13 @@ async function main() {
   const prevById = new Map((prev?.events || []).map(e => [e.id, e]));
   const prevIds = new Set((prev?.events || []).flatMap(e => [e.id, ...(e.ids || [])]));
 
+  const esiti = [];
   const fonti = [
     ['tm', 'Ticketmaster', () => fonteTicketmaster(cfg)],
     ['to', 'TicketOne', () => cfg.ticketone?.attiva === false ? Promise.reject(new Error('disattivata')) : fonteTicketone(cfg)],
-    ['vt', 'Vivaticket', () => cfg.vivaticket?.attiva === false ? Promise.reject(new Error('disattivata')) : fontePagine(cfg, 'vivaticket')],
-    ['web', 'Siti di locali e festival', () => cfg.siti?.attiva === false ? Promise.reject(new Error('disattivata')) : fontePagine(cfg, 'siti')],
+    ['vt', 'Vivaticket', () => cfg.vivaticket?.attiva === false ? Promise.reject(new Error('disattivata')) : fontePagine(cfg, 'vivaticket', esiti)],
+    ['bigl', 'Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)', () => cfg.biglietterie?.attiva === false ? Promise.reject(new Error('disattivata')) : fontePagine(cfg, 'biglietterie', esiti)],
+    ['web', 'Siti di locali, palazzetti e festival', () => cfg.siti?.attiva === false ? Promise.reject(new Error('disattivata')) : fontePagine(cfg, 'siti', esiti)],
     ['bit', 'Bandsintown', () => fonteBandsintown(cfg, artisti)]
   ];
   const status = { aggiornato: new Date().toISOString(), fonti: [] };
@@ -455,6 +481,7 @@ async function main() {
   status.nuoviPreferiti = nuovi.length;
   status.avvisiInviati = inviati;
   status.durataSecondi = Math.round((Date.now() - t0) / 1000);
+  status.pagine = esiti; // esito di ogni pagina letta (per capire quali siti rispondono)
 
   // se tutte le fonti hanno fallito, non sovrascrive i dati buoni precedenti
   if (!slim.length && prev?.events?.length) {
