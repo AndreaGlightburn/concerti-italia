@@ -1,45 +1,256 @@
 {
- "aggiornato": "2026-11-04T23:41:52.091Z",
+ "aggiornato": "2026-11-04T23:47:50.847Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 511,
-   "secondi": 6
+   "secondi": 5
   },
   {
    "id": "to",
    "nome": "TicketOne",
-   "ok": false,
-   "errore": "HTTP 403",
-   "eventi": 0
+   "ok": true,
+   "eventi": 51,
+   "secondi": 22
   },
   {
    "id": "vt",
    "nome": "Vivaticket",
    "ok": false,
-   "errore": "https://www.vivaticket.com/it/category/concerti/ → rete: fetch failed",
+   "errore": "1 pagine in errore: https://www.vivaticket.com/it/category/concerti/ → rete: fetch failed",
    "eventi": 0
   },
   {
+   "id": "bigl",
+   "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
+   "ok": true,
+   "eventi": 22,
+   "secondi": 53
+  },
+  {
    "id": "web",
-   "nome": "Siti di locali e festival",
-   "ok": false,
-   "errore": "https://www.alcatrazmilano.it/ → HTTP 403",
-   "eventi": 0
+   "nome": "Siti di locali, palazzetti e festival",
+   "ok": true,
+   "eventi": 43,
+   "secondi": 193
   },
   {
    "id": "bit",
    "nome": "Bandsintown",
    "ok": false,
-   "errore": "secret BIT_APP_ID non impostato (facoltativo)",
+   "errore": "HTTP 403: app_id non accettato, serve BIT_APP_ID",
    "eventi": 0
   }
  ],
- "eventi": 447,
- "confrontabili": 55,
+ "eventi": 541,
+ "confrontabili": 65,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 119
+ "durataSecondi": 381,
+ "pagine": [
+  {
+   "fonte": "vivaticket",
+   "url": "https://www.vivaticket.com/it/category/concerti/",
+   "eventi": 0,
+   "errore": "rete: fetch failed"
+  },
+  {
+   "fonte": "biglietterie",
+   "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
+   "eventi": 22,
+   "link": 22
+  },
+  {
+   "fonte": "biglietterie",
+   "url": "https://www.ticketsms.it/it/",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "biglietterie",
+   "url": "https://www.mailticket.it/",
+   "eventi": 0,
+   "link": 30,
+   "nota": "pagine evento senza dati strutturati"
+  },
+  {
+   "fonte": "biglietterie",
+   "url": "https://www.diyticket.it/",
+   "eventi": 0,
+   "link": 3,
+   "nota": "pagine evento senza dati strutturati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.alcatrazmilano.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "errore": "HTTP 403"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.magazzinigenerali.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.santeria.milano.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.fabriquemilano.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.legendclub.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.bluenotemilano.com/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 10,
+   "nota": "pagine evento senza dati strutturati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.teatroarcimboldi.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.teatrodalverme.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.unipolforum.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 1,
+   "nota": "pagine evento senza dati strutturati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.carroponte.org/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.circolomagnolia.it/",
+   "regione": "Lombardia",
+   "eventi": 21,
+   "link": 21
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.liveclub.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "errore": "rete: fetch failed"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.druso.it/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "errore": "rete: fetch failed"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.latteriamolloy.com/",
+   "regione": "Lombardia",
+   "eventi": 0,
+   "errore": "rete: fetch failed"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.granteatrogeox.com/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.kioenearena.it/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.newageclub.it/",
+   "regione": "Veneto",
+   "eventi": 22,
+   "link": 22
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.sherwood.it/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "errore": "HTTP 403"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.arena.it/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "link": 11,
+   "nota": "pagine evento senza dati strutturati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.teatrolafenice.it/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "link": 20,
+   "nota": "pagine evento senza dati strutturati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.amamusicfestival.com/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.operaestate.it/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati"
+  }
+ ]
 }
