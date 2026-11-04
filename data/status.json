@@ -1,0 +1,45 @@
+{
+ "aggiornato": "2026-11-04T23:05:16.734Z",
+ "fonti": [
+  {
+   "id": "tm",
+   "nome": "Ticketmaster",
+   "ok": false,
+   "errore": "secret TM_KEY non impostato",
+   "eventi": 0
+  },
+  {
+   "id": "to",
+   "nome": "TicketOne",
+   "ok": false,
+   "errore": "HTTP 403",
+   "eventi": 0
+  },
+  {
+   "id": "vt",
+   "nome": "Vivaticket",
+   "ok": false,
+   "errore": "https://www.vivaticket.com/it/category/concerti/ → rete: fetch failed",
+   "eventi": 0
+  },
+  {
+   "id": "web",
+   "nome": "Siti di locali e festival",
+   "ok": false,
+   "errore": "https://www.alcatrazmilano.it/ → HTTP 403",
+   "eventi": 0
+  },
+  {
+   "id": "bit",
+   "nome": "Bandsintown",
+   "ok": false,
+   "errore": "secret BIT_APP_ID non impostato (facoltativo)",
+   "eventi": 0
+  }
+ ],
+ "eventi": 0,
+ "confrontabili": 0,
+ "nuoviPreferiti": 0,
+ "avvisiInviati": 0,
+ "durataSecondi": 28
+}

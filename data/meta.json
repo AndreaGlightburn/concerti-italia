@@ -1,0 +1,16 @@
+{
+ "casa": {
+  "query": "Abbiategrasso",
+  "lat": 45.39873,
+  "lon": 8.91623,
+  "nome": "Abbiategrasso"
+ },
+ "raggio": 50,
+ "repo": "AndreaGlightburn/concerti-italia",
+ "artisti": [
+  "Vasco Rossi",
+  "Ligabue",
+  "Coldplay"
+ ],
+ "ntfy": ""
+}
