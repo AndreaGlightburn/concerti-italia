@@ -1,0 +1,78 @@
+name: Aggiorna concerti
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # ogni 6 ore (orario UTC)
+  workflow_dispatch:          # avvio manuale da Actions
+  push:
+    branches: [main]
+    paths-ignore:
+      - "data/**"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: aggiorna-concerti
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Scarica e unisci i concerti
+        env:
+          TM_KEY: ${{ secrets.TM_KEY }}
+          BIT_APP_ID: ${{ secrets.BIT_APP_ID }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_SERVER: ${{ secrets.NTFY_SERVER }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: node scripts/aggiorna.mjs
+
+      - name: Riepilogo fonti
+        if: always()
+        run: |
+          if [ -f data/status.json ]; then
+            echo '## Stato fonti' >> "$GITHUB_STEP_SUMMARY"
+            node -e 'const s=require("./data/status.json");for(const f of s.fonti)console.log(`- ${f.ok?"✅":"❌"} **${f.nome}**: ${f.ok?f.eventi+" eventi":f.errore}`);console.log(`\nTotale: **${s.eventi}** concerti, ${s.confrontabili} con più rivenditori.`)' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Pubblica i dati aggiornati
+        run: |
+          git config user.name "concerti-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica ai dati"
+          else
+            git commit -m "Aggiornamento concerti $(date -u +'%Y-%m-%d %H:%M')"
+            git pull --rebase --autostash
+            git push
+          fi
+
+      - name: Prepara il sito
+        run: |
+          mkdir -p _site
+          cp -r index.html sw.js manifest.webmanifest icon.svg data _site/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Pubblica su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

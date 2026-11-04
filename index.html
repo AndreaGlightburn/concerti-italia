@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1b1530">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Concerti">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>Concerti Italia</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--bg:#14111f;--bg2:#1d1930;--card:#241f3a;--line:#352e54;--tx:#f1eefb;--mut:#a59fc4;--acc:#ff5d73;--acc2:#ffb347;--ok:#3ddc97;--warn:#ffcc4d;--r:14px;--sh:0 6px 24px rgba(0,0,0,.35)}
+@media (prefers-color-scheme: light){:root{--bg:#f6f4fb;--bg2:#fff;--card:#fff;--line:#e2ddf0;--tx:#1d1930;--mut:#6b6488;--sh:0 4px 16px rgba(40,20,80,.08);--acc2:#d9780b}}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+header{position:sticky;top:0;z-index:20;background:linear-gradient(135deg,#2a1f4d,#4a1f3f);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;display:flex;align-items:center;gap:10px;box-shadow:var(--sh)}
+header h1{font-size:18px;margin:0;flex:1}header h1 span{color:#ffb347}
+header .upd{font-size:11px;opacity:.75;text-align:right}
+main{max-width:900px;margin:0 auto;padding:12px 16px}
+.view{display:none}.view.on{display:block}
+nav.tabs{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--bg2);border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs button{flex:1;background:none;border:0;color:var(--mut);padding:8px 0 10px;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;position:relative}
+nav.tabs .ic{font-size:20px;line-height:1}nav.tabs button.on{color:var(--acc)}
+.badge{position:absolute;top:4px;left:calc(50% + 6px);background:var(--acc);color:#fff;border-radius:9px;font-size:10px;min-width:16px;padding:0 4px;line-height:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:12px;box-shadow:var(--sh)}
+label{display:block;font-size:12px;color:var(--mut);margin:0 0 4px}
+input,select{width:100%;background:var(--bg);color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:10px 11px;font-size:15px;outline:none}
+input:focus,select:focus{border-color:var(--acc)}
+.row{display:grid;gap:10px;grid-template-columns:1fr 1fr}.full{grid-column:1/-1}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:11px 14px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.sec{background:transparent;color:var(--tx);border:1px solid var(--line);font-weight:500}
+.btn.sm{padding:7px 10px;font-size:13px}.btn:disabled{opacity:.5}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{border:1px solid var(--line);background:var(--bg);color:var(--tx);border-radius:20px;padding:5px 11px;font-size:13px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.toolbar{display:flex;gap:8px;align-items:center;margin:4px 0 10px;flex-wrap:wrap}
+.toolbar .grow{flex:1;color:var(--mut);font-size:13px;min-width:140px}
+.toolbar select{width:auto;padding:7px 9px;font-size:13px}
+.ev{background:var(--card);border:1px solid var(--line);border-radius:var(--r);margin-bottom:12px;overflow:hidden;box-shadow:var(--sh);display:grid;grid-template-columns:110px 1fr}
+@media(max-width:520px){.ev{grid-template-columns:84px 1fr}}
+.ev .img{background:#2b2448 center/cover no-repeat;position:relative;min-height:120px}
+.ev .date{position:absolute;left:6px;top:6px;background:rgba(0,0,0,.72);color:#fff;border-radius:8px;text-align:center;padding:3px 7px;line-height:1.1}
+.ev .date b{display:block;font-size:19px}.ev .date small{font-size:10px;text-transform:uppercase}
+.ev .bd{padding:10px 12px;min-width:0}
+.ev h3{margin:2px 0;font-size:16px;overflow-wrap:anywhere}
+.meta{color:var(--mut);font-size:13px}
+.price{font-weight:700;color:var(--acc2);font-size:14px;margin-top:4px}
+.price small{font-weight:500;color:var(--mut)}
+.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{display:inline-block;font-size:10px;border-radius:6px;padding:1px 6px;margin:0 4px 2px 0;font-weight:700}
+.tag.tm{background:#026cdf;color:#fff}.tag.to{background:#0b3d91;color:#fff}.tag.vt{background:#e6007e;color:#fff}.tag.bit{background:#00b4b3;color:#fff}.tag.web{background:#6b5bd2;color:#fff}
+.tag.new{background:var(--ok);color:#0b2a1e}.tag.fav{background:var(--acc2);color:#2a1600}.tag.gen{background:var(--line);color:var(--tx);font-weight:500}.tag.st{background:var(--warn);color:#000}
+.icb{background:var(--bg);border:1px solid var(--line);color:var(--tx);border-radius:9px;padding:6px 9px;font-size:13px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.icb.hl{border-color:var(--acc);color:var(--acc);font-weight:600}
+.empty{text-align:center;color:var(--mut);padding:36px 10px}.empty .big{font-size:40px}
+#map{height:calc(100vh - 200px);min-height:340px;border-radius:var(--r);border:1px solid var(--line)}
+.li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.li:last-child{border:0}.li .grow{flex:1;min-width:0}
+.note{font-size:12.5px;color:var(--mut);background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:9px 11px;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#000c;color:#fff;padding:10px 16px;border-radius:12px;z-index:99;font-size:14px;max-width:90vw;opacity:0;transition:.25s;pointer-events:none}.toast.on{opacity:1}
+.spin{display:inline-block;width:16px;height:16px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-3px}@keyframes sp{to{transform:rotate(360deg)}}
+dialog{border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:16px;padding:0;max-width:600px;width:calc(100vw - 24px);box-shadow:var(--sh)}dialog::backdrop{background:#0008}
+.dh{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}.dh h2{margin:0;font-size:17px;flex:1}
+.db{padding:14px 16px;max-height:72vh;overflow:auto}
+table.cmp{width:100%;border-collapse:collapse;font-size:14px}
+table.cmp td,table.cmp th{padding:9px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+table.cmp th{color:var(--mut);font-weight:500;font-size:12px}
+table.cmp tr.best td{background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.best-l{font-size:10px;font-weight:700;color:var(--ok);display:block}
+a{color:var(--acc)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎤 Concerti <span>Italia</span></h1>
+  <div class="upd" id="upd"></div>
+</header>
+
+<main>
+<section class="view on" id="v-cerca">
+  <form class="panel" id="fSearch" autocomplete="off">
+    <div class="row">
+      <div class="full"><label>Artista, evento, locale o festival</label><input id="qKey" type="search" placeholder="es. Vasco, jazz, Alcatraz… (vuoto = tutti)"></div>
+      <div><label>Città / località</label><input id="qCity" placeholder="vuoto = tutta Italia" list="cities"><datalist id="cities"></datalist></div>
+      <div><label>Raggio</label><select id="qRad"><option value="10">10 km</option><option value="25">25 km</option><option value="50" selected>50 km</option><option value="100">100 km</option><option value="200">200 km</option></select></div>
+      <div><label>Dal</label><input type="date" id="qFrom"></div>
+      <div><label>Al</label><input type="date" id="qTo"></div>
+    </div>
+    <div class="chips" id="quick">
+      <button type="button" class="chip" data-q="week">Questa settimana</button>
+      <button type="button" class="chip" data-q="weekend">Weekend</button>
+      <button type="button" class="chip" data-q="month">30 giorni</button>
+      <button type="button" class="chip" data-q="3m">3 mesi</button>
+      <button type="button" class="chip" data-q="all">Tutto</button>
+    </div>
+    <div class="btns">
+      <button class="btn" type="submit">Cerca</button>
+      <button class="btn sec" type="button" id="btnHome">📍 Vicino a casa</button>
+      <button class="btn sec" type="button" id="btnGeo">🛰️ Dove sono</button>
+    </div>
+  </form>
+  <div class="toolbar">
+    <div class="grow" id="resInfo"></div>
+    <select id="fGenre"><option value="">Tutti i generi</option></select>
+    <select id="fSrc">
+      <option value="">Tutte le fonti</option><option value="cmp">Solo con confronto prezzi</option>
+      <option value="tm">Ticketmaster</option><option value="to">TicketOne</option><option value="vt">Vivaticket</option><option value="web">Siti locali/festival</option><option value="bit">Bandsintown</option>
+    </select>
+    <select id="fSort"><option value="date">Data</option><option value="dist">Distanza</option><option value="price">Prezzo</option><option value="name">Nome</option><option value="new">Novità</option></select>
+  </div>
+  <div id="results"><div class="empty"><span class="spin"></span><br>Carico i concerti…</div></div>
+  <div class="btns" style="justify-content:center">
+    <button class="btn sec" id="btnMore" hidden>Mostra altri</button>
+    <button class="btn sec sm" id="btnIcsRes" hidden>📅 Esporta risultati (.ics)</button>
+  </div>
+</section>
+
+<section class="view" id="v-mappa">
+  <div class="toolbar"><div class="grow" id="mapInfo"></div></div>
+  <div id="map"></div>
+</section>
+
+<section class="view" id="v-preferiti">
+  <div class="panel">
+    <b>Artisti preferiti</b>
+    <div class="meta">Il server controlla ogni 6 ore e ti avvisa delle nuove date in Italia.</div>
+    <div id="favList" style="margin-top:6px"></div>
+    <div class="btns" id="favBtns"></div>
+  </div>
+  <div id="favRes"></div>
+</section>
+
+<section class="view" id="v-fonti">
+  <div class="panel" id="srcPanel"></div>
+  <div class="panel">
+    <b>Come funziona</b>
+    <div class="meta" style="margin-top:6px">Un job su GitHub Actions legge le fonti ogni 6 ore e unisce le date uguali per confrontare i rivenditori. Pubblica poi i dati su questa pagina. Le chiavi API restano nei <i>secrets</i> del repository e non arrivano mai al browser. Nessun dato personale viene salvato.</div>
+    <div class="btns" id="srcBtns"></div>
+  </div>
+</section>
+</main>
+
+<nav class="tabs">
+  <button data-v="cerca" class="on"><span class="ic">🔎</span>Cerca</button>
+  <button data-v="mappa"><span class="ic">🗺️</span>Mappa</button>
+  <button data-v="preferiti"><span class="ic">⭐</span>Preferiti<span class="badge" id="bNew" hidden></span></button>
+  <button data-v="fonti"><span class="ic">📡</span>Fonti<span class="badge" id="bErr" hidden style="background:var(--warn);color:#000">!</span></button>
+</nav>
+
+<dialog id="dlg"><div class="dh"><h2 id="dT"></h2><button class="icb" id="dX">✕</button></div><div class="db" id="dB"></div></dialog>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script>
+"use strict";
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,' e ').replace(/[^a-z0-9]+/g,' ').trim();
+const pad=n=>String(n).padStart(2,'0'), ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const MESI=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'], GIORNI=['dom','lun','mar','mer','gio','ven','sab'];
+const NOMI={tm:'Ticketmaster',to:'TicketOne',vt:'Vivaticket',web:'Sito',bit:'Bandsintown'};
+const SIGLE={tm:'TM',to:'T1',vt:'VT',web:'WEB',bit:'BIT'};
+function toast(m,ms=2600){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('on'),ms);}
+function hav(a,b,c,d){const R=6371,r=x=>x*Math.PI/180;const h=Math.sin(r(c-a)/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(r(d-b)/2)**2;return 2*R*Math.asin(Math.sqrt(h));}
+const eur=v=>new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:v%1?2:0}).format(v);
+function fmtDate(e){ if(!e.date) return 'Data da definire'; const [y,m,d]=e.date.split('-').map(Number); return GIORNI[new Date(y,m-1,d).getDay()]+' '+d+' '+MESI[m-1]+' '+y+(e.time?' · '+e.time:''); }
+function fmtPrice(min,max){ if(min==null) return ''; return max!=null&&max!==min?eur(min)+' – '+eur(max):'da '+eur(min); }
+
+/* ---------- dati ---------- */
+let EV=[], META={}, STATUS={}, CITY={}, ref=null, refName='', shown=40, list=[];
+async function load(){
+  const bust='?t='+Math.floor(Date.now()/600000);
+  try{
+    const [e,m,s]=await Promise.all(['events','meta','status'].map(f=>fetch('data/'+f+'.json'+bust).then(r=>r.ok?r.json():null).catch(()=>null)));
+    if(!e){ $('#results').innerHTML='<div class="empty"><div class="big">⏳</div>Dati non ancora disponibili.<br><span class="meta">Avvia il workflow “Aggiorna concerti” su GitHub Actions.</span></div>'; renderFonti(s||{},m||{}); return; }
+    EV=e.events||[]; META=m||{}; STATUS=s||{};
+  }catch(err){ $('#results').innerHTML='<div class="empty">Errore nel caricamento dei dati.</div>'; return; }
+  // indice città → coordinate medie (ricerca città senza rete)
+  const acc={};
+  for(const e of EV){ if(e.lat==null||!e.city) continue; const k=norm(e.city); (acc[k]=acc[k]||{n:0,lat:0,lon:0,name:e.city}); acc[k].n++; acc[k].lat+=e.lat; acc[k].lon+=e.lon; }
+  for(const k in acc) CITY[k]={lat:acc[k].lat/acc[k].n,lon:acc[k].lon/acc[k].n,name:acc[k].name,n:acc[k].n};
+  $('#cities').innerHTML=Object.values(CITY).sort((a,b)=>b.n-a.n).slice(0,300).map(c=>'<option value="'+esc(c.name)+'">').join('');
+  const genres=[...new Set(EV.map(e=>e.genre).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'it'));
+  $('#fGenre').innerHTML='<option value="">Tutti i generi</option>'+genres.map(g=>'<option>'+esc(g)+'</option>').join('');
+  if(META.raggio) $('#qRad').value=String(META.raggio);
+  const g=STATUS.aggiornato?new Date(STATUS.aggiornato):null;
+  $('#upd').innerHTML=g?'aggiornato<br>'+g.toLocaleString('it-IT',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):'';
+  const nw=EV.filter(e=>e.fav&&isNew(e)).length; $('#bNew').hidden=!nw; $('#bNew').textContent=nw;
+  $('#bErr').hidden=!(STATUS.fonti||[]).some(f=>!f.ok&&!/disattivata|non impostato|nessuna pagina/.test(f.errore||''));
+  readUrl(); apply(); renderFav(); renderFonti(STATUS,META);
+}
+const isNew=e=>e.visto&&(Date.now()-new Date(e.visto))<7*864e5;
+
+/* ---------- filtri ---------- */
+function apply(){
+  const kw=norm($('#qKey').value), from=$('#qFrom').value, to=$('#qTo').value, rad=+$('#qRad').value;
+  const gen=$('#fGenre').value, src=$('#fSrc').value, today=ymd(new Date());
+  const words=kw?kw.split(' '):[];
+  list=EV.filter(e=>{
+    if(e.date<(from||today)) return false;
+    if(to&&e.date>to) return false;
+    if(gen&&e.genre!==gen) return false;
+    if(src==='cmp'&&!(e.offers&&e.offers.length>1)) return false;
+    if(src&&src!=='cmp'&&!(e.sources||[]).includes(src)) return false;
+    if(words.length){ const h=norm(e.artist+' '+e.title+' '+(e.venue||'')+' '+(e.city||'')+' '+(e.genre||'')); if(!words.every(w=>h.includes(w))) return false; }
+    e._d=(ref&&e.lat!=null)?hav(ref.lat,ref.lon,e.lat,e.lon):null;
+    if(ref&&(e._d==null||e._d>rad)) return false;
+    return true;
+  });
+  const s=$('#fSort').value;
+  const cmp={date:(a,b)=>(a.date+(a.time||'')).localeCompare(b.date+(b.time||'')),dist:(a,b)=>(a._d??1e9)-(b._d??1e9),
+    price:(a,b)=>(a.priceMin??1e9)-(b.priceMin??1e9),name:(a,b)=>a.artist.localeCompare(b.artist,'it'),new:(a,b)=>String(b.visto).localeCompare(String(a.visto))}[s];
+  list.sort(cmp); shown=40; render(); writeUrl();
+  if(mapReady) drawMap();
+}
+function render(){
+  const n=list.length, nc=list.filter(e=>e.offers&&e.offers.length>1).length;
+  $('#resInfo').textContent=n+' concerti'+(ref?' entro '+$('#qRad').value+' km da '+refName:' in Italia')+(nc?' · '+nc+' con confronto':'');
+  $('#results').innerHTML=n?list.slice(0,shown).map(card).join(''):'<div class="empty"><div class="big">🔇</div>Nessun concerto con questi filtri.<br><span class="meta">Prova ad allargare raggio o periodo.</span></div>';
+  $('#btnMore').hidden=n<=shown; $('#btnIcsRes').hidden=!n;
+}
+function card(e){
+  const [,m,d]=e.date.split('-');
+  const tags=(e.sources||[]).map(s=>'<span class="tag '+s+'">'+SIGLE[s]+'</span>').join('')
+   +(isNew(e)?'<span class="tag new">NUOVO</span>':'')+(e.fav?'<span class="tag fav">★</span>':'')
+   +(e.genre?'<span class="tag gen">'+esc(e.genre)+'</span>':'')+(e.status?'<span class="tag st">'+esc(e.status)+'</span>':'');
+  const nOff=(e.offers||[]).length;
+  return '<article class="ev" data-id="'+esc(e.id)+'"><div class="img" style="'+(e.image?'background-image:url(\''+esc(e.image)+'\')':'')+'"><div class="date"><b>'+(+d)+'</b><small>'+MESI[+m-1]+'</small></div></div>'
+   +'<div class="bd"><div>'+tags+'</div><h3>'+esc(e.artist)+'</h3>'
+   +(norm(e.title)!==norm(e.artist)?'<div class="meta">'+esc(e.title)+'</div>':'')
+   +'<div class="meta">📅 '+esc(fmtDate(e))+'</div>'
+   +'<div class="meta">📍 '+esc([e.venue,e.city].filter(Boolean).join(' · '))+(e._d!=null?' · '+Math.round(e._d)+' km':'')+'</div>'
+   +(e.priceMin!=null?'<div class="price">'+esc(fmtPrice(e.priceMin,e.priceMax))+(nOff>1?' <small>· '+nOff+' rivenditori</small>':'')+'</div>':(nOff>1?'<div class="price"><small>'+nOff+' rivenditori</small></div>':''))
+   +'<div class="acts"><button class="icb'+(nOff>1?' hl':'')+'" data-a="cmp">🎟️ '+(nOff>1?'Confronta':'Biglietti')+'</button>'
+   +'<button class="icb" data-a="ics">📅</button>'+(e.lat!=null?'<button class="icb" data-a="map">🗺️</button>':'')+'</div></div></article>';
+}
+document.addEventListener('click',ev=>{
+  const b=ev.target.closest('[data-a]'); if(!b) return;
+  const id=b.closest('[data-id]')?.dataset.id; const e=EV.find(x=>x.id===id); if(!e) return;
+  if(b.dataset.a==='cmp') openCmp(e);
+  if(b.dataset.a==='ics') dlIcs([e],'concerto-'+norm(e.artist).replace(/ /g,'-')+'.ics');
+  if(b.dataset.a==='map'){ go('mappa'); setTimeout(()=>focusMap(e),300); }
+});
+
+/* ---------- confronto ---------- */
+const ALTRI=[['TicketOne',q=>'https://www.ticketone.it/search/?searchterm='+encodeURIComponent(q),'to'],['Vivaticket',q=>'https://www.vivaticket.com/it/search?q='+encodeURIComponent(q),'vt'],
+  ['Ticketmaster',q=>'https://www.ticketmaster.it/search?q='+encodeURIComponent(q),'tm'],['DICE',q=>'https://dice.fm/search?query='+encodeURIComponent(q)],
+  ['Ticketsms',q=>'https://www.ticketsms.it/it/search?q='+encodeURIComponent(q)],['Mailticket',q=>'https://www.mailticket.it/ricerca?q='+encodeURIComponent(q)]];
+function openCmp(e){
+  $('#dT').textContent=e.artist;
+  const offs=e.offers||[]; const best=offs.find(o=>o.min!=null);
+  let h='<div class="meta" style="margin-bottom:10px">'+esc(fmtDate(e))+'<br>'+esc([e.venue,e.address,e.city].filter(Boolean).join(', '))+'</div>';
+  h+='<table class="cmp"><tr><th>Rivenditore</th><th>Prezzo</th><th></th></tr>';
+  for(const o of offs){ const isB=best&&o===best&&offs.filter(x=>x.min!=null).length>1;
+    h+='<tr'+(isB?' class="best"':'')+'><td>'+(isB?'<span class="best-l">PIÙ CONVENIENTE</span>':'')+'<span class="tag '+o.src+'">'+SIGLE[o.src]+'</span> '+esc(o.nome)+(o.stato?'<br><span class="meta">'+esc(o.stato)+'</span>':'')+'</td>'
+      +'<td>'+(o.min!=null?'<b>'+esc(fmtPrice(o.min,o.max))+'</b>':'<span class="meta">sul sito</span>')+'</td><td><a class="icb" href="'+esc(o.url)+'" target="_blank" rel="noopener">Apri ↗</a></td></tr>'; }
+  h+='</table>';
+  if(e.onsale) h+='<div class="note">Vendita al pubblico dal '+esc(new Date(e.onsale).toLocaleString('it-IT',{dateStyle:'medium',timeStyle:'short'}))+'</div>';
+  const have=new Set(offs.map(o=>o.src));
+  const altri=ALTRI.filter(a=>!a[2]||!have.has(a[2]));
+  if(altri.length) h+='<div style="margin-top:14px"><b style="font-size:14px">Cerca anche su</b><div class="chips">'+altri.map(([n,f])=>'<a class="chip" href="'+esc(f(e.artist))+'" target="_blank" rel="noopener">'+n+' ↗</a>').join('')+'</div></div>';
+  h+='<div class="note">I prezzi indicati sono i più bassi e i più alti pubblicati da ogni rivenditore all\'ultimo aggiornamento, commissioni escluse. Il prezzo finale è quello sul sito del rivenditore.</div>';
+  h+='<div class="btns"><a class="btn sec sm" href="'+esc(gcal(e))+'" target="_blank" rel="noopener">Google Calendar</a><button class="btn sec sm" id="dIcs">Scarica .ics</button>'
+   +(e.lat!=null?'<a class="btn sec sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+e.lat+','+e.lon+'">Indicazioni</a>':'')+'</div>';
+  $('#dB').innerHTML=h; $('#dIcs').onclick=()=>dlIcs([e],'concerto-'+norm(e.artist).replace(/ /g,'-')+'.ics'); $('#dlg').showModal();
+}
+$('#dX').onclick=()=>$('#dlg').close(); $('#dlg').addEventListener('click',ev=>{if(ev.target===$('#dlg'))$('#dlg').close();});
+
+/* ---------- calendario ---------- */
+const icsE=s=>String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');
+function dt(e,h=0){ const [y,m,d]=e.date.split('-').map(Number), [hh,mm]=(e.time||'21:00').split(':').map(Number); const x=new Date(Date.UTC(y,m-1,d,hh,mm)+h*36e5); return x.getUTCFullYear()+pad(x.getUTCMonth()+1)+pad(x.getUTCDate())+'T'+pad(x.getUTCHours())+pad(x.getUTCMinutes())+'00'; }
+function link(e){ return (e.offers&&e.offers[0]&&e.offers[0].url)||''; }
+function dlIcs(arr,name){
+  const now=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+  const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Concerti Italia//IT','CALSCALE:GREGORIAN'];
+  for(const e of arr){ L.push('BEGIN:VEVENT','UID:'+e.id+'@concerti-italia','DTSTAMP:'+now);
+    if(e.time) L.push('DTSTART;TZID=Europe/Rome:'+dt(e),'DTEND;TZID=Europe/Rome:'+dt(e,3));
+    else { const [y,m,d]=e.date.split('-').map(Number); const n=new Date(Date.UTC(y,m-1,d+1)); L.push('DTSTART;VALUE=DATE:'+e.date.replace(/-/g,''),'DTEND;VALUE=DATE:'+n.toISOString().slice(0,10).replace(/-/g,'')); }
+    L.push('SUMMARY:'+icsE('🎤 '+e.artist),'LOCATION:'+icsE([e.venue,e.address,e.city].filter(Boolean).join(', ')),'DESCRIPTION:'+icsE((e.title!==e.artist?e.title+'\n':'')+link(e)));
+    if(link(e)) L.push('URL:'+link(e)); L.push('END:VEVENT'); }
+  L.push('END:VCALENDAR');
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([L.join('\r\n')],{type:'text/calendar;charset=utf-8'})); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+function gcal(e){ const dates=e.time?dt(e)+'/'+dt(e,3):e.date.replace(/-/g,'')+'/'+e.date.replace(/-/g,'');
+  return 'https://calendar.google.com/calendar/render?'+new URLSearchParams({action:'TEMPLATE',text:'🎤 '+e.artist,dates,ctz:'Europe/Rome',location:[e.venue,e.address,e.city].filter(Boolean).join(', '),details:(e.title!==e.artist?e.title+'\n':'')+link(e)}); }
+$('#btnIcsRes').onclick=()=>{ if(list.length>300&&!confirm('Esporto i primi 300 concerti di '+list.length+'?')) return; dlIcs(list.slice(0,300),'concerti.ics'); };
+$('#btnMore').onclick=()=>{ shown+=40; render(); };
+
+/* ---------- ricerca luogo ---------- */
+async function geocode(q){
+  const k=norm(q); if(CITY[k]) return CITY[k];
+  const part=Object.keys(CITY).find(c=>c.startsWith(k)); if(part) return CITY[part];
+  const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=it&accept-language=it&q='+encodeURIComponent(q));
+  const j=r.ok?await r.json():[]; if(!j.length) throw new Error('Località "'+q+'" non trovata');
+  return {lat:+j[0].lat,lon:+j[0].lon,name:j[0].display_name.split(',')[0]};
+}
+$('#fSearch').onsubmit=async ev=>{ ev.preventDefault(); const c=$('#qCity').value.trim();
+  if(c){ try{ const g=await geocode(c); ref={lat:g.lat,lon:g.lon}; refName=g.name; }catch(e){ toast(e.message); return; } } else if(refName!=='la tua posizione'){ ref=null; refName=''; }
+  apply(); $('#resInfo').scrollIntoView({behavior:'smooth',block:'start'}); };
+$('#qKey').addEventListener('input',()=>{ clearTimeout(window._k); window._k=setTimeout(apply,250); });
+['#fGenre','#fSrc','#fSort','#qRad','#qFrom','#qTo'].forEach(s=>$(s).addEventListener('change',apply));
+$('#qCity').addEventListener('input',()=>{ if(!$('#qCity').value.trim()&&refName!=='la tua posizione'){ ref=null; refName=''; apply(); } });
+$('#btnHome').onclick=()=>{ const h=META.casa; if(!h){ toast('Imposta "casa" in config/config.json'); return; } $('#qCity').value=h.nome||h.query; ref={lat:h.lat,lon:h.lon}; refName=h.nome||h.query; apply(); };
+$('#btnGeo').onclick=()=>{ if(!navigator.geolocation) return toast('Geolocalizzazione non disponibile'); toast('Rilevo la posizione…');
+  navigator.geolocation.getCurrentPosition(p=>{ ref={lat:p.coords.latitude,lon:p.coords.longitude}; refName='la tua posizione'; $('#qCity').value=''; $('#fSort').value='dist'; apply(); },()=>toast('Posizione non disponibile'),{timeout:10000,maximumAge:6e5}); };
+$('#quick').onclick=ev=>{ const b=ev.target.closest('[data-q]'); if(!b) return; const t=new Date(); let f=new Date(t), e=new Date(t);
+  switch(b.dataset.q){ case 'week': e.setDate(t.getDate()+(7-t.getDay())%7); break;
+    case 'weekend': { const w=t.getDay(); if(w>=1&&w<=4) f.setDate(t.getDate()+5-w); e.setDate(t.getDate()+(w===0?0:7-w)); break; }
+    case 'month': e.setDate(t.getDate()+30); break; case '3m': e.setMonth(t.getMonth()+3); break; case 'all': e=null; }
+  $('#qFrom').value=ymd(f); $('#qTo').value=e?ymd(e):''; $$('#quick .chip').forEach(c=>c.classList.toggle('on',c===b)); apply(); };
+
+/* ---------- URL condivisibile (nessun salvataggio) ---------- */
+function readUrl(){ const p=new URLSearchParams(location.search); if(p.get('q')) $('#qKey').value=p.get('q');
+  if(p.get('citta')){ $('#qCity').value=p.get('citta'); const g=CITY[norm(p.get('citta'))]; if(g){ ref=g; refName=g.name; } }
+  if(p.get('r')) $('#qRad').value=p.get('r'); if(p.get('dal')) $('#qFrom').value=p.get('dal'); if(p.get('al')) $('#qTo').value=p.get('al');
+  if(location.hash.length>1) go(location.hash.slice(1),true); }
+function writeUrl(){ const p=new URLSearchParams(); if($('#qKey').value.trim()) p.set('q',$('#qKey').value.trim()); if(ref&&refName!=='la tua posizione'){ p.set('citta',$('#qCity').value.trim()); p.set('r',$('#qRad').value); }
+  if($('#qTo').value) { p.set('dal',$('#qFrom').value); p.set('al',$('#qTo').value); }
+  history.replaceState(null,'',location.pathname+(p.toString()?'?'+p:'')+location.hash); }
+
+/* ---------- preferiti ---------- */
+function renderFav(){
+  const arts=META.artisti||[], repo=META.repo;
+  $('#favList').innerHTML=arts.length?arts.map(a=>{ const n=EV.filter(e=>e.fav&&(' '+norm(e.artist+' '+e.title)+' ').includes(' '+norm(a)+' ')); const nw=n.filter(isNew).length;
+    return '<div class="li"><div class="grow"><b>'+esc(a)+'</b>'+(nw?' <span class="tag new">'+nw+' NUOVE</span>':'')+'<div class="meta">'+n.length+' date in Italia</div></div><button class="icb" data-s="'+esc(a)+'">🔎</button></div>'; }).join('')
+    :'<p class="meta">Nessun artista. Aggiungili nel file config/artisti.txt del repository.</p>';
+  let b='';
+  if(repo) b+='<a class="btn sec sm" target="_blank" rel="noopener" href="https://github.com/'+esc(repo)+'/edit/main/config/artisti.txt">✏️ Modifica elenco</a>';
+  if(META.ntfy) b+='<a class="btn sec sm" target="_blank" rel="noopener" href="'+esc(META.ntfy)+'">🔔 Iscriviti agli avvisi (ntfy)</a>';
+  $('#favBtns').innerHTML=b;
+  const fl=EV.filter(e=>e.fav&&e.date>=ymd(new Date())).sort((a,b)=>(a.date+(a.time||'')).localeCompare(b.date+(b.time||'')));
+  fl.forEach(e=>{ e._d=META.casa&&e.lat!=null?hav(META.casa.lat,META.casa.lon,e.lat,e.lon):null; });
+  $('#favRes').innerHTML=fl.length?'<h3 style="margin:6px 0 10px">Prossime date dei tuoi artisti</h3>'+fl.map(card).join(''):'';
+}
+$('#favList').addEventListener('click',ev=>{ const b=ev.target.closest('[data-s]'); if(!b) return; $('#qKey').value=b.dataset.s; $('#qCity').value=''; ref=null; refName=''; $('#qTo').value=''; go('cerca'); apply(); });
+
+/* ---------- fonti ---------- */
+function renderFonti(s,m){
+  const g=s.aggiornato?new Date(s.aggiornato).toLocaleString('it-IT',{dateStyle:'medium',timeStyle:'short'}):'mai';
+  let h='<b>Stato delle fonti</b><div class="meta">Ultimo aggiornamento: '+esc(g)+(s.durataSecondi?' · '+s.durataSecondi+' s':'')+'</div>';
+  for(const f of s.fonti||[]){ const off=/disattivata|non impostato|nessuna pagina/.test(f.errore||'');
+    h+='<div class="li"><span class="dot" style="background:'+(f.ok?'var(--ok)':off?'var(--line)':'var(--warn)')+'"></span><div class="grow"><b>'+esc(f.nome)+'</b><div class="meta">'+(f.ok?f.eventi+' eventi':esc(f.errore))+'</div></div></div>'; }
+  if(s.eventi!=null) h+='<div class="note">'+s.eventi+' concerti in archivio, di cui '+(s.confrontabili||0)+' venduti da più rivenditori.'+(s.datiPrecedenti?' Ultima lettura fallita: mostro i dati precedenti.':'')+'</div>';
+  $('#srcPanel').innerHTML=h;
+  if(m.repo) $('#srcBtns').innerHTML='<a class="btn sec sm" target="_blank" rel="noopener" href="https://github.com/'+esc(m.repo)+'/actions/workflows/aggiorna.yml">▶️ Aggiorna ora (Actions)</a><a class="btn sec sm" target="_blank" rel="noopener" href="https://github.com/'+esc(m.repo)+'/edit/main/config/config.json">⚙️ Fonti e casa</a>';
+}
+
+/* ---------- mappa ---------- */
+let map, layer, mapReady=false, mk={};
+function initMap(){ if(mapReady) return true; if(!window.L){ $('#mapInfo').textContent='Mappa non disponibile offline.'; return false; }
+  const c=ref||META.casa||{lat:42.5,lon:12.5}; map=L.map('map').setView([c.lat,c.lon],ref||META.casa?9:6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap'}).addTo(map); layer=L.layerGroup().addTo(map); mapReady=true; drawMap(); return true; }
+function drawMap(){ if(!mapReady) return; layer.clearLayers(); mk={};
+  const L2=list.filter(e=>e.lat!=null).slice(0,1500), by={};
+  for(const e of L2){ const k=e.lat.toFixed(3)+','+e.lon.toFixed(3); (by[k]=by[k]||[]).push(e); }
+  const pts=[];
+  for(const k in by){ const g=by[k], e0=g[0];
+    const html='<b>'+esc(e0.venue||e0.city)+'</b><br>'+g.slice(0,8).map(e=>'<a href="#" data-p="'+esc(e.id)+'">'+esc(e.artist)+'</a> <span style="opacity:.7">'+esc(fmtDate(e))+'</span>').join('<br>')+(g.length>8?'<br>…e altri '+(g.length-8):'');
+    const m=L.circleMarker([e0.lat,e0.lon],{radius:Math.min(6+g.length,16),color:'#ff5d73',fillColor:'#ff5d73',fillOpacity:.75,weight:2}).bindPopup(html).addTo(layer);
+    g.forEach(e=>mk[e.id]=m); pts.push([e0.lat,e0.lon]); }
+  if(ref){ L.circleMarker([ref.lat,ref.lon],{radius:7,color:'#3ddc97',fillColor:'#3ddc97',fillOpacity:1}).bindPopup(esc(refName)).addTo(layer); pts.push([ref.lat,ref.lon]); }
+  $('#mapInfo').textContent=L2.length?L2.length+' concerti in '+Object.keys(by).length+' luoghi (filtri della ricerca)':'Nessun concerto da mostrare con i filtri attuali.';
+  if(pts.length>1) map.fitBounds(pts,{padding:[30,30],maxZoom:12}); }
+function focusMap(e){ if(!initMap()) return; map.setView([e.lat,e.lon],13); mk[e.id]&&mk[e.id].openPopup(); }
+document.addEventListener('click',ev=>{ const a=ev.target.closest('[data-p]'); if(!a) return; ev.preventDefault(); const e=EV.find(x=>x.id===a.dataset.p); if(e) openCmp(e); });
+
+/* ---------- navigazione ---------- */
+function go(v,silent){ if(!$('#v-'+v)) return; $$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v)); $$('nav.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  if(v==='mappa') setTimeout(()=>{ if(initMap()) map.invalidateSize(); },60);
+  history.replaceState(null,'',location.pathname+location.search+(v==='cerca'?'':'#'+v)); if(!silent) window.scrollTo(0,0); }
+$$('nav.tabs button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+
+{ const t=new Date(), e=new Date(); e.setMonth(t.getMonth()+3); $('#qFrom').value=ymd(t); $('#qTo').value=ymd(e); }
+if('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
+load();
+</script>
+</body>
+</html>

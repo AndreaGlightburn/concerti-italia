@@ -1,0 +1,6 @@
+# Artisti preferiti: uno per riga.
+# Quando annunciano una nuova data in Italia arriva un avviso (ntfy e/o Telegram).
+# Le righe che iniziano con # sono commenti.
+Vasco Rossi
+Ligabue
+Coldplay

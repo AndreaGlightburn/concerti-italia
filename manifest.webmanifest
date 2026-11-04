@@ -1,0 +1,14 @@
+{
+  "name": "Concerti Italia",
+  "short_name": "Concerti",
+  "description": "Ricerca e confronto dei concerti in Italia",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#14111f",
+  "theme_color": "#1b1530",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

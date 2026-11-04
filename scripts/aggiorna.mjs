@@ -1,0 +1,469 @@
+// Concerti Italia — aggiornamento dati (eseguito da GitHub Actions)
+// Node >= 20, nessuna dipendenza esterna.
+// Legge le fonti, unisce gli stessi concerti, confronta i prezzi, invia gli avvisi
+// e scrive i file statici in data/ letti dalla pagina.
+
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const DATA = path.join(ROOT, 'data');
+const ENV = process.env;
+const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
+const GEO_UA = 'ConcertiItalia/1.0 (aggiornamento automatico GitHub Actions)';
+
+/* ---------------- utilità ---------------- */
+export const sleep = ms => new Promise(r => setTimeout(r, ms));
+export const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .replace(/&/g, ' e ').replace(/[^a-z0-9]+/g, ' ').trim();
+const pad = n => String(n).padStart(2, '0');
+const ymd = d => d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+const log = (...a) => console.log('[' + new Date().toISOString().slice(11, 19) + ']', ...a);
+function hash(s) { let h = 0x811c9dc5; for (const c of s) { h ^= c.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); }
+function haversine(a, b, c, d) { const R = 6371, r = x => x * Math.PI / 180; const h = Math.sin(r(c - a) / 2) ** 2 + Math.cos(r(a)) * Math.cos(r(c)) * Math.sin(r(d - b) / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); }
+const num = v => { if (v == null || v === '') return null; const n = typeof v === 'number' ? v : parseFloat(String(v).replace(',', '.').replace(/[^0-9.]/g, '')); return Number.isFinite(n) && n > 0 ? n : null; };
+
+async function readJson(file, def) { try { return JSON.parse(await readFile(file, 'utf8')); } catch { return def; } }
+async function writeJson(file, obj, pretty = false) { await writeFile(file, JSON.stringify(obj, null, pretty ? 1 : 0) + '\n'); }
+
+async function http(url, { json = true, headers = {}, retries = 2, method = 'GET', body } = {}) {
+  for (let t = 0; ; t++) {
+    let r;
+    try {
+      r = await fetch(url, { method, body, headers: { 'User-Agent': UA, 'Accept-Language': 'it-IT,it;q=0.9', Accept: json ? 'application/json' : 'text/html,application/xhtml+xml', ...headers }, signal: AbortSignal.timeout(30000) });
+    } catch (e) { if (t < retries) { await sleep(1500 * (t + 1)); continue; } throw new Error('rete: ' + e.message); }
+    if ((r.status === 429 || r.status >= 500) && t < retries) { await sleep(2000 * (t + 1)); continue; }
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return json ? r.json() : r.text();
+  }
+}
+
+/* ---------------- configurazione ---------------- */
+async function loadConfig() {
+  const cfg = await readJson(path.join(ROOT, 'config', 'config.json'), {});
+  let artisti = [];
+  try {
+    artisti = (await readFile(path.join(ROOT, 'config', 'artisti.txt'), 'utf8')).split(/\r?\n/)
+      .map(s => s.replace(/#.*/, '').trim()).filter(Boolean);
+  } catch {}
+  return { cfg, artisti: [...new Set(artisti)] };
+}
+
+/* ================= FONTE 1: TICKETMASTER ================= */
+const TM = 'https://app.ticketmaster.com/discovery/v2/events.json';
+function tmImage(imgs = []) {
+  const c = imgs.filter(i => i.ratio === '16_9' && i.width >= 500 && i.width <= 1100);
+  return (c[0] || [...imgs].sort((a, b) => b.width - a.width)[0] || {}).url || '';
+}
+export function tmNorm(ev) {
+  const v = ev._embedded?.venues?.[0] || {};
+  const at = ev._embedded?.attractions || [];
+  const cl = ev.classifications?.[0] || {};
+  const pr = ev.priceRanges?.[0];
+  const st = ev.dates?.status?.code;
+  return {
+    id: 'tm:' + ev.id, src: 'tm', title: ev.name, artist: at[0]?.name || ev.name,
+    date: ev.dates?.start?.localDate || '', time: (ev.dates?.start?.localTime || '').slice(0, 5),
+    venue: v.name || '', city: v.city?.name || '', address: v.address?.line1 || '',
+    lat: v.location ? +v.location.latitude : null, lon: v.location ? +v.location.longitude : null,
+    priceMin: num(pr?.min), priceMax: num(pr?.max), currency: pr?.currency || 'EUR',
+    url: ev.url || '', image: tmImage(ev.images),
+    genre: [cl.genre?.name, cl.subGenre?.name].find(g => g && !/^(undefined|other)$/i.test(g)) || '',
+    status: st === 'cancelled' ? 'Annullato' : st === 'postponed' ? 'Rinviato' : st === 'rescheduled' ? 'Riprogrammato' : '',
+    onsale: ev.sales?.public?.startDateTime || ''
+  };
+}
+async function fonteTicketmaster(cfg) {
+  const key = ENV.TM_KEY;
+  if (!key) throw new Error('secret TM_KEY non impostato');
+  const out = new Map();
+  const giorni = cfg.finestraGiorni || 365;
+  const start = new Date(); start.setHours(0, 0, 0, 0);
+  const end = new Date(start.getTime() + giorni * 864e5);
+  const iso = d => d.toISOString().slice(0, 19) + 'Z';
+  let calls = 0;
+  async function page(s, e, p) {
+    const q = new URLSearchParams({ apikey: key, countryCode: 'IT', segmentId: 'KZFzniwnSyZfZ7v7nJ', size: '200', page: String(p), sort: 'date,asc', locale: '*', startDateTime: iso(s), endDateTime: iso(e) });
+    calls++; await sleep(230);
+    return http(TM + '?' + q, { retries: 4 });
+  }
+  async function window(s, e, depth = 0) {
+    const first = await page(s, e, 0);
+    const tot = first.page?.totalElements || 0;
+    if (tot > 1000 && depth < 6 && e - s > 864e5) {
+      const mid = new Date(s.getTime() + (e - s) / 2);
+      await window(s, mid, depth + 1); await window(mid, e, depth + 1); return;
+    }
+    const add = j => (j._embedded?.events || []).forEach(ev => out.set(ev.id, tmNorm(ev)));
+    add(first);
+    const pages = Math.min(first.page?.totalPages || 0, 5);
+    for (let p = 1; p < pages; p++) add(await page(s, e, p));
+  }
+  for (let s = new Date(start); s < end;) {
+    const e = new Date(Math.min(end, new Date(s.getFullYear(), s.getMonth() + 1, 1)));
+    await window(s, e); s = e;
+  }
+  log('Ticketmaster:', out.size, 'eventi in', calls, 'richieste');
+  return [...out.values()];
+}
+
+/* ================= FONTE 2: TICKETONE (API pubblica Eventim) ================= */
+const MUSICA = /concert|musica|music|rock|pop|jazz|blues|rap|hip.?hop|metal|indie|elettronic|electronic|dance|classica|lirica|opera|festival|cantautor|soul|funk|reggae|punk|folk|tribute|tour/i;
+export function eventimNorm(p, src = 'to') {
+  const le = p.typeAttributes?.liveEntertainment || {};
+  const loc = le.location || {};
+  const sd = le.startDate || '';
+  const cats = (p.categories || []).map(c => c.name).filter(Boolean);
+  return {
+    id: src + ':' + (p.productId || p.productGroupId || hash(p.link || p.name + sd)), src, title: p.name || '',
+    artist: p.attractions?.[0]?.name || p.name || '', date: sd.slice(0, 10), time: sd.slice(11, 16),
+    venue: loc.name || '', city: loc.city || '', address: '',
+    lat: num(loc.geoLocation?.latitude), lon: num(loc.geoLocation?.longitude),
+    priceMin: num(p.price ?? p.priceMin), priceMax: num(p.priceMax), currency: 'EUR',
+    url: p.link || (p.url ? (p.url.domain || '') + (p.url.path || '') : ''),
+    image: p.imageUrl || p.image || '', genre: cats.find(c => !/^(concerti?|musica|music|altro|altri)$/i.test(c)) || '',
+    status: p.inStock === false ? 'Esaurito' : '', onsale: '', _cats: cats
+  };
+}
+async function fonteTicketone(cfg) {
+  const c = { webId: 'web__ticketone-it', language: 'it', categorie: ['Concerti'], maxPagine: 80, ...(cfg.ticketone || {}) };
+  const base = 'https://public-api.eventim.com/websearch/search/api/exploration/v1/products';
+  const from = ymd(new Date()), to = ymd(new Date(Date.now() + (cfg.finestraGiorni || 365) * 864e5));
+  async function run(useCat) {
+    const res = new Map(); let totalPages = 1;
+    for (let p = 1; p <= Math.min(totalPages, c.maxPagine); p++) {
+      const q = new URLSearchParams({ webId: c.webId, language: c.language, page: String(p), top: '50', sort: 'DateAsc', date_from: from, date_to: to });
+      if (useCat) for (const k of c.categorie) q.append('categories', k);
+      const j = await http(base + '?' + q, { retries: 3 });
+      totalPages = j.totalPages || 1;
+      for (const pr of j.products || []) {
+        const e = eventimNorm(pr, 'to');
+        if (!useCat && !e._cats.some(x => MUSICA.test(x))) continue;
+        if (e.date) res.set(e.id, e);
+      }
+      await sleep(350);
+    }
+    return [...res.values()];
+  }
+  let ev = c.categorie?.length ? await run(true) : [];
+  if (!ev.length) { log('TicketOne: categoria vuota, ripiego su filtro per genere'); ev = await run(false); }
+  ev.forEach(e => delete e._cats);
+  log('TicketOne:', ev.length, 'eventi');
+  return ev;
+}
+
+/* ================= FONTE 3: BANDSINTOWN (artisti preferiti) ================= */
+async function fonteBandsintown(cfg, artisti) {
+  const id = ENV.BIT_APP_ID;
+  if (!id) throw new Error('secret BIT_APP_ID non impostato (facoltativo)');
+  const out = [];
+  for (const name of artisti) {
+    const u = 'https://rest.bandsintown.com/artists/' + encodeURIComponent(name.replace(/\//g, '%252F')) + '/events?date=upcoming&app_id=' + encodeURIComponent(id);
+    let j; try { j = await http(u, { retries: 1 }); } catch (e) { log('Bandsintown', name, e.message); continue; }
+    if (!Array.isArray(j)) continue;
+    for (const e of j) {
+      if (!e.venue || !/^(italy|italia|it)$/i.test(e.venue.country || '')) continue;
+      const [d, t = ''] = (e.datetime || '').split('T');
+      const tk = (e.offers || []).find(o => /ticket/i.test(o.type)) || (e.offers || [])[0];
+      out.push({ id: 'bit:' + e.id, src: 'bit', title: e.title || (e.lineup || []).join(', ') || name, artist: e.lineup?.[0] || name,
+        date: d, time: t.slice(0, 5), venue: e.venue.name || '', city: e.venue.city || '', address: e.venue.street_address || '',
+        lat: num(e.venue.latitude), lon: num(e.venue.longitude), priceMin: null, priceMax: null, currency: 'EUR',
+        url: tk?.url || e.url, image: '', genre: '', status: tk?.status === 'sold out' ? 'Esaurito' : '', onsale: e.on_sale_datetime || '' });
+    }
+    await sleep(300);
+  }
+  log('Bandsintown:', out.length, 'date in Italia per', artisti.length, 'artisti');
+  return out;
+}
+
+/* ================= FONTE 4: PAGINE CON DATI STRUTTURATI (Vivaticket, locali, festival) ================= */
+export function extractJsonLd(html) {
+  const blocks = []; const re = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi; let m;
+  while ((m = re.exec(html))) {
+    const raw = m[1].replace(/^\s*<!--/, '').replace(/-->\s*$/, '').trim();
+    try { blocks.push(JSON.parse(raw)); } catch { try { blocks.push(JSON.parse(raw.replace(/[\u0000-\u001f]+/g, ' '))); } catch {} }
+  }
+  const events = [], links = [];
+  const walk = o => {
+    if (Array.isArray(o)) return o.forEach(walk);
+    if (!o || typeof o !== 'object') return;
+    const t = [].concat(o['@type'] || []).join(' ');
+    if (/Event\b/.test(t) && o.startDate) events.push(o);
+    if (/ListItem/.test(t) && typeof o.url === 'string') links.push(o.url);
+    for (const k of ['@graph', 'itemListElement', 'subEvent', 'item', 'event', 'events', 'mainEntity']) if (o[k]) walk(o[k]);
+  };
+  blocks.forEach(walk);
+  return { events, links };
+}
+const txt = v => (typeof v === 'string' ? v : Array.isArray(v) ? txt(v[0]) : v && typeof v === 'object' ? (v.name || v['@value'] || '') : '');
+export function jsonLdNorm(o, src, pageUrl) {
+  const loc = [].concat(o.location || [])[0] || {};
+  const addr = typeof loc.address === 'string' ? { streetAddress: loc.address } : (loc.address || {});
+  const country = txt(addr.addressCountry);
+  if (country && !/^(it|ita|italy|italia)$/i.test(country)) return null;
+  const offers = [].concat(o.offers || []).flatMap(x => x && x.offers ? [].concat(x.offers) : [x]).filter(Boolean);
+  const prices = offers.flatMap(x => [num(x.lowPrice), num(x.price), num(x.highPrice)]).filter(Boolean);
+  const sd = String(o.startDate || '');
+  const perf = [].concat(o.performer || [])[0];
+  let url = txt(o.url) || offers.find(x => x.url)?.url || pageUrl;
+  try { url = new URL(url, pageUrl).href; } catch {}
+  const sold = offers.length && offers.every(x => /SoldOut/i.test(x.availability || ''));
+  const cancelled = /Cancelled/i.test(o.eventStatus || ''), postponed = /Postponed|Rescheduled/i.test(o.eventStatus || '');
+  return {
+    id: src + ':' + hash(url + '|' + sd), src, title: txt(o.name), artist: txt(perf) || txt(o.name),
+    date: sd.slice(0, 10), time: /T\d\d:\d\d/.test(sd) ? sd.slice(11, 16) : '',
+    venue: txt(loc.name), city: txt(addr.addressLocality) || txt(addr.addressRegion), address: txt(addr.streetAddress),
+    lat: num(loc.geo?.latitude), lon: num(loc.geo?.longitude),
+    priceMin: prices.length ? Math.min(...prices) : null, priceMax: prices.length ? Math.max(...prices) : null,
+    currency: offers.find(x => x.priceCurrency)?.priceCurrency || 'EUR', url,
+    image: txt(o.image) || (o.image && o.image.url) || '', genre: '',
+    status: cancelled ? 'Annullato' : postponed ? 'Rinviato' : sold ? 'Esaurito' : '', onsale: offers.find(x => x.validFrom)?.validFrom || ''
+  };
+}
+async function fontePagine(cfg, chiave) {
+  const lista = (cfg[chiave] && cfg[chiave].pagine) || [];
+  if (!lista.length) throw new Error('nessuna pagina configurata in config.json');
+  const maxDettagli = cfg[chiave].maxDettagli ?? 60;
+  const out = new Map(); const errors = [];
+  for (const item of lista) {
+    const u = typeof item === 'string' ? item : item.url;
+    const src = (typeof item === 'object' && item.sigla) || (chiave === 'vivaticket' ? 'vt' : 'web');
+    try {
+      const html = await http(u, { json: false });
+      const { events, links } = extractJsonLd(html);
+      for (const o of events) { const e = jsonLdNorm(o, src, u); if (e && e.date) { e.fonte = new URL(u).hostname.replace(/^www\./, ''); out.set(e.id, e); } }
+      // pagine elenco: segue i link dei singoli eventi (limitato)
+      if (!events.length && links.length) {
+        for (const l of links.slice(0, maxDettagli)) {
+          try { const h2 = await http(new URL(l, u).href, { json: false, retries: 1 });
+            for (const o of extractJsonLd(h2).events) { const e = jsonLdNorm(o, src, l); if (e && e.date) { e.fonte = new URL(u).hostname.replace(/^www\./, ''); out.set(e.id, e); } }
+          } catch {}
+          await sleep(500);
+        }
+      }
+    } catch (e) { errors.push(u + ' → ' + e.message); }
+    await sleep(700);
+  }
+  if (!out.size && errors.length) throw new Error(errors.join(' | '));
+  log(chiave + ':', out.size, 'eventi', errors.length ? '(' + errors.length + ' pagine in errore)' : '');
+  return [...out.values()];
+}
+
+/* ================= GEOCODING (Nominatim, con cache) ================= */
+async function geocodeMissing(events, budget) {
+  const cacheFile = path.join(DATA, 'geocache.json');
+  const cache = await readJson(cacheFile, {});
+  let used = 0;
+  const lookup = async q => {
+    const k = norm(q); if (k in cache) return cache[k];
+    if (used >= budget) return undefined;
+    used++; await sleep(1100);
+    try {
+      const j = await http('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=it&q=' + encodeURIComponent(q), { headers: { 'User-Agent': GEO_UA } });
+      cache[k] = j[0] ? [+(+j[0].lat).toFixed(5), +(+j[0].lon).toFixed(5)] : null;
+    } catch { return undefined; }
+    return cache[k];
+  };
+  for (const e of events) {
+    if (e.lat != null && e.lon != null) continue;
+    let g = e.venue && e.city ? await lookup(e.venue + ', ' + e.city) : undefined;
+    if (!g && e.city) g = await lookup(e.city);
+    if (g) { e.lat = g[0]; e.lon = g[1]; }
+  }
+  await writeJson(cacheFile, cache);
+  log('Geocoding: nuove richieste', used);
+}
+export async function geocodeOne(q) {
+  try { const j = await http('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=it&q=' + encodeURIComponent(q), { headers: { 'User-Agent': GEO_UA } });
+    return j[0] ? { lat: +(+j[0].lat).toFixed(5), lon: +(+j[0].lon).toFixed(5), nome: j[0].display_name.split(',')[0] } : null; } catch { return null; }
+}
+
+/* ================= FUSIONE E CONFRONTO ================= */
+const STOP = new Set(['tour', 'live', 'concerto', 'concert', 'the', 'and', 'con', 'presenta', 'special', 'guest', 'world', 'italia', 'italy', 'teatro', 'arena', 'festival', 'in', 'di', 'del', 'della', 'feat', 'ft', 'vs', 'plus', 'night', 'show', 'estate', 'summer', 'winter', 'inverno', 'club', 'edition', 'anniversary']);
+const toks = s => new Set(norm(s).split(' ').filter(w => w.length >= 3 && !STOP.has(w) && !/^\d+$/.test(w)));
+export function sameArtist(a, b) {
+  const na = norm(a.artist), nb = norm(b.artist);
+  if (na && na === nb) return true;
+  if (na.length >= 4 && nb.length >= 4 && (na.includes(nb) || nb.includes(na))) return true;
+  const ta = toks(a.artist + ' ' + a.title), tb = toks(b.artist + ' ' + b.title);
+  const ka = toks(a.artist), kb = toks(b.artist);
+  if (ka.size && [...ka].every(x => tb.has(x))) return true;
+  if (kb.size && [...kb].every(x => ta.has(x))) return true;
+  return false;
+}
+export function samePlace(a, b) {
+  if (a.lat != null && b.lat != null) return haversine(a.lat, a.lon, b.lat, b.lon) < 25;
+  const ca = norm(a.city).split(' ')[0], cb = norm(b.city).split(' ')[0];
+  return !!ca && ca === cb;
+}
+const NOMI = { tm: 'Ticketmaster', to: 'TicketOne', bit: 'Bandsintown', vt: 'Vivaticket', web: 'Sito ufficiale' };
+export function merge(list) {
+  const byDate = new Map();
+  const PRI = { tm: 0, to: 1, vt: 2, web: 3, bit: 4 };
+  list.sort((a, b) => (PRI[a.src] ?? 9) - (PRI[b.src] ?? 9));
+  for (const e of list) {
+    if (!e.date) continue;
+    const arr = byDate.get(e.date) || []; byDate.set(e.date, arr);
+    const offer = { src: e.src, nome: e.fonte && e.src === 'web' ? e.fonte : (NOMI[e.src] || e.src), url: e.url, min: e.priceMin, max: e.priceMax, valuta: e.currency, stato: e.status || '' };
+    const m = arr.find(x => samePlace(x, e) && sameArtist(x, e));
+    if (!m) {
+      arr.push({ ...e, sources: [e.src], ids: [e.id], offers: [offer] });
+      continue;
+    }
+    if (m.ids.includes(e.id)) continue;
+    m.ids.push(e.id); if (!m.sources.includes(e.src)) m.sources.push(e.src);
+    if (!m.offers.some(o => o.url === offer.url)) m.offers.push(offer);
+    for (const f of ['image', 'time', 'genre', 'address', 'venue', 'onsale']) if (!m[f] && e[f]) m[f] = e[f];
+    if (m.lat == null && e.lat != null) { m.lat = e.lat; m.lon = e.lon; }
+  }
+  const out = [];
+  for (const arr of byDate.values()) for (const m of arr) {
+    const prices = m.offers.flatMap(o => [o.min, o.max]).filter(v => v != null);
+    m.priceMin = prices.length ? Math.min(...prices) : null;
+    m.priceMax = prices.length ? Math.max(...prices) : null;
+    m.offers.sort((a, b) => (a.min ?? 1e9) - (b.min ?? 1e9));
+    // "Esaurito" vale per il concerto solo se lo è presso tutti i rivenditori
+    if (m.status === 'Esaurito' && !m.offers.every(o => o.stato === 'Esaurito')) m.status = '';
+    m.id ='c' + hash(m.date + '|' + norm(m.artist) + '|' + norm(m.city).split(' ')[0]);
+    delete m.src; delete m.fonte; delete m.url; delete m.currency;
+    out.push(m);
+  }
+  return out.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+}
+
+/* prezzi mancanti: legge i dati strutturati della pagina evento (solo dove serve al confronto) */
+async function arricchisciPrezzi(events, artistiNorm, budget) {
+  let used = 0;
+  const cand = events.filter(e => e.offers.some(o => o.min == null && o.src !== 'bit' && o.url)
+    && (e.offers.length > 1 || artistiNorm.some(a => matchFav(e, a))));
+  for (const e of cand) {
+    for (const o of e.offers) {
+      if (o.min != null || o.src === 'bit' || !o.url || used >= budget) continue;
+      used++;
+      try {
+        const html = await http(o.url, { json: false, retries: 1 });
+        const ld = extractJsonLd(html).events.map(x => jsonLdNorm(x, o.src, o.url)).filter(Boolean);
+        const hit = ld.find(x => x.date === e.date) || ld[0];
+        if (hit && hit.priceMin != null) { o.min = hit.priceMin; o.max = hit.priceMax; }
+      } catch {}
+      await sleep(600);
+    }
+    const prices = e.offers.flatMap(o => [o.min, o.max]).filter(v => v != null);
+    if (prices.length) { e.priceMin = Math.min(...prices); e.priceMax = Math.max(...prices); }
+    e.offers.sort((a, b) => (a.min ?? 1e9) - (b.min ?? 1e9));
+  }
+  log('Prezzi: lette', used, 'pagine evento');
+}
+
+/* ================= AVVISI ================= */
+export const matchFav = (e, fav) => (' ' + norm(e.artist + ' ' + e.title) + ' ').includes(' ' + fav + ' ');
+function fmt(e) {
+  const [y, m, d] = e.date.split('-');
+  return d + '/' + m + '/' + y + (e.time ? ' ' + e.time : '') + ' · ' + [e.venue, e.city].filter(Boolean).join(', ');
+}
+async function notifica(nuovi, cfg, sito) {
+  if (!nuovi.length) return 0;
+  const righe = nuovi.slice(0, 15).map(e => '🎤 ' + e.artist + ' — ' + fmt(e) + (e.priceMin != null ? ' — da ' + e.priceMin + ' €' : ''));
+  const titolo = nuovi.length === 1 ? 'Nuova data: ' + nuovi[0].artist : nuovi.length + ' nuove date dei tuoi artisti';
+  const testo = righe.join('\n') + (nuovi.length > 15 ? '\n…e altre ' + (nuovi.length - 15) : '');
+  const link = sito ? sito + '#preferiti' : (nuovi[0].offers[0]?.url || '');
+  let inviati = 0;
+  if (ENV.NTFY_TOPIC) {
+    try {
+      await http((ENV.NTFY_SERVER || 'https://ntfy.sh').replace(/\/$/, '') + '/', { method: 'POST', retries: 1,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic: ENV.NTFY_TOPIC, title: titolo, message: testo, tags: ['musical_note'], click: link || undefined }) });
+      inviati++; log('Avviso ntfy inviato');
+    } catch (e) { log('ntfy:', e.message); }
+  }
+  if (ENV.TELEGRAM_BOT_TOKEN && ENV.TELEGRAM_CHAT_ID) {
+    try {
+      await http('https://api.telegram.org/bot' + ENV.TELEGRAM_BOT_TOKEN + '/sendMessage', { method: 'POST', retries: 1,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: ENV.TELEGRAM_CHAT_ID, text: '🔔 ' + titolo + '\n\n' + testo + (link ? '\n\n' + link : ''), disable_web_page_preview: true }) });
+      inviati++; log('Avviso Telegram inviato');
+    } catch (e) { log('Telegram:', e.message); }
+  }
+  return inviati;
+}
+
+/* ================= MAIN ================= */
+async function main() {
+  const t0 = Date.now();
+  await mkdir(DATA, { recursive: true });
+  const { cfg, artisti } = await loadConfig();
+  const artistiNorm = artisti.map(norm).filter(Boolean);
+  const prev = await readJson(path.join(DATA, 'events.json'), null);
+  const prevById = new Map((prev?.events || []).map(e => [e.id, e]));
+  const prevIds = new Set((prev?.events || []).flatMap(e => [e.id, ...(e.ids || [])]));
+
+  const fonti = [
+    ['tm', 'Ticketmaster', () => fonteTicketmaster(cfg)],
+    ['to', 'TicketOne', () => cfg.ticketone?.attiva === false ? Promise.reject(new Error('disattivata')) : fonteTicketone(cfg)],
+    ['vt', 'Vivaticket', () => cfg.vivaticket?.attiva === false ? Promise.reject(new Error('disattivata')) : fontePagine(cfg, 'vivaticket')],
+    ['web', 'Siti di locali e festival', () => cfg.siti?.attiva === false ? Promise.reject(new Error('disattivata')) : fontePagine(cfg, 'siti')],
+    ['bit', 'Bandsintown', () => fonteBandsintown(cfg, artisti)]
+  ];
+  const status = { aggiornato: new Date().toISOString(), fonti: [] };
+  const all = [];
+  for (const [id, nome, fn] of fonti) {
+    const s = Date.now();
+    try { const ev = await fn(); all.push(...ev); status.fonti.push({ id, nome, ok: true, eventi: ev.length, secondi: Math.round((Date.now() - s) / 1000) }); }
+    catch (e) { log(nome, 'ERRORE:', e.message); status.fonti.push({ id, nome, ok: false, errore: String(e.message).slice(0, 300), eventi: 0 }); }
+  }
+
+  const oggi = ymd(new Date());
+  const valid = all.filter(e => e.date && e.date >= oggi && e.date.length === 10);
+  await geocodeMissing(valid, cfg.geocodingMax ?? 80);
+  let events = merge(valid);
+  await arricchisciPrezzi(events, artistiNorm, cfg.prezziMax ?? 120);
+
+  // data di prima comparsa (per "NUOVO" e per gli avvisi)
+  const now = new Date().toISOString();
+  for (const e of events) {
+    const p = prevById.get(e.id);
+    e.visto = p?.visto || (e.ids.some(i => prevIds.has(i)) ? (p?.visto || now) : now);
+    e.fav = artistiNorm.some(a => matchFav(e, a)) || undefined;
+  }
+
+  // avvisi: solo eventi di preferiti mai visti prima (dalla seconda esecuzione in poi)
+  const nuovi = prev ? events.filter(e => e.fav && !prevById.has(e.id) && !e.ids.some(i => prevIds.has(i))) : [];
+  const sito = ENV.SITE_URL || (ENV.GITHUB_REPOSITORY ? 'https://' + ENV.GITHUB_REPOSITORY.split('/')[0].toLowerCase() + '.github.io/' + ENV.GITHUB_REPOSITORY.split('/')[1] + '/' : '');
+  const inviati = await notifica(nuovi, cfg, sito);
+
+  // casa
+  const meta = await readJson(path.join(DATA, 'meta.json'), {});
+  if (cfg.casa && (!meta.casa || meta.casa.query !== cfg.casa)) {
+    const g = await geocodeOne(cfg.casa); if (g) meta.casa = { query: cfg.casa, ...g };
+  }
+  if (!cfg.casa) delete meta.casa;
+  meta.raggio = cfg.raggioPredefinito || 50;
+  meta.repo = ENV.GITHUB_REPOSITORY || meta.repo || '';
+  meta.artisti = artisti;
+  meta.ntfy = ENV.NTFY_TOPIC ? (ENV.NTFY_SERVER || 'https://ntfy.sh').replace(/\/$/, '') + '/' + ENV.NTFY_TOPIC : '';
+
+  // pulizia campi vuoti per ridurre il peso
+  const slim = events.map(e => Object.fromEntries(Object.entries(e).filter(([, v]) => v !== '' && v != null && !(Array.isArray(v) && !v.length))));
+  status.eventi = slim.length;
+  status.confrontabili = events.filter(e => e.offers.length > 1).length;
+  status.nuoviPreferiti = nuovi.length;
+  status.avvisiInviati = inviati;
+  status.durataSecondi = Math.round((Date.now() - t0) / 1000);
+
+  // se tutte le fonti hanno fallito, non sovrascrive i dati buoni precedenti
+  if (!slim.length && prev?.events?.length) {
+    log('Nessun evento letto: mantengo i dati precedenti');
+    status.eventi = prev.events.length; status.datiPrecedenti = true;
+  } else {
+    await writeJson(path.join(DATA, 'events.json'), { generato: now, eventi: slim.length, events: slim });
+  }
+  await writeJson(path.join(DATA, 'status.json'), status, true);
+  await writeJson(path.join(DATA, 'meta.json'), meta, true);
+  log('Fatto:', status.eventi, 'concerti,', status.confrontabili, 'con più rivenditori,', nuovi.length, 'nuovi per i preferiti');
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch(e => { console.error(e); process.exit(1); });
+}

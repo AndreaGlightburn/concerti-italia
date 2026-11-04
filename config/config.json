@@ -1,0 +1,33 @@
+{
+  "casa": "Abbiategrasso",
+  "raggioPredefinito": 50,
+  "finestraGiorni": 365,
+  "geocodingMax": 80,
+  "prezziMax": 120,
+
+  "ticketone": {
+    "attiva": true,
+    "webId": "web__ticketone-it",
+    "language": "it",
+    "categorie": ["Concerti"],
+    "maxPagine": 80
+  },
+
+  "vivaticket": {
+    "attiva": true,
+    "maxDettagli": 60,
+    "pagine": [
+      "https://www.vivaticket.com/it/category/concerti/"
+    ]
+  },
+
+  "siti": {
+    "attiva": true,
+    "maxDettagli": 40,
+    "pagine": [
+      { "url": "https://www.alcatrazmilano.it/", "sigla": "web" },
+      { "url": "https://www.magazzinigenerali.it/", "sigla": "web" },
+      { "url": "https://www.santeria.milano.it/", "sigla": "web" }
+    ]
+  }
+}
