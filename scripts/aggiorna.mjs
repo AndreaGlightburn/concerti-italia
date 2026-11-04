@@ -130,6 +130,7 @@ export function eventimNorm(p, src = 'to') {
     status: p.inStock === false ? 'Esaurito' : '', onsale: '', _cats: cats
   };
 }
+const DIAG = { ticketone: [] };
 async function fonteTicketone(cfg) {
   const c = { webId: 'web__ticketone-it', language: 'it', categorie: ['Concerti'], maxPagine: 80, ...(cfg.ticketone || {}) };
   const base = 'https://public-api.eventim.com/websearch/search/api/exploration/v1/products';
@@ -141,6 +142,8 @@ async function fonteTicketone(cfg) {
       if (useCat) for (const k of c.categorie) q.append('categories', k);
       const j = await http(base + '?' + q, { retries: 3, headers: { Origin: 'https://www.ticketone.it', Referer: 'https://www.ticketone.it/' } });
       totalPages = j.totalPages || 1;
+      if (p === 1) DIAG.ticketone.push({ categorie: useCat, totalPages: j.totalPages, totalResults: j.totalResults, prodotti: (j.products || []).length,
+        categorieViste: [...new Set((j.products || []).flatMap(x => (x.categories || []).map(c => c.name)))].slice(0, 15) });
       for (const pr of j.products || []) {
         const e = eventimNorm(pr, 'to');
         if (!useCat && !e._cats.some(x => MUSICA.test(x))) continue;
@@ -151,6 +154,8 @@ async function fonteTicketone(cfg) {
     return [...res.values()];
   }
   let ev = c.categorie?.length ? await run(true) : [];
+  // la categoria a volte restituisce poco: prova anche senza e tiene il risultato più ricco
+  if (ev.length < 400) { try { const alt = await run(false); DIAG.ticketone.push({ senzaCategoria: alt.length }); if (alt.length > ev.length) ev = alt; } catch (e) { DIAG.ticketone.push({ errore: e.message }); } }
   if (!ev.length) { log('TicketOne: categoria vuota, ripiego su filtro per genere'); ev = await run(false); }
   ev.forEach(e => delete e._cats);
   log('TicketOne:', ev.length, 'eventi');
@@ -264,7 +269,16 @@ async function fontePagine(cfg, chiave, esiti) {
           await sleep(450);
         }
         if (falliti) es.linkFalliti = falliti;
-        if (!es.eventi) es.nota = det.length ? 'pagine evento senza dati strutturati' : 'nessun evento né link a eventi trovati';
+        if (!es.eventi) {
+          es.nota = det.length ? 'pagine evento senza dati strutturati' : 'nessun evento né link a eventi trovati';
+          // per regolare il riconoscimento dei link: dimensione della pagina e campione dei percorsi interni
+          const host = new URL(u).hostname.replace(/^www\./, ''), seen = new Set();
+          for (const m of html.matchAll(/href=["']([^"'#]+)["']/gi)) { try { const x = new URL(m[1].replace(/&amp;/g, '&'), u); if (x.hostname.replace(/^www\./, '') === host && x.pathname.length > 1) seen.add(x.pathname); } catch {} }
+          es.diag = { byte: html.length, linkInterni: seen.size, esempi: [...seen].slice(0, 25), ldJson: (html.match(/application\/ld\+json/gi) || []).length,
+            ticketone: (html.match(/ticketone\.it\/[^"' ]+/gi) || []).slice(0, 5), vivaticket: (html.match(/vivaticket\.[a-z]+\/[^"' ]+/gi) || []).slice(0, 5) };
+          if (det.length) { try { const h2 = await http(new URL(det[0], u).href, { json: false, retries: 1 }); es.diag.primoEvento = { url: det[0], byte: h2.length, ldJson: (h2.match(/application\/ld\+json/gi) || []).length,
+            microdata: /itemtype=["'][^"']*schema\.org\/[A-Za-z]*Event/i.test(h2), og: (h2.match(/<meta[^>]+property=["']og:(title|description)["'][^>]*>/gi) || []).slice(0, 2), date: (h2.match(/\b\d{1,2}[\/.]\d{1,2}[\/.]\d{2,4}\b|\b\d{1,2} (gen|feb|mar|apr|mag|giu|lug|ago|set|ott|nov|dic)[a-z]* \d{4}/gi) || []).slice(0, 5) }; } catch (e) { es.diag.primoEvento = { url: det[0], errore: e.message }; } }
+        }
       }
     } catch (e) { es.errore = e.message; errors.push(u + ' → ' + e.message); }
     if (esiti) esiti.push(es);
@@ -481,7 +495,8 @@ async function main() {
   status.nuoviPreferiti = nuovi.length;
   status.avvisiInviati = inviati;
   status.durataSecondi = Math.round((Date.now() - t0) / 1000);
-  status.pagine = esiti; // esito di ogni pagina letta (per capire quali siti rispondono)
+  status.pagine = esiti;
+  status.diagnostica = DIAG; // esito di ogni pagina letta (per capire quali siti rispondono)
 
   // se tutte le fonti hanno fallito, non sovrascrive i dati buoni precedenti
   if (!slim.length && prev?.events?.length) {
