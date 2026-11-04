@@ -1,12 +1,12 @@
 {
- "aggiornato": "2026-11-04T23:10:21.829Z",
+ "aggiornato": "2026-11-04T23:41:52.091Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 511,
-   "secondi": 7
+   "secondi": 6
   },
   {
    "id": "to",
@@ -39,7 +39,7 @@
  ],
  "eventi": 447,
  "confrontabili": 55,
- "nuoviPreferiti": 10,
+ "nuoviPreferiti": 0,
  "avvisiInviati": 0,
  "durataSecondi": 119
 }
