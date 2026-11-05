@@ -11,7 +11,7 @@
     "categorie": [
       "Concerti"
     ],
-    "maxPagine": 80
+    "maxRichieste": 400
   },
   "vivaticket": {
     "attiva": true,
@@ -69,7 +69,7 @@
         "link": "/(spettacolo|spettacoli|evento|eventi)/[^/]+"
       },
       {
-        "url": "https://www.unipolforum.it/it/calendario/",
+        "url": "https://www.unipolforum.it/it/",
         "sigla": "web",
         "nome": "Unipol Forum",
         "venue": "Unipol Forum",

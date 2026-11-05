@@ -132,35 +132,39 @@ export function eventimNorm(p, src = 'to') {
 }
 const DIAG = { ticketone: [] };
 async function fonteTicketone(cfg) {
-  const c = { webId: 'web__ticketone-it', language: 'it', categorie: ['Concerti'], maxPagine: 80, ...(cfg.ticketone || {}) };
+  const c = { webId: 'web__ticketone-it', language: 'it', categorie: ['Concerti'], maxRichieste: 400, ...(cfg.ticketone || {}) };
   const base = 'https://public-api.eventim.com/websearch/search/api/exploration/v1/products';
-  const from = ymd(new Date()), to = ymd(new Date(Date.now() + (cfg.finestraGiorni || 365) * 864e5));
-  async function run(useCat) {
-    const res = new Map(); let totalPages = 1;
-    for (let p = 1; p <= Math.min(totalPages, c.maxPagine); p++) {
-      const q = new URLSearchParams({ webId: c.webId, language: c.language, page: String(p), top: '50', sort: 'DateAsc', date_from: from, date_to: to });
-      if (useCat) for (const k of c.categorie) q.append('categories', k);
-      const j = await http(base + '?' + q, { retries: 3, headers: { Origin: 'https://www.ticketone.it', Referer: 'https://www.ticketone.it/' } });
-      totalPages = j.totalPages || 1;
-      if (p === 1) DIAG.ticketone.push({ categorie: useCat, totalPages: j.totalPages, totalResults: j.totalResults, prodotti: (j.products || []).length,
-        conData: (j.products || []).filter(x => x.typeAttributes?.liveEntertainment?.startDate).length, chiavi: Object.keys(j || {}),
-        campione: (j.products || []).slice(0, 3).map(x => JSON.stringify(x).slice(0, 900)),
-        categorieViste: [...new Set((j.products || []).flatMap(x => (x.categories || []).map(c => c.name)))].slice(0, 15) });
-      for (const pr of j.products || []) {
-        const e = eventimNorm(pr, 'to');
-        if (!useCat && !e._cats.some(x => MUSICA.test(x))) continue;
-        if (e.date) res.set(e.id, e);
-      }
-      await sleep(350);
-    }
-    return [...res.values()];
+  const H = { Origin: 'https://www.ticketone.it', Referer: 'https://www.ticketone.it/' };
+  const res = new Map(); let calls = 0, pieni = 0;
+  async function get(from, to, page = 1) {
+    const q = new URLSearchParams({ webId: c.webId, language: c.language, page: String(page), top: '50', sort: 'DateAsc', date_from: from, date_to: to });
+    for (const k of c.categorie || []) q.append('categories', k);
+    calls++; await sleep(300);
+    return http(base + '?' + q, { retries: 3, headers: H });
   }
-  let ev = c.categorie?.length ? await run(true) : [];
-  // la categoria a volte restituisce poco: prova anche senza e tiene il risultato più ricco
-  if (ev.length < 400) { try { const alt = await run(false); DIAG.ticketone.push({ senzaCategoria: alt.length }); if (alt.length > ev.length) ev = alt; } catch (e) { DIAG.ticketone.push({ errore: e.message }); } }
-  if (!ev.length) { log('TicketOne: categoria vuota, ripiego su filtro per genere'); ev = await run(false); }
-  ev.forEach(e => delete e._cats);
-  log('TicketOne:', ev.length, 'eventi');
+  // l'API restituisce al massimo 50 prodotti e la paginazione non è affidabile:
+  // si interroga per intervalli di date, dividendo quelli pieni fino al singolo giorno
+  async function finestra(a, b) {
+    if (calls >= c.maxRichieste) return;
+    const from = ymd(a), to = ymd(b), j = await get(from, to);
+    const prod = j.products || [];
+    for (const pr of prod) { const e = eventimNorm(pr, 'to'); if (e.date) res.set(e.id, e); }
+    if (prod.length < 50) return;
+    const giorni = Math.round((b - a) / 864e5);
+    if (giorni >= 1) { const mid = new Date(a.getTime() + Math.floor(giorni / 2) * 864e5); await finestra(a, mid); await finestra(new Date(mid.getTime() + 864e5), b); return; }
+    pieni++; // giorno singolo con più di 50 eventi: prova le pagine successive
+    for (let p = 2; p <= 4 && calls < c.maxRichieste; p++) { const k = res.size; const j2 = await get(from, to, p);
+      for (const pr of j2.products || []) { const e = eventimNorm(pr, 'to'); if (e.date) res.set(e.id, e); } if (res.size === k) break; }
+  }
+  const start = new Date(); start.setHours(0, 0, 0, 0);
+  const fine = new Date(start.getTime() + (cfg.finestraGiorni || 365) * 864e5);
+  for (let a = new Date(start); a < fine; a = new Date(a.getTime() + 30 * 864e5)) {
+    const b = new Date(Math.min(fine.getTime(), a.getTime() + 29 * 864e5)); await finestra(a, b);
+  }
+  const ev = [...res.values()]; ev.forEach(e => delete e._cats);
+  DIAG.ticketone = [{ richieste: calls, eventi: ev.length, giorniPieni: pieni }];
+  log('TicketOne:', ev.length, 'eventi in', calls, 'richieste');
+  if (!ev.length) throw new Error('nessun evento (categoria: ' + (c.categorie || []).join(', ') + ')');
   return ev;
 }
 
