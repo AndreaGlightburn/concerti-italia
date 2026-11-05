@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-05T00:17:12.408Z",
+ "aggiornato": "2026-11-05T06:46:55.841Z",
  "fonti": [
   {
    "id": "tm",
@@ -13,7 +13,7 @@
    "nome": "TicketOne",
    "ok": true,
    "eventi": 3393,
-   "secondi": 110
+   "secondi": 113
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 72,
-   "secondi": 72
+   "secondi": 67
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
    "eventi": 104,
-   "secondi": 181
+   "secondi": 173
   },
   {
    "id": "bit",
@@ -48,7 +48,7 @@
  "confrontabili": 714,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 600,
+ "durataSecondi": 576,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -166,36 +166,10 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454531,
-    "linkInterni": 110,
-    "esempi": [
-     "/feed/",
-     "/comments/feed/",
-     "/wp-json/oembed/1.0/embed",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/magnific-popup.css",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/lightbox.css",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/slick.css",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/aigpl-pro-public.min.css",
-     "/wp-content/plugins/contact-form-7/includes/css/styles.css",
-     "/wp-content/plugins/custom-related-posts/dist/public.css",
-     "/wp-content/plugins/parcheggio-partner/lib/dependencies/css/bootstrap.css",
-     "/wp-content/plugins/parcheggio-partner/lib/dist/css/bootstrap-slider.css",
-     "/wp-content/plugins/parcheggio-partner/lib/select/css/bootstrap-select.min.css",
-     "/wp-content/plugins/parcheggio-partner/lib/autocomplete/easy-autocomplete.css",
-     "/wp-content/plugins/parcheggio-partner/timepicker/css/bootstrap-timepicker.css",
-     "/wp-content/plugins/parcheggio-partner/custom.css",
-     "/wp-content/plugins/popup-builder/public/css/theme.css",
-     "/wp-content/plugins/salient-nectar-slider/css/nectar-slider.css",
-     "/wp-content/uploads/useanyfont/uaf.css",
-     "/wp-content/plugins/profile-builder/assets/css/placeholder-labels.css",
-     "/wp-content/themes/TEatro/css/font-awesome.min.css",
-     "/wp-content/themes/TEatro/css/grid-system.css",
-     "/wp-content/themes/TEatro/css/style.css",
-     "/wp-content/themes/TEatro/css/header/header-secondary-nav.css",
-     "/wp-content/themes/TEatro/css/off-canvas/simple-dropdown.css",
-     "/wp-content/themes/TEatro/css/elements/element-fancy-box.css"
-    ],
-    "ldJson": 1,
+    "byte": 168,
+    "linkInterni": 0,
+    "esempi": [],
+    "ldJson": 0,
     "ticketone": [],
     "vivaticket": []
    }
@@ -252,41 +226,12 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 299844,
-    "linkInterni": 57,
-    "esempi": [
-     "/wp-json/oembed/1.0/embed",
-     "/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css",
-     "/wp-content/plugins/complianz-gdpr-premium/assets/css/cookieblocker.min.css",
-     "/wp-content/plugins/pojo-accessibility/assets/build/fonts.css",
-     "/wp-content/plugins/pojo-accessibility/assets/build/skip-link.css",
-     "/wp-content/themes/hello-elementor/assets/css/reset.css",
-     "/wp-content/themes/hello-elementor/assets/css/theme.css",
-     "/wp-content/themes/hello-elementor/assets/css/header-footer.css",
-     "/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-pulse-grow.min.css",
-     "/wp-content/plugins/elementor/assets/css/frontend.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css",
-     "/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-heading.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-image.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-spacer.min.css",
-     "/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css",
-     "/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css",
-     "/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css",
-     "/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-common.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-carousel.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-lottie.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-grid.min.css"
-    ],
-    "ldJson": 1,
+    "byte": 168,
+    "linkInterni": 0,
+    "esempi": [],
+    "ldJson": 0,
     "ticketone": [],
-    "vivaticket": [
-     "vivaticket.com/it",
-     "vivaticket.com/it/"
-    ]
+    "vivaticket": []
    }
   },
   {
