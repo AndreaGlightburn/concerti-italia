@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-04T23:57:58.830Z",
+ "aggiornato": "2026-11-05T00:07:54.020Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 511,
-   "secondi": 6
+   "secondi": 5
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
    "eventi": 51,
-   "secondi": 75
+   "secondi": 87
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 22,
-   "secondi": 63
+   "eventi": 72,
+   "secondi": 74
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 43,
-   "secondi": 197
+   "eventi": 87,
+   "secondi": 175
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 541,
- "confrontabili": 65,
+ "eventi": 629,
+ "confrontabili": 66,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 457,
+ "durataSecondi": 489,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -64,136 +64,24 @@
   },
   {
    "fonte": "biglietterie",
-   "url": "https://www.ticketsms.it/it/",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 4522,
-    "linkInterni": 2,
-    "esempi": [
-     "/favicon.ico",
-     "/assets/index-Cj85I_ot.css"
-    ],
-    "ldJson": 2,
-    "ticketone": [],
-    "vivaticket": []
-   }
-  },
-  {
-   "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 0,
-   "link": 30,
-   "nota": "pagine evento senza dati strutturati",
-   "diag": {
-    "byte": 240046,
-    "linkInterni": 134,
-    "esempi": [
-     "/imagesn/favicon.png",
-     "/imagesn/mailticket_logo_white.png",
-     "/js/jquery-ui-1.12.1.custom/jquery-ui.css",
-     "/cssn/bootstrap.min.css",
-     "/cssn/bootstrap-select.min.css",
-     "/cssn/bootstrap-slider.min.css",
-     "/cssn/jquery.scrolling-tabs.min.css",
-     "/cssn/bootstrap-checkbox.css",
-     "/cssn/flexslider.css",
-     "/cssn/owl.carousel.min.css",
-     "/cssn/owl.theme.default.css",
-     "/cssn/featherlight.min.css",
-     "/fa-webfont/css/all.min.css",
-     "/cssn/bootstrap.offcanvas.min.css",
-     "/cssn/core.css",
-     "/cssn/style.css",
-     "/cssn/responsive.css",
-     "/css/HoldOn.min.css",
-     "/cssn/mods.css",
-     "/cssn/styleN.css",
-     "/cssn/intTelnput/intlTelInput.css",
-     "/js/cookieconsent/cookieconsent.min.css",
-     "/info/privacy",
-     "/info/cookies",
-     "/LoginRegister"
-    ],
-    "ldJson": 0,
-    "ticketone": [],
-    "vivaticket": [],
-    "primoEvento": {
-     "url": "https://www.mailticket.it/evento/55573/folkstone-a-teatro",
-     "byte": 174191,
-     "ldJson": 0,
-     "microdata": false,
-     "og": [
-      "<meta property=\"og:description\" content=\"Solo su Mailticket, a partire da € 28,00, le prevendite per FOLKSTONE A TEATRO - Cinema Teatro Astra - sabato 21/11/2026 - 21:00\" />",
-      "<meta property=\"og:title\" content=\"Vendita Biglietti FOLKSTONE A TEATRO San Giovanni Lupatoto 11 2026\" />"
-     ],
-     "date": [
-      "21/11/2026",
-      "21/11/2026",
-      "02.80.88",
-      "21/11/2026"
-     ]
-    }
-   }
+   "eventi": 48,
+   "link": 48,
+   "riserva": 48
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/",
-   "eventi": 0,
-   "link": 3,
-   "nota": "pagine evento senza dati strutturati",
-   "diag": {
-    "byte": 138583,
-    "linkInterni": 43,
-    "esempi": [
-     "/favicon.ico",
-     "/css/jquery-ui.css",
-     "/css/summernote.css",
-     "/css/sweetalert.css",
-     "/css/styles.css",
-     "/css_home/bootstrap.css",
-     "/css_home/icons.css",
-     "/css_home/typography.css",
-     "/css_home/scrollbar.css",
-     "/css_home/animate.css",
-     "/cloudslider/css/cloudslider.css",
-     "/cubeportfolio/css/cubeportfolio.css",
-     "/css_home/slick.css",
-     "/css_home/slick-theme.css",
-     "/nivo-lightbox/nivo-lightbox.css",
-     "/nivo-lightbox/themes/default/default.css",
-     "/css_home/click-hover-effects.css",
-     "/owl-carousel/assets/owl.carousel.css",
-     "/owl-carousel/assets/owl.theme.default.min.css",
-     "/css_home/theme2.css",
-     "/css_home/color.css",
-     "/search/all",
-     "/selfhelp",
-     "/selfhelp-ticket",
-     "/faq"
-    ],
-    "ldJson": 0,
-    "ticketone": [],
-    "vivaticket": [],
-    "primoEvento": {
-     "url": "https://www.diyticket.it/events/Musica/34433/concerto-di-natale-xxvi-ed-brunori-sas",
-     "byte": 57222,
-     "ldJson": 0,
-     "microdata": false,
-     "og": [
-      "<meta property=\"og:title\" content=\"Concerto di Natale XXVI ed - Brunori Sas - Cattedrale di Avezzano - Biglietti\" />",
-      "<meta property=\"og:description\" content=\"Acquista subito il tuo biglietto! Oppure prenota online e paga in tutti i Punti Mooney\" />"
-     ],
-     "date": [
-      "18 dicembre 2026",
-      "17 dicembre 2026",
-      "18 dicembre 2026",
-      "18 dicembre 2026",
-      "17 dicembre 2026"
-     ]
-    }
-   }
+   "eventi": 1,
+   "link": 1,
+   "riserva": 1
+  },
+  {
+   "fonte": "biglietterie",
+   "url": "https://www.diyticket.it/search/all",
+   "eventi": 1,
+   "link": 1,
+   "riserva": 1
   },
   {
    "fonte": "siti",
@@ -204,57 +92,16 @@
   },
   {
    "fonte": "siti",
-   "url": "https://www.magazzinigenerali.it/",
+   "url": "https://www.santeria.milano.it/eventi/",
    "regione": "Lombardia",
    "eventi": 0,
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 226670,
-    "linkInterni": 49,
+    "byte": 766964,
+    "linkInterni": 105,
     "esempi": [
-     "/wp-content/cache/fvm/min/1763985835-cssd50eff185b14d930be136adc5cb63d8181e4d48945777a2e5fb1f00879e4d.css",
-     "/wp-content/cache/fvm/min/1763985835-cssed974758628f36e14c21c89b75d9a1c53d2af295df5b4eec7c4eca2f1e68a.css",
-     "/wp-content/cache/fvm/min/1763985835-css3de500e91073372ecc2d7d0f7d75151087df35f3566941218f0d62292bf63.css",
-     "/wp-content/cache/fvm/min/1763985835-cssf79604a6a503357af41186d132334bc302e6eba3da45f1be2e3882a700c3f.css",
-     "/wp-content/cache/fvm/min/1763985835-cssa3d2c35ec647a3ff1f54f99f6224e9c50779c034698ffb77052be9d762b6b.css",
-     "/wp-content/cache/fvm/min/1763985835-css25d58563de04b8c7f93b4aaaab0bf2c59743ee4b8c4f3b10f4fe12c4a64a2.css",
-     "/wp-content/cache/fvm/min/1763985835-css04551b61f4f8528ad0254900d12f3244988f11b5c64e082a5bbbc53c3a64c.css",
-     "/wp-content/cache/fvm/min/1763985835-cssb98bab4fec4692a86b17c1e27c3b39d268911445201a1121ee6633deb9bbb.css",
-     "/wp-content/cache/fvm/min/1763985835-css49079f1eec57ebae6071e929c01f3e5c60de9a6df82f3bf19827943e85504.css",
-     "/wp-content/cache/fvm/min/1763985835-css65cf360cf92d00fc8dc57750fc9b26c09a2b34aad96b3015fbcf6cfe31da5.css",
-     "/feed/",
-     "/amp/",
-     "/wp-content/uploads/2025/02/icon2.png",
-     "/notizie/",
-     "/tv-e-spettacolo/",
-     "/lifestyle/",
-     "/tech/",
-     "/curiosita/",
-     "/apertura-del-marsa-al-arab-un-nuovo-hotel-jumeirah-a-dubai/",
-     "/author/marica/",
-     "/petra-e-colosseo-avviato-un-gemellaggio-per-valorizzare-la-cultura-reciproca/",
-     "/author/federica/",
-     "/il-grand-hotel-imperiale-sul-lago-di-como-cambia-proprieta-e-diventa-un-raffles/",
-     "/author/andrea/",
-     "/ita-airways-il-volo-diretto-a-tel-aviv-e-atterrato-senza-problemi-per-passeggeri-ed-equipaggio/"
-    ],
-    "ldJson": 1,
-    "ticketone": [],
-    "vivaticket": []
-   }
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.santeria.milano.it/",
-   "regione": "Lombardia",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 365243,
-    "linkInterni": 41,
-    "esempi": [
+     "/eventi/",
      "/feed/",
      "/comments/feed/",
      "/wp-json/oembed/1.0/embed",
@@ -264,15 +111,14 @@
      "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css",
      "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css",
      "/wp-content/cache/wpfc-minified/1bre01ak/abnfm.css",
-     "/wp-content/uploads/fusion-styles/4750fd0737ab28cb855235e849df7e90.min.css",
-     "/wp-content/cache/wpfc-minified/g2oftte3/vrj8.css",
+     "/wp-content/uploads/fusion-styles/9415d0b1c7d1c80bcd9d4ab93ee61f5b.min.css",
+     "/wp-content/cache/wpfc-minified/h6icw2b/abquf.css",
      "/wp-json/",
-     "/wp-json/wp/v2/pages/33133",
+     "/wp-json/wp/v2/pages/795",
      "/xmlrpc.php",
      "/wp-content/uploads/2018/05/cropped-favicon-32x32.png",
      "/wp-content/uploads/2018/05/cropped-favicon-192x192.png",
      "/wp-content/uploads/2018/05/cropped-favicon-180x180.png",
-     "/eventi/",
      "/bar-cucina/",
      "/toscana-31/",
      "/paladini-8/",
@@ -282,128 +128,35 @@
      "/chi-siamo/"
     ],
     "ldJson": 1,
-    "ticketone": [],
-    "vivaticket": []
+    "ticketone": [
+     "ticketone.it/en/event/trinix-santeria-toscana-31-21331486/",
+     "ticketone.it/en/event/allie-x-santeria-toscana-31-20964333/",
+     "ticketone.it/artist/jazzmi/?affiliate=IGA",
+     "ticketone.it/event/ed-maverick-santeria-toscana-31-21774702/",
+     "ticketone.it/event/anneke-van-giersbergen-and-band-santeria-toscana-31-21434491/"
+    ],
+    "vivaticket": [
+     "vivaticket.com/it/ticket/catch-your-breath/303185",
+     "vivaticket.it/it/event/catch-your-breath/303185?qubsq=5a54285a-85dd-4ce9-ba4f-f1c38a2e7ece&qubsp=90c93189-9b96-45d3-999c-7295299cda0c&qubsts=1780929851&qubsc=bestunion&qubse=vivaticketserver&qubsrt=Safetynet&qubsh=60876cfab2154757c841d0c2e8645e49",
+     "vivaticket.com/it/ticket/quintorigo-john-de-leo-rospo-grigio-in-cattivita-tour-2027/322903"
+    ]
    }
   },
   {
    "fonte": "siti",
-   "url": "https://www.fabriquemilano.it/",
+   "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 3155,
-    "linkInterni": 3,
-    "esempi": [
-     "/favicon.svg",
-     "/it/",
-     "/_astro/_businessPath_.DR5L-3jG.css"
-    ],
-    "ldJson": 0,
-    "ticketone": [],
-    "vivaticket": []
-   }
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.legendclub.it/",
-   "regione": "Lombardia",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 171970,
-    "linkInterni": 34,
-    "esempi": [
-     "/assets/uploads/2021/07/favicon.png",
-     "/wp-includes/css/dist/block-library/style.min.css",
-     "/assets/plugins/contact-form-7/includes/css/styles.css",
-     "/assets/fv-flowplayer-custom/style-1.css",
-     "/assets/plugins/gdpr/dist/css/public.css",
-     "/assets/themes/betheme/css/be.css",
-     "/assets/themes/betheme/assets/animations/animations.min.css",
-     "/assets/themes/betheme/fonts/fontawesome/fontawesome.css",
-     "/assets/themes/betheme/assets/jplayer/css/jplayer.blue.monday.min.css",
-     "/assets/themes/betheme/css/responsive.css",
-     "/assets/plugins/js_composer/assets/css/js_composer.min.css",
-     "/assets/uploads/smile_fonts/Defaults/Defaults.css",
-     "/assets/themes/betheme-child/style.css",
-     "/assets/plugins/wordpress-whatsapp-support/assets/css/wws-public-style.css",
-     "/assets/plugins/wordpress-whatsapp-support/assets/css/wws-public-template-1.css",
-     "/wp-json/",
-     "/wp-json/wp/v2/pages/2302",
-     "/wp-json/oembed/1.0/embed",
-     "/chi-siamo/",
-     "/palestra/",
-     "/sala-attrezzi/",
-     "/piscina/",
-     "/miha-bodytech/",
-     "/orario/",
-     "/estetica-e-dimagrimento/"
-    ],
-    "ldJson": 1,
-    "ticketone": [],
-    "vivaticket": []
-   }
+   "eventi": 9,
+   "link": 10,
+   "riserva": 9
   },
   {
    "fonte": "siti",
    "url": "https://www.bluenotemilano.com/",
    "regione": "Lombardia",
-   "eventi": 0,
+   "eventi": 10,
    "link": 10,
-   "nota": "pagine evento senza dati strutturati",
-   "diag": {
-    "byte": 102068,
-    "linkInterni": 41,
-    "esempi": [
-     "/wp-content/themes/mgquadro/assets/img/favicon/favicon.ico",
-     "/wp-content/themes/mgquadro/assets/img/favicon/favicon-96x96.png",
-     "/wp-content/themes/mgquadro/assets/img/favicon/favicon.svg",
-     "/wp-content/themes/mgquadro/assets/img/favicon/apple-touch-icon.png",
-     "/wp-json/oembed/1.0/embed",
-     "/wp-includes/css/dist/block-library/style.min.css",
-     "/wp-content/plugins/contact-form-7/includes/css/styles.css",
-     "/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css",
-     "/wp-content/themes/mgquadro/assets/dist/main.css",
-     "/wp-json/",
-     "/wp-json/wp/v2/pages/187",
-     "/xmlrpc.php",
-     "/category/show/",
-     "/ristorante/",
-     "/membership/",
-     "/aziende-e-privati",
-     "/contatti",
-     "/en/",
-     "/chi-siamo",
-     "/blue-note-network",
-     "/blue-note-off",
-     "/come-raggiungerci",
-     "/category/news/",
-     "/domande-frequenti/",
-     "/show/concerto-incognito-23-28-febbraio-2027-milano/"
-    ],
-    "ldJson": 1,
-    "ticketone": [],
-    "vivaticket": [],
-    "primoEvento": {
-     "url": "https://bluenotemilano.com/show/concerto-incognito-23-28-febbraio-2027-milano/",
-     "byte": 99938,
-     "ldJson": 1,
-     "microdata": false,
-     "og": [
-      "<meta property=\"og:title\" content=\"Concerto Incognito - 23-28 Febbraio 2027 - Milano\" />",
-      "<meta property=\"og:description\" content=\"C’è soul, c’è jazz, c’è funk e c’è energia pura… Tornano gli Incognito in concerto a Milano. Acquista i biglietti e prenota la cena!\" />"
-     ],
-     "date": [
-      "28 Febbraio 2027",
-      "28 Febbraio 2027",
-      "28 Febbraio 2027"
-     ]
-    }
-   }
+   "riserva": 10
   },
   {
    "fonte": "siti",
@@ -449,57 +202,27 @@
   },
   {
    "fonte": "siti",
-   "url": "https://www.teatrodalverme.it/",
+   "url": "https://www.unipolforum.it/it/calendario/",
    "regione": "Lombardia",
    "eventi": 0,
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 128555,
-    "linkInterni": 4,
-    "esempi": [
-     "/apple-touch-icon.png",
-     "/favicon-32x32.png",
-     "/favicon-16x16.png",
-     "/site.webmanifest"
-    ],
-    "ldJson": 1,
-    "ticketone": [
-     "ticketone.it/search/?affiliate=ITT&searchterm=Max+Gazz%C3%A8+Teatro+Dal+Verme",
-     "ticketone.it/artist/ludovico-einaudi/ludovico-einaudi-teatro-dal-verme-4085205/?affiliate=IGA",
-     "ticketone.it/artist/ensemble-symphony-orchestra/hans-zimmer-by-ensemble-symphony-orchestra-4026363/#calendar-start=2026-12",
-     "ticketone.it/event/nomadi-teatro-dal-verme-21016440/",
-     "ticketone.it/search/?affiliate=ITT&searchterm=Max+Gazz%C3%A8+Teatro+Dal+Verme"
-    ],
-    "vivaticket": [
-     "vivaticket.com/it/ticket/uriah-heep/299783?_gl=1*d2lgvo*_ga*OTU1NTA0NTExLjE3NzczODAyMTU.*_ga_C94ZPCM2JP*czE3ODExNzMxMjUkbzIkZzEkdDE3ODExNzM1MzEkajYwJGwwJGgyMTA1Mjc4OTcw*_gcl_au*NzAxODA2OS4xNzc3MzgwMjE2"
-    ]
-   }
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.unipolforum.it/",
-   "regione": "Lombardia",
-   "eventi": 0,
-   "link": 1,
-   "nota": "pagine evento senza dati strutturati",
-   "diag": {
-    "byte": 43889,
-    "linkInterni": 51,
+    "byte": 31260,
+    "linkInterni": 31,
     "esempi": [
      "/img/public/cuore.png",
-     "/it/",
-     "/en/",
+     "/it/calendario/",
+     "/en/events/",
      "/css/sys/style.css",
      "/tools/MenuAuto/sf.css",
-     "/tools/EventiAccordion/css/accordioncss.css",
      "/tools/JEF_clock/jquery.flipcountdown.css",
      "/tools/MenuAuto/overm.css",
      "/css/MF/MF.css",
+     "/it/",
      "/it/chisiamo/",
      "/it/beachforum/",
      "/it/areamultisport/",
-     "/it/calendario/",
      "/it/103/",
      "/it/104/",
      "/it/105/",
@@ -510,66 +233,13 @@
      "/it/opportunita-aziende/",
      "/it/101/",
      "/it/contatti/",
-     "/it/184/",
-     "/it/musica/eve/1403-joe-bonamassa/"
+     "/it/185/",
+     "/it/parcheggi/",
+     "/it/puntidiristoro/"
     ],
     "ldJson": 0,
     "ticketone": [
      "ticketone.it/?affiliate=IGA"
-    ],
-    "vivaticket": [],
-    "primoEvento": {
-     "url": "https://www.unipolforum.it/it/spettacolo/eve/1517-x-factor-la-finale/",
-     "byte": 31068,
-     "ldJson": 0,
-     "microdata": false,
-     "og": [],
-     "date": [
-      "3 DICEMBRE 2026"
-     ]
-    }
-   }
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.carroponte.org/",
-   "regione": "Lombardia",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 21027,
-    "linkInterni": 24,
-    "esempi": [
-     "/wp-content/themes/cp/img/favicon.ico",
-     "/wp-json/",
-     "/wp-content/themes/cp/style_nsopse3mssssjx.css",
-     "/dove-siamo/",
-     "/il-carroponte/",
-     "/news/",
-     "/info/",
-     "/mangiabevi/",
-     "/bambini/",
-     "/carroponte-green/",
-     "/programma/",
-     "/privacy/",
-     "/policy-accesso-allarea/",
-     "/swing-night-w-jazz-lag-orchestra/",
-     "/festa-radio-popolare-w-the-zen-circus/",
-     "/rumatera/",
-     "/ministri/",
-     "/holi-summer-festival/",
-     "/2265-2/",
-     "/oktobeer-loktoberfest-di-milano/",
-     "/almamegretta-dub-box/",
-     "/carl-brave-x-franco-126/",
-     "/a-night-for-tom-waits/",
-     "/cinaski-paolo-rossi-storie-di-giorni-dispari/"
-    ],
-    "ldJson": 1,
-    "ticketone": [
-     "ticketone.it/biglietti.html?affiliate=ITT&amp;fun=search&amp;action=search&amp;doc=search%2Fsearch&amp;detailadoc=erdetaila&amp;detailbdoc=evdetailb&amp;kudoc=artist&amp;sort_by=score&amp;sort_direction=desc&amp;fuzzy=yes&amp;suchbegriff=Carroponte",
-     "ticketone.it/biglietti.html?affiliate=ITT&amp;fun=search&amp;action=search&amp;doc=search%2Fsearch&amp;detailadoc=erdetaila&amp;detailbdoc=evdetailb&amp;kudoc=artist&amp;sort_by=score&amp;sort_direction=desc&amp;fuzzy=yes&amp;suchbegriff=Carroponte"
     ],
     "vivaticket": []
    }
@@ -597,59 +267,6 @@
   },
   {
    "fonte": "siti",
-   "url": "https://www.latteriamolloy.com/",
-   "regione": "Lombardia",
-   "eventi": 0,
-   "errore": "rete: fetch failed"
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.granteatrogeox.com/",
-   "regione": "Veneto",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 818726,
-    "linkInterni": 6,
-    "esempi": [
-     "/wp-content/uploads/fbrfg/apple-touch-icon.png",
-     "/wp-content/uploads/fbrfg/favicon-32x32.png",
-     "/wp-content/uploads/fbrfg/favicon-16x16.png",
-     "/wp-content/uploads/fbrfg/site.webmanifest",
-     "/wp-content/uploads/fbrfg/safari-pinned-tab.svg",
-     "/wp-content/uploads/fbrfg/favicon.ico"
-    ],
-    "ldJson": 1,
-    "ticketone": [],
-    "vivaticket": []
-   }
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.kioenearena.it/",
-   "regione": "Veneto",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 716170,
-    "linkInterni": 6,
-    "esempi": [
-     "/wp-content/uploads/fbrfg/apple-touch-icon.png",
-     "/wp-content/uploads/fbrfg/favicon-32x32.png",
-     "/wp-content/uploads/fbrfg/favicon-16x16.png",
-     "/wp-content/uploads/fbrfg/site.webmanifest",
-     "/wp-content/uploads/fbrfg/safari-pinned-tab.svg",
-     "/wp-content/uploads/fbrfg/favicon.ico"
-    ],
-    "ldJson": 1,
-    "ticketone": [],
-    "vivaticket": []
-   }
-  },
-  {
-   "fonte": "siti",
    "url": "https://www.newageclub.it/",
    "regione": "Veneto",
    "eventi": 22,
@@ -657,122 +274,11 @@
   },
   {
    "fonte": "siti",
-   "url": "https://www.sherwood.it/",
+   "url": "https://www.teatrolafenice.it/event-category/concerti-2026-27/",
    "regione": "Veneto",
-   "eventi": 0,
-   "errore": "HTTP 403"
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.arena.it/",
-   "regione": "Veneto",
-   "eventi": 0,
-   "link": 11,
-   "nota": "pagine evento senza dati strutturati",
-   "diag": {
-    "byte": 93480,
-    "linkInterni": 103,
-    "esempi": [
-     "/en/",
-     "/de/",
-     "/site/templates/res/css/arena-di-verona.css",
-     "/site/templates/res/override/arena-di-verona.css",
-     "/site/templates/res/favicons/favicon-32x32.png",
-     "/site/templates/res/favicons/favicon-194x194.png",
-     "/site/templates/res/favicons/android-chrome-192x192.png",
-     "/site/templates/res/favicons/favicon-16x16.png",
-     "/site/templates/res/favicons/apple-touch-icon.png",
-     "/arena-opera-festival/",
-     "/arena-opera-festival/spettacoli/",
-     "/arena-opera-festival/spettacoli-prossima-stagione/",
-     "/arena-opera-festival/artisti/",
-     "/arena-opera-festival/calendario/",
-     "/arena-opera-festival/biglietti/",
-     "/arena-opera-festival/biglietti/come-acquistare/",
-     "/arena-opera-festival/biglietti/tariffe-e-settori-prossima-stagione/",
-     "/arena-opera-festival/biglietti/regala-un-biglietto/",
-     "/arena-opera-festival/biglietti/persone-con-disabilita/",
-     "/arena-opera-festival/regolamento/",
-     "/arena-opera-festival/arena-per-tutti/",
-     "/arena-opera-festival/arena-per-tutti/percorsi-multisensoriali/",
-     "/arena-opera-festival/arena-per-tutti/opere-accessibili/",
-     "/arena-opera-festival/arena-per-tutti/calendario/",
-     "/arena-opera-festival/biglietti/star-roof/"
-    ],
-    "ldJson": 2,
-    "ticketone": [],
-    "vivaticket": [],
-    "primoEvento": {
-     "url": "https://www.arena.it/arena-opera-festival/biglietti/come-acquistare/",
-     "byte": 76102,
-     "ldJson": 1,
-     "microdata": false,
-     "og": [
-      "<meta property=\"og:title\" content=\"Come Acquistare Biglietti Arena | Arena Opera Festival\">",
-      "<meta property=\"og:description\" content=\"Scopri tutte le modalità per acquistare i biglietti all&apos;Arena di Verona Opera Festival: online, in biglietteria o presso i punti vendita autorizzati.\">"
-     ],
-     "date": []
-    }
-   }
-  },
-  {
-   "fonte": "siti",
-   "url": "https://www.teatrolafenice.it/",
-   "regione": "Veneto",
-   "eventi": 0,
-   "link": 20,
-   "nota": "pagine evento senza dati strutturati",
-   "diag": {
-    "byte": 131157,
-    "linkInterni": 78,
-    "esempi": [
-     "/wp-content/themes/teatro-la-fenice/assets/images/obj/favicon.ico",
-     "/wp-content/themes/teatro-la-fenice/assets/stylesheets/main.css",
-     "/xmlrpc.php",
-     "/en/",
-     "/wp-includes/css/dist/block-library/style.min.css",
-     "/wp-json/",
-     "/wp-includes/wlwmanifest.xml",
-     "/wp-json/oembed/1.0/embed",
-     "/under35-stagione-2026-2027-2/",
-     "/reserved-area/",
-     "/calendario/",
-     "/fondazione-teatro-la-fenice/storia/",
-     "/nuova-stagione-2026-2027/",
-     "/abbonamenti-2026-2027/",
-     "/fondazione-teatro-la-fenice/visita-la-fenice/",
-     "/area-stampa-generale/",
-     "/altro/premio-venezia/",
-     "/la-fenice-online/",
-     "/archivio-storico/",
-     "/info-e-biglietteria/",
-     "/gift-card-regala-la-fenice-2025-2026/",
-     "/event-category/opera-2026-27/",
-     "/event/fedora/",
-     "/event-category/concerti-2026-27/",
-     "/event/concertoriccardofrizzasinopoliperosi/"
-    ],
-    "ldJson": 1,
-    "ticketone": [],
-    "vivaticket": [],
-    "primoEvento": {
-     "url": "https://www.teatrolafenice.it/event/fedora/",
-     "byte": 70701,
-     "ldJson": 1,
-     "microdata": false,
-     "og": [
-      "<meta property=\"og:title\" content=\"Opera inaugurale - Fedora - Teatro La Fenice di Venezia\" />",
-      "<meta property=\"og:description\" content=\"Opera inaugurale della Stagione Lirica e Balletto 2026/2027. In scena dal 13 al 22 novembre al Teatro La Fenice | Venezia\" />"
-     ],
-     "date": [
-      "12.25.57",
-      "13 novembre 2026",
-      "09.22.53",
-      "09.22.53",
-      "09.22.53"
-     ]
-    }
-   }
+   "eventi": 25,
+   "link": 25,
+   "riserva": 25
   },
   {
    "fonte": "siti",
@@ -821,17 +327,17 @@
   },
   {
    "fonte": "siti",
-   "url": "https://www.operaestate.it/",
+   "url": "https://www.operaestate.it/it/festival/musica",
    "regione": "Veneto",
    "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
+   "link": 5,
+   "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 51426,
-    "linkInterni": 55,
+    "byte": 88869,
+    "linkInterni": 56,
     "esempi": [
-     "/it/",
-     "/en/",
+     "/it/festival/musica",
+     "/en/festival-eng/music",
      "/it/component/finder/search",
      "/images/layout/opera-estate-logo.svg",
      "/media/vendor/joomla-custom-elements/css/joomla-alert.min.css",
@@ -842,6 +348,8 @@
      "/templates/yootheme/css/theme.update.css",
      "/media/plg_system_jcepro/site/css/content.min.css",
      "/media/mod_languages/css/template.min.css",
+     "/it/festival/musica.md",
+     "/it/",
      "/it/news",
      "/it/archivio",
      "/it/progetti-formativi-2",
@@ -849,17 +357,36 @@
      "/it/festival/programma",
      "/it/festival/danza",
      "/it/festival/teatro",
-     "/it/festival/musica",
      "/it/festival/lirica",
      "/it/festival/bmotion",
      "/it/festival/bmotion/danza",
-     "/it/festival/bmotion/teatro",
-     "/it/festival/bmotion/musica"
+     "/it/festival/bmotion/teatro"
     ],
     "ldJson": 3,
     "ticketone": [],
-    "vivaticket": []
+    "vivaticket": [],
+    "primoEvento": {
+     "url": "https://www.operaestate.it/it/festival/bmotion/danza",
+     "byte": 94812,
+     "ldJson": 3,
+     "microdata": false,
+     "og": [],
+     "date": [
+      "5.0.53",
+      "5.0.53",
+      "5.0.53",
+      "5.0.53",
+      "5.0.53"
+     ]
+    }
    }
+  },
+  {
+   "fonte": "siti",
+   "url": "https://www.sherwood.it/",
+   "regione": "Veneto",
+   "eventi": 0,
+   "errore": "HTTP 403"
   }
  ],
  "diagnostica": {
@@ -867,8 +394,22 @@
    {
     "categorie": true,
     "totalPages": 37,
-    "totalResults": 3397,
+    "totalResults": 3398,
     "prodotti": 50,
+    "conData": 50,
+    "chiavi": [
+     "facets",
+     "page",
+     "products",
+     "results",
+     "totalPages",
+     "totalResults"
+    ],
+    "campione": [
+     "{\"attractions\":[{\"name\":\"Amistat\"}],\"categories\":[{\"name\":\"Concerti\"},{\"name\":\"Pop & Rock\",\"parentCategory\":{\"name\":\"Concerti\"}}],\"currency\":\"EUR\",\"description\":\"Annunciata l'unica data italiana dell'European Tour 2026. Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/amistat-biglietti.jpg\",\"inStock\":true,\"link\":\"https://www.ticketone.it/event/amistat-locomotiv-club-21618301/\",\"name\":\"Amistat\",\"price\":28.75,\"productGroupId\":\"4146648\",\"productId\":\"21618301\",\"promoter\":{\"id\":\"378389\",\"name\":\"ETM Production S.r.l\"},\"rating\":{\"average\":0,\"count\":0},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\",\"MOBILE_TICKET\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Bologna\",\"geoLocation\":{\"latitude\":44.5079899224083,\"longitude\":11.352367670069782},\"name\":\"Locomot",
+     "{\"attractions\":[{\"name\":\"Radici nel cemento\"}],\"categories\":[{\"name\":\"Concerti\"},{\"name\":\"Pop & Rock\",\"parentCategory\":{\"name\":\"Concerti\"}}],\"description\":\"La band torna in concerto. Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/radici-cemento-biglietti-2.jpg\",\"inStock\":false,\"link\":\"https://www.ticketone.it/event/radici-nel-cemento-friends-auditorium-parco-della-musica-ennio-morricone-21987938/\",\"name\":\"Radici Nel Cemento & Friends\",\"productGroupId\":\"1459481\",\"productId\":\"21987938\",\"promoter\":{\"id\":\"38940\",\"name\":\"Fondazione Musica per Roma\"},\"rating\":{\"average\":0,\"count\":0},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\",\"MOBILE_TICKET\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Roma\",\"geoLocation\":{\"latitude\":41.92891605314164,\"longitude\":12",
+     "{\"attractions\":[{\"name\":\"JAZZMI\"}],\"categories\":[{\"name\":\"Concerti\"},{\"name\":\"Jazz\",\"parentCategory\":{\"name\":\"Concerti\"}},{\"name\":\"Concerti\"},{\"name\":\"Festival\",\"parentCategory\":{\"name\":\"Concerti\"}}],\"currency\":\"EUR\",\"description\":\"JAZZMI torna con una proposta ancora più interessante, trasversale e innovativa. Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/jazzmi26-biglietti-2.jpg\",\"inStock\":true,\"link\":\"https://www.ticketone.it/event/jazzmi-2026-la-triennale-21865552/\",\"name\":\"A New Sketches of Spain\",\"price\":34.5,\"productGroupId\":\"4147049\",\"productId\":\"21865552\",\"promoter\":{\"id\":\"1152666\",\"name\":\"Associazione Jazzmi\"},\"rating\":{\"average\":4.235300064086914,\"count\":17},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\",\"MOBILE_TICKET\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEnter"
+    ],
     "categorieViste": [
      "Concerti",
      "Pop & Rock",
@@ -883,8 +424,22 @@
    {
     "categorie": false,
     "totalPages": 103,
-    "totalResults": 16976,
+    "totalResults": 16978,
     "prodotti": 50,
+    "conData": 50,
+    "chiavi": [
+     "facets",
+     "page",
+     "products",
+     "results",
+     "totalPages",
+     "totalResults"
+    ],
+    "campione": [
+     "{\"attractions\":[{\"name\":\"Terme De Montel\"}],\"categories\":[{\"name\":\"Altre manifestazioni\"},{\"name\":\"Altri eventi\",\"parentCategory\":{\"name\":\"Altre manifestazioni\"}},{\"name\":\"Altre manifestazioni\"},{\"name\":\"Terme\",\"parentCategory\":{\"name\":\"Altre manifestazioni\"}}],\"currency\":\"EUR\",\"description\":\"In una città che corre veloce come Milano, esiste un luogo in cui rallentare e prendersi cura di sé. Acquista i tuoi biglietti!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/terme-de-montel-biglietti.jpg\",\"inStock\":true,\"link\":\"https://www.ticketone.it/event/ingresso-terme-de-montel-milano-terme-de-montel-milano-21572878/\",\"name\":\"Ingresso Terme De Montel Milano\",\"price\":49,\"productGroupId\":\"4139844\",\"productId\":\"21572878\",\"promoter\":{\"id\":\"1600879\",\"name\":\"San Siro Benessere Srl\"},\"rating\":{\"average\":5,\"count\":1},\"status\":\"Available\",\"tags\"",
+     "{\"attractions\":[{\"name\":\"Reggia di Caserta\"}],\"categories\":[{\"name\":\"Mostre e Musei\"},{\"name\":\"Musei e siti archeologici\",\"parentCategory\":{\"name\":\"Mostre e Musei\"}}],\"description\":\"Visita la Reggia di Caserta, la dimora storica appartenuta alla casa reale dei Borbone di Napoli. Scopri i dettagli!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2020/reggia-caserta-biglietti.jpg\",\"inStock\":false,\"link\":\"https://www.ticketone.it/event/reggia-di-caserta-reggia-di-caserta-21961456/\",\"name\":\"Reggia di Caserta - Parco Reale e Giardino Inglese\",\"productGroupId\":\"1818672\",\"productId\":\"21961456\",\"promoter\":{\"id\":\"1059002\",\"name\":\"Reggia di Caserta\"},\"rating\":{\"average\":4.342400074005127,\"count\":368},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Caserta\",\"geoLoca",
+     "{\"categories\":[{\"name\":\"Mostre e Musei\"},{\"name\":\"Musei e siti archeologici\",\"parentCategory\":{\"name\":\"Mostre e Musei\"}}],\"currency\":\"EUR\",\"description\":\"Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"inStock\":true,\"link\":\"https://www.ticketone.it/event/parco-archeologico-della-neapolis-parco-archeologico-neapolis-e-museo-archeologico-paolo-orsi-21875281/\",\"name\":\"Parco Archeologico della Neapolis\",\"price\":14,\"productGroupId\":\"3762374\",\"productId\":\"21875281\",\"promoter\":{\"id\":\"1510428\",\"name\":\"Fondazione INDA Onlus Parco e Musei\"},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Siracusa\",\"name\":\"Parco Archeologico Neapolis e Museo Archeologico Paolo Orsi\",\"postalCode\":\"96100\",\"state\":\"SR\"},\"startDate\":\"2026-11-05T08:30:00+01:00\"}},\"url\":{\"domain\":\"https://www.ticketone.it\",\"path\""
+    ],
     "categorieViste": [
      "Altre manifestazioni",
      "Altri eventi",
