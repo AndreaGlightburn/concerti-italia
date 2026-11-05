@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-05T00:07:54.020Z",
+ "aggiornato": "2026-11-05T00:17:12.408Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 511,
-   "secondi": 5
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 51,
-   "secondi": 87
+   "eventi": 3393,
+   "secondi": 110
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 72,
-   "secondi": 74
+   "secondi": 72
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 87,
-   "secondi": 175
+   "eventi": 104,
+   "secondi": 181
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 629,
- "confrontabili": 66,
+ "eventi": 3031,
+ "confrontabili": 714,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 489,
+ "durataSecondi": 600,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -202,47 +202,11 @@
   },
   {
    "fonte": "siti",
-   "url": "https://www.unipolforum.it/it/calendario/",
+   "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 31260,
-    "linkInterni": 31,
-    "esempi": [
-     "/img/public/cuore.png",
-     "/it/calendario/",
-     "/en/events/",
-     "/css/sys/style.css",
-     "/tools/MenuAuto/sf.css",
-     "/tools/JEF_clock/jquery.flipcountdown.css",
-     "/tools/MenuAuto/overm.css",
-     "/css/MF/MF.css",
-     "/it/",
-     "/it/chisiamo/",
-     "/it/beachforum/",
-     "/it/areamultisport/",
-     "/it/103/",
-     "/it/104/",
-     "/it/105/",
-     "/it/106/",
-     "/it/fiere-festival/",
-     "/it/regole/",
-     "/it/organizzatori/",
-     "/it/opportunita-aziende/",
-     "/it/101/",
-     "/it/contatti/",
-     "/it/185/",
-     "/it/parcheggi/",
-     "/it/puntidiristoro/"
-    ],
-    "ldJson": 0,
-    "ticketone": [
-     "ticketone.it/?affiliate=IGA"
-    ],
-    "vivaticket": []
-   }
+   "eventi": 17,
+   "link": 18,
+   "riserva": 17
   },
   {
    "fonte": "siti",
@@ -392,68 +356,9 @@
  "diagnostica": {
   "ticketone": [
    {
-    "categorie": true,
-    "totalPages": 37,
-    "totalResults": 3398,
-    "prodotti": 50,
-    "conData": 50,
-    "chiavi": [
-     "facets",
-     "page",
-     "products",
-     "results",
-     "totalPages",
-     "totalResults"
-    ],
-    "campione": [
-     "{\"attractions\":[{\"name\":\"Amistat\"}],\"categories\":[{\"name\":\"Concerti\"},{\"name\":\"Pop & Rock\",\"parentCategory\":{\"name\":\"Concerti\"}}],\"currency\":\"EUR\",\"description\":\"Annunciata l'unica data italiana dell'European Tour 2026. Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/amistat-biglietti.jpg\",\"inStock\":true,\"link\":\"https://www.ticketone.it/event/amistat-locomotiv-club-21618301/\",\"name\":\"Amistat\",\"price\":28.75,\"productGroupId\":\"4146648\",\"productId\":\"21618301\",\"promoter\":{\"id\":\"378389\",\"name\":\"ETM Production S.r.l\"},\"rating\":{\"average\":0,\"count\":0},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\",\"MOBILE_TICKET\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Bologna\",\"geoLocation\":{\"latitude\":44.5079899224083,\"longitude\":11.352367670069782},\"name\":\"Locomot",
-     "{\"attractions\":[{\"name\":\"Radici nel cemento\"}],\"categories\":[{\"name\":\"Concerti\"},{\"name\":\"Pop & Rock\",\"parentCategory\":{\"name\":\"Concerti\"}}],\"description\":\"La band torna in concerto. Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/radici-cemento-biglietti-2.jpg\",\"inStock\":false,\"link\":\"https://www.ticketone.it/event/radici-nel-cemento-friends-auditorium-parco-della-musica-ennio-morricone-21987938/\",\"name\":\"Radici Nel Cemento & Friends\",\"productGroupId\":\"1459481\",\"productId\":\"21987938\",\"promoter\":{\"id\":\"38940\",\"name\":\"Fondazione Musica per Roma\"},\"rating\":{\"average\":0,\"count\":0},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\",\"MOBILE_TICKET\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Roma\",\"geoLocation\":{\"latitude\":41.92891605314164,\"longitude\":12",
-     "{\"attractions\":[{\"name\":\"JAZZMI\"}],\"categories\":[{\"name\":\"Concerti\"},{\"name\":\"Jazz\",\"parentCategory\":{\"name\":\"Concerti\"}},{\"name\":\"Concerti\"},{\"name\":\"Festival\",\"parentCategory\":{\"name\":\"Concerti\"}}],\"currency\":\"EUR\",\"description\":\"JAZZMI torna con una proposta ancora più interessante, trasversale e innovativa. Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/jazzmi26-biglietti-2.jpg\",\"inStock\":true,\"link\":\"https://www.ticketone.it/event/jazzmi-2026-la-triennale-21865552/\",\"name\":\"A New Sketches of Spain\",\"price\":34.5,\"productGroupId\":\"4147049\",\"productId\":\"21865552\",\"promoter\":{\"id\":\"1152666\",\"name\":\"Associazione Jazzmi\"},\"rating\":{\"average\":4.235300064086914,\"count\":17},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\",\"MOBILE_TICKET\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEnter"
-    ],
-    "categorieViste": [
-     "Concerti",
-     "Pop & Rock",
-     "Jazz",
-     "Festival",
-     "Altri eventi musicali",
-     "Night life",
-     "Cinema",
-     "FILM"
-    ]
-   },
-   {
-    "categorie": false,
-    "totalPages": 103,
-    "totalResults": 16978,
-    "prodotti": 50,
-    "conData": 50,
-    "chiavi": [
-     "facets",
-     "page",
-     "products",
-     "results",
-     "totalPages",
-     "totalResults"
-    ],
-    "campione": [
-     "{\"attractions\":[{\"name\":\"Terme De Montel\"}],\"categories\":[{\"name\":\"Altre manifestazioni\"},{\"name\":\"Altri eventi\",\"parentCategory\":{\"name\":\"Altre manifestazioni\"}},{\"name\":\"Altre manifestazioni\"},{\"name\":\"Terme\",\"parentCategory\":{\"name\":\"Altre manifestazioni\"}}],\"currency\":\"EUR\",\"description\":\"In una città che corre veloce come Milano, esiste un luogo in cui rallentare e prendersi cura di sé. Acquista i tuoi biglietti!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2026/terme-de-montel-biglietti.jpg\",\"inStock\":true,\"link\":\"https://www.ticketone.it/event/ingresso-terme-de-montel-milano-terme-de-montel-milano-21572878/\",\"name\":\"Ingresso Terme De Montel Milano\",\"price\":49,\"productGroupId\":\"4139844\",\"productId\":\"21572878\",\"promoter\":{\"id\":\"1600879\",\"name\":\"San Siro Benessere Srl\"},\"rating\":{\"average\":5,\"count\":1},\"status\":\"Available\",\"tags\"",
-     "{\"attractions\":[{\"name\":\"Reggia di Caserta\"}],\"categories\":[{\"name\":\"Mostre e Musei\"},{\"name\":\"Musei e siti archeologici\",\"parentCategory\":{\"name\":\"Mostre e Musei\"}}],\"description\":\"Visita la Reggia di Caserta, la dimora storica appartenuta alla casa reale dei Borbone di Napoli. Scopri i dettagli!\",\"hasRecommendation\":false,\"imageUrl\":\"https://www.ticketone.it/obj/media/IT-eventim/teaser/222x222/2020/reggia-caserta-biglietti.jpg\",\"inStock\":false,\"link\":\"https://www.ticketone.it/event/reggia-di-caserta-reggia-di-caserta-21961456/\",\"name\":\"Reggia di Caserta - Parco Reale e Giardino Inglese\",\"productGroupId\":\"1818672\",\"productId\":\"21961456\",\"promoter\":{\"id\":\"1059002\",\"name\":\"Reggia di Caserta\"},\"rating\":{\"average\":4.342400074005127,\"count\":368},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Caserta\",\"geoLoca",
-     "{\"categories\":[{\"name\":\"Mostre e Musei\"},{\"name\":\"Musei e siti archeologici\",\"parentCategory\":{\"name\":\"Mostre e Musei\"}}],\"currency\":\"EUR\",\"description\":\"Scopri i dettagli e acquista il tuo biglietto!\",\"hasRecommendation\":false,\"inStock\":true,\"link\":\"https://www.ticketone.it/event/parco-archeologico-della-neapolis-parco-archeologico-neapolis-e-museo-archeologico-paolo-orsi-21875281/\",\"name\":\"Parco Archeologico della Neapolis\",\"price\":14,\"productGroupId\":\"3762374\",\"productId\":\"21875281\",\"promoter\":{\"id\":\"1510428\",\"name\":\"Fondazione INDA Onlus Parco e Musei\"},\"status\":\"Available\",\"tags\":[\"TICKETDIRECT\"],\"type\":\"LiveEntertainment\",\"typeAttributes\":{\"liveEntertainment\":{\"location\":{\"city\":\"Siracusa\",\"name\":\"Parco Archeologico Neapolis e Museo Archeologico Paolo Orsi\",\"postalCode\":\"96100\",\"state\":\"SR\"},\"startDate\":\"2026-11-05T08:30:00+01:00\"}},\"url\":{\"domain\":\"https://www.ticketone.it\",\"path\""
-    ],
-    "categorieViste": [
-     "Altre manifestazioni",
-     "Altri eventi",
-     "Terme",
-     "Mostre e Musei",
-     "Musei e siti archeologici",
-     "Mostre d'arte e di storia",
-     "Teatro",
-     "Prosa",
-     "Musical e varietà"
-    ]
-   },
-   {
-    "senzaCategoria": 1
+    "richieste": 193,
+    "eventi": 3393,
+    "giorniPieni": 2
    }
   ]
  }
