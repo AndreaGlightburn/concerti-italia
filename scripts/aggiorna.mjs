@@ -143,6 +143,8 @@ async function fonteTicketone(cfg) {
       const j = await http(base + '?' + q, { retries: 3, headers: { Origin: 'https://www.ticketone.it', Referer: 'https://www.ticketone.it/' } });
       totalPages = j.totalPages || 1;
       if (p === 1) DIAG.ticketone.push({ categorie: useCat, totalPages: j.totalPages, totalResults: j.totalResults, prodotti: (j.products || []).length,
+        conData: (j.products || []).filter(x => x.typeAttributes?.liveEntertainment?.startDate).length, chiavi: Object.keys(j || {}),
+        campione: (j.products || []).slice(0, 3).map(x => JSON.stringify(x).slice(0, 900)),
         categorieViste: [...new Set((j.products || []).flatMap(x => (x.categories || []).map(c => c.name)))].slice(0, 15) });
       for (const pr of j.products || []) {
         const e = eventimNorm(pr, 'to');
@@ -243,6 +245,39 @@ export function eventLinks(html, base, pattern) {
   }
   return [...out];
 }
+/* pagine evento senza dati strutturati: titolo da og:title, data e ora dal testo, luogo dalla configurazione */
+const MESI_IT = { gen: 1, feb: 2, mar: 3, apr: 4, mag: 5, giu: 6, lug: 7, ago: 8, set: 9, ott: 10, nov: 11, dic: 12 };
+const meta = (h, k) => { const m = h.match(new RegExp('<meta[^>]+(?:property|name)=["\']' + k + '["\'][^>]*content=["\']([^"\']*)["\']', 'i')) || h.match(new RegExp('<meta[^>]+content=["\']([^"\']*)["\'][^>]*(?:property|name)=["\']' + k + '["\']', 'i')); return m ? decodeHtml(m[1]).trim() : ''; };
+const decodeHtml = t => String(t).replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n)).replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+  .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#039;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ').replace(/&euro;/g, '€');
+function testoPagina(h) { return decodeHtml(h.replace(/<(script|style|noscript|svg)[\s\S]*?<\/\1>/gi, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' '); }
+export function dateNelTesto(t, oggi = ymd(new Date())) {
+  const out = [];
+  for (const m of t.matchAll(/\b(\d{1,2})[\/.](\d{1,2})[\/.](\d{2,4})\b(?:[^0-9]{1,12}(\d{1,2})[:.](\d{2}))?/g)) {
+    const y = m[3].length === 2 ? 2000 + +m[3] : +m[3]; out.push({ d: y + '-' + pad(+m[2]) + '-' + pad(+m[1]), t: m[4] ? pad(+m[4]) + ':' + m[5] : '', i: m.index }); }
+  for (const m of t.matchAll(/\b(\d{1,2})(?:°|º)?\s+(gen|feb|mar|apr|mag|giu|lug|ago|set|ott|nov|dic)[a-z]*\.?\s+(\d{4})(?:[^0-9]{1,14}(\d{1,2})[:.](\d{2}))?/gi)) {
+    out.push({ d: m[3] + '-' + pad(MESI_IT[m[2].toLowerCase()]) + '-' + pad(+m[1]), t: m[4] ? pad(+m[4]) + ':' + m[5] : '', i: m.index }); }
+  return out.filter(x => /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(x.d) && x.d >= oggi && x.d <= ymd(new Date(Date.now() + 730 * 864e5))).sort((a, b) => a.i - b.i);
+}
+export function paginaEvento(html, url, item, src) {
+  const ogT = meta(html, 'og:title') || (html.match(/<title>([^<]*)<\/title>/i) || [])[1] || '', ogD = meta(html, 'og:description');
+  // Mailticket: «… a partire da € 28,00, le prevendite per TITOLO - LUOGO - sabato 21/11/2026 - 21:00»
+  const mt = ogD.match(/prevendite per\s+(.+?)\s+-\s+(.+?)\s+-\s+\S+\s+(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+-\s+(\d{1,2}):(\d{2}))?/i);
+  const mtp = (ogD.match(/a partire da\s*€\s*([\d.]*\d(?:,\d{2})?)/i) || [])[1];
+  if (mt) return { id: src + ':' + hash(url), src, title: mt[1], artist: mt[1].replace(/\s+(in concerto|live|tour.*|a teatro)$/i, ''), date: mt[5] + '-' + pad(+mt[4]) + '-' + pad(+mt[3]), time: mt[6] ? pad(+mt[6]) + ':' + mt[7] : '',
+    venue: mt[2], city: item.citta || '', address: '', lat: null, lon: null, priceMin: mtp ? num(mtp.replace(/\./g, '').replace(',', '.')) : null, priceMax: null, currency: 'EUR', url, image: meta(html, 'og:image'), genre: '', status: '', onsale: '' };
+  const testo = testoPagina(html), d = dateNelTesto(testo)[0];
+  if (!ogT || !d) return null;
+  if (item.musica && !new RegExp(item.musica, 'i').test(url + ' ' + testo.slice(0, 4000))) return null;
+  const seg = ogT.split(/\s+[|–-]\s+/).map(x => x.trim()).filter(x => x && !/^biglietti$/i.test(x));
+  const title = (seg[0] || '').replace(/\s+Biglietti$/i, '').trim();
+  if (!title || title.length < 3) return null;
+  // «Titolo - Artista - Luogo - Biglietti» (Do It Yourself e simili)
+  const artist = !item.venue && seg.length >= 3 ? seg[1] : title, venueT = !item.venue && seg.length >= 3 ? seg[seg.length - 1] : '';
+  const prezzi = [...testo.matchAll(/€\s*(\d{1,3}(?:[.,]\d{2})?)|(\d{1,3}(?:[.,]\d{2})?)\s*€/g)].map(m => num(m[1] || m[2])).filter(v => v && v < 1000).slice(0, 8);
+  return { id: src + ':' + hash(url), src, title, artist, date: d.d, time: d.t, venue: item.venue || venueT, city: item.citta || '', address: '', lat: item.lat ?? null, lon: item.lon ?? null,
+    priceMin: prezzi.length ? Math.min(...prezzi) : null, priceMax: prezzi.length ? Math.max(...prezzi) : null, currency: 'EUR', url, image: meta(html, 'og:image'), genre: '', status: '', onsale: '' };
+}
 async function fontePagine(cfg, chiave, esiti) {
   const lista = (cfg[chiave] && cfg[chiave].pagine) || [];
   if (!lista.length) throw new Error('nessuna pagina configurata in config.json');
@@ -263,8 +298,11 @@ async function fontePagine(cfg, chiave, esiti) {
         const det = (links.length ? links : eventLinks(html, u, item.link)).slice(0, item.max ?? maxDettagli);
         es.link = det.length; let falliti = 0;
         for (const l of det) {
-          try { const h2 = await http(new URL(l, u).href, { json: false, retries: 1 });
-            for (const o of extractJsonLd(h2).events) es.eventi += add(o, src, l, item, u);
+          try { const lu = new URL(l, u).href, h2 = await http(lu, { json: false, retries: 1 });
+            const ld = extractJsonLd(h2).events; let n = 0;
+            for (const o of ld) n += add(o, src, l, item, u);
+            if (!n && item.riserva !== false) { const e = paginaEvento(h2, lu, item, src); if (e && e.date) { e.fonte = item.nome || new URL(u).hostname.replace(/^www\./, ''); out.set(e.id, e); n = 1; es.riserva = (es.riserva || 0) + 1; } }
+            es.eventi += n;
           } catch { falliti++; }
           await sleep(450);
         }
@@ -308,6 +346,7 @@ async function geocodeMissing(events, budget) {
     if (e.lat != null && e.lon != null) continue;
     let g = e.venue && e.city ? await lookup(e.venue + ', ' + e.city) : undefined;
     if (!g && e.city) g = await lookup(e.city);
+    if (!g && e.venue && !e.city) g = await lookup(e.venue);
     if (g) { e.lat = g[0]; e.lon = g[1]; }
   }
   await writeJson(cacheFile, cache);

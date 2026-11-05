@@ -29,135 +29,122 @@
         "url": "https://www.alcatrazmilano.it/",
         "sigla": "web",
         "nome": "Alcatraz",
+        "venue": "Alcatraz",
+        "citta": "Milano",
         "regione": "Lombardia"
       },
       {
-        "url": "https://www.magazzinigenerali.it/",
-        "sigla": "web",
-        "nome": "Magazzini Generali",
-        "regione": "Lombardia"
-      },
-      {
-        "url": "https://www.santeria.milano.it/",
+        "url": "https://www.santeria.milano.it/eventi/",
         "sigla": "web",
         "nome": "Santeria Toscana 31",
-        "regione": "Lombardia"
+        "venue": "Santeria Toscana 31",
+        "citta": "Milano",
+        "regione": "Lombardia",
+        "link": "/eventi/[^/]+/"
       },
       {
-        "url": "https://www.fabriquemilano.it/",
+        "url": "https://www.fabriquemilano.it/it/",
         "sigla": "web",
         "nome": "Fabrique",
-        "regione": "Lombardia"
-      },
-      {
-        "url": "https://www.legendclub.it/",
-        "sigla": "web",
-        "nome": "Legend Club",
+        "venue": "Fabrique",
+        "citta": "Milano",
         "regione": "Lombardia"
       },
       {
         "url": "https://www.bluenotemilano.com/",
         "sigla": "web",
         "nome": "Blue Note Milano",
-        "regione": "Lombardia"
+        "venue": "Blue Note",
+        "citta": "Milano",
+        "regione": "Lombardia",
+        "link": "/show/[^/]+"
       },
       {
         "url": "https://www.teatroarcimboldi.it/",
         "sigla": "web",
         "nome": "Teatro degli Arcimboldi",
-        "regione": "Lombardia"
+        "venue": "Teatro degli Arcimboldi",
+        "citta": "Milano",
+        "regione": "Lombardia",
+        "link": "/(spettacolo|spettacoli|evento|eventi)/[^/]+"
       },
       {
-        "url": "https://www.teatrodalverme.it/",
+        "url": "https://www.unipolforum.it/it/calendario/",
         "sigla": "web",
-        "nome": "Teatro Dal Verme",
-        "regione": "Lombardia"
-      },
-      {
-        "url": "https://www.unipolforum.it/",
-        "sigla": "web",
-        "nome": "Unipol Forum (Assago)",
-        "regione": "Lombardia"
-      },
-      {
-        "url": "https://www.carroponte.org/",
-        "sigla": "web",
-        "nome": "Carroponte (Sesto S. Giovanni)",
-        "regione": "Lombardia"
+        "nome": "Unipol Forum",
+        "venue": "Unipol Forum",
+        "citta": "Assago",
+        "regione": "Lombardia",
+        "link": "/eve/\\d+"
       },
       {
         "url": "https://www.circolomagnolia.it/",
         "sigla": "web",
-        "nome": "Circolo Magnolia (Segrate)",
+        "nome": "Circolo Magnolia",
+        "venue": "Circolo Magnolia",
+        "citta": "Segrate",
         "regione": "Lombardia"
       },
       {
         "url": "https://www.liveclub.it/",
         "sigla": "web",
-        "nome": "Live Club (Trezzo sull'Adda)",
+        "nome": "Live Club",
+        "venue": "Live Club",
+        "citta": "Trezzo sull'Adda",
         "regione": "Lombardia"
       },
       {
         "url": "https://www.druso.it/",
         "sigla": "web",
-        "nome": "Druso (Ranica, Bergamo)",
+        "nome": "Druso",
+        "venue": "Druso",
+        "citta": "Ranica",
         "regione": "Lombardia"
-      },
-      {
-        "url": "https://www.latteriamolloy.com/",
-        "sigla": "web",
-        "nome": "Latteria Molloy (Brescia)",
-        "regione": "Lombardia"
-      },
-      {
-        "url": "https://www.granteatrogeox.com/",
-        "sigla": "web",
-        "nome": "Gran Teatro Geox (Padova)",
-        "regione": "Veneto"
-      },
-      {
-        "url": "https://www.kioenearena.it/",
-        "sigla": "web",
-        "nome": "Kioene Arena (Padova)",
-        "regione": "Veneto"
       },
       {
         "url": "https://www.newageclub.it/",
         "sigla": "web",
-        "nome": "New Age Club (Roncade)",
+        "nome": "New Age Club",
+        "venue": "New Age Club",
+        "citta": "Roncade",
         "regione": "Veneto"
       },
       {
-        "url": "https://www.sherwood.it/",
+        "url": "https://www.teatrolafenice.it/event-category/concerti-2026-27/",
         "sigla": "web",
-        "nome": "Sherwood Festival (Padova)",
-        "regione": "Veneto"
-      },
-      {
-        "url": "https://www.arena.it/",
-        "sigla": "web",
-        "nome": "Arena di Verona",
-        "regione": "Veneto"
-      },
-      {
-        "url": "https://www.teatrolafenice.it/",
-        "sigla": "web",
-        "nome": "Teatro La Fenice (Venezia)",
-        "regione": "Veneto"
+        "nome": "Teatro La Fenice",
+        "venue": "Teatro La Fenice",
+        "citta": "Venezia",
+        "regione": "Veneto",
+        "link": "/event/[^/]+"
       },
       {
         "url": "https://www.amamusicfestival.com/",
         "sigla": "web",
-        "nome": "AMA Music Festival (Romano d'Ezzelino)",
+        "nome": "AMA Music Festival",
+        "venue": "AMA Music Festival",
+        "citta": "Romano d'Ezzelino",
         "regione": "Veneto"
       },
       {
-        "url": "https://www.operaestate.it/",
+        "url": "https://www.operaestate.it/it/festival/musica",
         "sigla": "web",
-        "nome": "Operaestate Festival (Bassano)",
+        "nome": "Operaestate Festival",
+        "venue": "Operaestate Festival",
+        "citta": "Bassano del Grappa",
+        "regione": "Veneto",
+        "link": "/it/festival/[^?#]+/[^?#]+"
+      },
+      {
+        "url": "https://www.sherwood.it/",
+        "sigla": "web",
+        "nome": "Sherwood Festival",
+        "venue": "Sherwood Festival",
+        "citta": "Padova",
         "regione": "Veneto"
       }
-    ]
+    ],
+    "_esclusi": "Magazzini Generali e Legend Club: il dominio ora è di altri siti. Gran Teatro Geox, Kioene Arena, Ticketsms: eventi caricati via JavaScript. Teatro Dal Verme e Carroponte rimandano a TicketOne/Vivaticket, già lette come biglietterie."
   },
   "biglietterie": {
     "attiva": true,
@@ -171,21 +158,29 @@
         "link": "/event/"
       },
       {
-        "url": "https://www.ticketsms.it/it/",
-        "sigla": "sms",
-        "nome": "Ticketsms"
-      },
-      {
         "url": "https://www.mailticket.it/",
         "sigla": "mt",
-        "nome": "Mailticket"
+        "nome": "Mailticket",
+        "link": "/evento/\\d+/",
+        "max": 60,
+        "musica": "concert|music|live|tour|band|rock|jazz|blues|cantautor|orchestra|tribute|festival|dj"
       },
       {
         "url": "https://www.diyticket.it/",
         "sigla": "diy",
-        "nome": "Do It Yourself"
+        "nome": "Do It Yourself",
+        "link": "/events/Musica/",
+        "max": 40
+      },
+      {
+        "url": "https://www.diyticket.it/search/all",
+        "sigla": "diy",
+        "nome": "Do It Yourself",
+        "link": "/events/Musica/",
+        "max": 60
       }
-    ]
+    ],
+    "_escluse": "Ticketsms: il sito carica gli eventi via JavaScript, non leggibile senza browser."
   },
   "bandsintown": {
     "_nota": "Solo per gli artisti di config/artisti.txt. Se l'app_id predefinito non viene accettato, chiedine uno a Bandsintown e mettilo nel secret BIT_APP_ID."
