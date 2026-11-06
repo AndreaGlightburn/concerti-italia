@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-06T06:47:22.618Z",
+ "aggiornato": "2026-11-06T19:25:47.175Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 508,
-   "secondi": 8
+   "eventi": 512,
+   "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3393,
-   "secondi": 108
+   "eventi": 3403,
+   "secondi": 107
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 65,
-   "secondi": 68
+   "eventi": 66,
+   "secondi": 71
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 119,
-   "secondi": 157
+   "eventi": 120,
+   "secondi": 158
   },
   {
    "id": "bit",
@@ -44,8 +44,8 @@
    "eventi": 0
   }
  ],
- "eventi": 3036,
- "confrontabili": 716,
+ "eventi": 3048,
+ "confrontabili": 718,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
  "durataSecondi": 459,
@@ -79,9 +79,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
-   "eventi": 1,
-   "link": 1,
-   "riserva": 1
+   "eventi": 3,
+   "link": 3,
+   "riserva": 3
   },
   {
    "fonte": "siti",
@@ -98,21 +98,21 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 753067,
-    "linkInterni": 103,
+    "byte": 758615,
+    "linkInterni": 102,
     "esempi": [
      "/eventi/",
      "/feed/",
      "/comments/feed/",
      "/wp-json/oembed/1.0/embed",
      "/wp-content/plugins/accessibility-onetap/assets/css/accessibility-onetap-front-end.min.css",
-     "/wp-content/cache/wpfc-minified/q963lzix/abnfm.css",
+     "/wp-content/cache/wpfc-minified/q963lzix/hu1na.css",
      "/wp-content/plugins/accessibility-onetap/assets/fonts/eicons/css/elementor-icons.min.css",
      "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css",
      "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css",
-     "/wp-content/cache/wpfc-minified/1bre01ak/abnfm.css",
-     "/wp-content/uploads/fusion-styles/9415d0b1c7d1c80bcd9d4ab93ee61f5b.min.css",
-     "/wp-content/cache/wpfc-minified/h6icw2b/abquf.css",
+     "/wp-content/cache/wpfc-minified/1bre01ak/hu1na.css",
+     "/wp-content/uploads/fusion-styles/ff323bc0e0742948d245e167d3984663.min.css",
+     "/wp-content/cache/wpfc-minified/lagtmlt1/hu20g.css",
      "/wp-json/",
      "/wp-json/wp/v2/pages/795",
      "/xmlrpc.php",
@@ -129,11 +129,11 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/en/event/allie-x-santeria-toscana-31-20964333/",
      "ticketone.it/artist/jazzmi/?affiliate=IGA",
      "ticketone.it/event/ed-maverick-santeria-toscana-31-21774702/",
      "ticketone.it/event/anneke-van-giersbergen-and-band-santeria-toscana-31-21434491/",
-     "ticketone.it/event/the-molotovs-santeria-toscana-31-22080230/"
+     "ticketone.it/event/the-molotovs-santeria-toscana-31-22080230/",
+     "ticketone.it/event/levante-santeria-toscana-31-22149188/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 10,
    "link": 10,
-   "riserva": 9
+   "riserva": 10
   },
   {
    "fonte": "siti",
@@ -166,8 +166,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454531,
-    "linkInterni": 110,
+    "byte": 454519,
+    "linkInterni": 109,
     "esempi": [
      "/feed/",
      "/comments/feed/",
@@ -356,7 +356,7 @@
   "ticketone": [
    {
     "richieste": 195,
-    "eventi": 3393,
+    "eventi": 3403,
     "giorniPieni": 2
    }
   ]
