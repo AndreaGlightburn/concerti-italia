@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-05T19:57:30.006Z",
+ "aggiornato": "2026-11-06T06:47:22.618Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 512,
-   "secondi": 6
+   "eventi": 508,
+   "secondi": 8
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3425,
-   "secondi": 115
+   "eventi": 3393,
+   "secondi": 108
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 65,
-   "secondi": 66
+   "secondi": 68
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 107,
-   "secondi": 186
+   "eventi": 119,
+   "secondi": 157
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3053,
- "confrontabili": 720,
+ "eventi": 3036,
+ "confrontabili": 716,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 537,
+ "durataSecondi": 459,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 22,
-   "link": 22
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 41,
-   "link": 41,
-   "riserva": 41
+   "eventi": 40,
+   "link": 40,
+   "riserva": 40
   },
   {
    "fonte": "biglietterie",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 10,
+   "eventi": 9,
    "link": 10,
-   "riserva": 10
+   "riserva": 9
   },
   {
    "fonte": "siti",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 17,
+   "eventi": 16,
    "link": 18,
-   "riserva": 17
+   "riserva": 16
   },
   {
    "fonte": "siti",
@@ -219,8 +219,7 @@
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 0,
-   "errore": "rete: fetch failed"
+   "eventi": 36
   },
   {
    "fonte": "siti",
@@ -356,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 193,
-    "eventi": 3425,
+    "richieste": 195,
+    "eventi": 3393,
     "giorniPieni": 2
    }
   ]
