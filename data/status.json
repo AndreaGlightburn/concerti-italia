@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-06T19:25:47.175Z",
+ "aggiornato": "2026-11-07T05:58:54.445Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 512,
+   "eventi": 506,
    "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3403,
-   "secondi": 107
+   "eventi": 3371,
+   "secondi": 98
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 66,
-   "secondi": 71
+   "eventi": 61,
+   "secondi": 56
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 120,
-   "secondi": 158
+   "eventi": 118,
+   "secondi": 140
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3048,
- "confrontabili": 718,
+ "eventi": 3018,
+ "confrontabili": 710,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 459,
+ "durataSecondi": 401,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 23,
-   "link": 23
+   "eventi": 22,
+   "link": 22
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 40,
-   "link": 40,
-   "riserva": 40
+   "eventi": 37,
+   "link": 37,
+   "riserva": 37
   },
   {
    "fonte": "biglietterie",
@@ -79,9 +79,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
-   "eventi": 3,
-   "link": 3,
-   "riserva": 3
+   "eventi": 2,
+   "link": 2,
+   "riserva": 2
   },
   {
    "fonte": "siti",
@@ -204,16 +204,16 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 16,
+   "eventi": 15,
    "link": 18,
-   "riserva": 16
+   "riserva": 15
   },
   {
    "fonte": "siti",
    "url": "https://www.circolomagnolia.it/",
    "regione": "Lombardia",
-   "eventi": 21,
-   "link": 21
+   "eventi": 20,
+   "link": 20
   },
   {
    "fonte": "siti",
@@ -356,7 +356,7 @@
   "ticketone": [
    {
     "richieste": 195,
-    "eventi": 3403,
+    "eventi": 3371,
     "giorniPieni": 2
    }
   ]
