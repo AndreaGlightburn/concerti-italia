@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-07T13:02:00.501Z",
+ "aggiornato": "2026-11-07T21:51:52.288Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 506,
-   "secondi": 6
+   "eventi": 495,
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
    "eventi": 3372,
-   "secondi": 110
+   "secondi": 123
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 61,
-   "secondi": 59
+   "eventi": 63,
+   "secondi": 69
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 118,
-   "secondi": 143
+   "eventi": 104,
+   "secondi": 180
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3019,
- "confrontabili": 710,
+ "eventi": 3009,
+ "confrontabili": 704,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 418,
+ "durataSecondi": 496,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,8 +59,8 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 22,
-   "link": 22
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "biglietterie",
@@ -73,15 +73,15 @@
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/",
    "eventi": 1,
-   "link": 1,
+   "link": 2,
    "riserva": 1
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
-   "eventi": 2,
-   "link": 2,
-   "riserva": 2
+   "eventi": 3,
+   "link": 4,
+   "riserva": 3
   },
   {
    "fonte": "siti",
@@ -219,7 +219,8 @@
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 36
+   "eventi": 0,
+   "errore": "rete: fetch failed"
   },
   {
    "fonte": "siti",
