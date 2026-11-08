@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-07T21:51:52.288Z",
+ "aggiornato": "2026-11-08T06:02:06.161Z",
  "fonti": [
   {
    "id": "tm",
@@ -12,8 +12,8 @@
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3372,
-   "secondi": 123
+   "eventi": 3325,
+   "secondi": 107
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 63,
-   "secondi": 69
+   "eventi": 62,
+   "secondi": 65
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 104,
-   "secondi": 180
+   "eventi": 113,
+   "secondi": 158
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3009,
- "confrontabili": 704,
+ "eventi": 2975,
+ "confrontabili": 701,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 496,
+ "durataSecondi": 453,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 23,
-   "link": 23
+   "eventi": 24,
+   "link": 24
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 37,
-   "link": 37,
-   "riserva": 37
+   "eventi": 36,
+   "link": 36,
+   "riserva": 36
   },
   {
    "fonte": "biglietterie",
@@ -79,9 +79,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
-   "eventi": 3,
-   "link": 4,
-   "riserva": 3
+   "eventi": 2,
+   "link": 2,
+   "riserva": 2
   },
   {
    "fonte": "siti",
@@ -146,17 +146,17 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 10,
+   "eventi": 9,
    "link": 10,
-   "riserva": 10
+   "riserva": 9
   },
   {
    "fonte": "siti",
    "url": "https://www.bluenotemilano.com/",
    "regione": "Lombardia",
-   "eventi": 10,
-   "link": 10,
-   "riserva": 10
+   "eventi": 9,
+   "link": 9,
+   "riserva": 9
   },
   {
    "fonte": "siti",
@@ -166,8 +166,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454519,
-    "linkInterni": 109,
+    "byte": 454385,
+    "linkInterni": 110,
     "esempi": [
      "/feed/",
      "/comments/feed/",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 15,
+   "eventi": 14,
    "link": 18,
-   "riserva": 15
+   "riserva": 14
   },
   {
    "fonte": "siti",
@@ -219,8 +219,7 @@
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 0,
-   "errore": "rete: fetch failed"
+   "eventi": 34
   },
   {
    "fonte": "siti",
@@ -233,8 +232,8 @@
    "fonte": "siti",
    "url": "https://www.newageclub.it/",
    "regione": "Veneto",
-   "eventi": 24,
-   "link": 24
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "siti",
@@ -297,7 +296,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88869,
+    "byte": 88859,
     "linkInterni": 56,
     "esempi": [
      "/it/festival/musica",
@@ -331,7 +330,7 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94812,
+     "byte": 94802,
      "ldJson": 3,
      "microdata": false,
      "og": [],
@@ -356,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 195,
-    "eventi": 3372,
+    "richieste": 187,
+    "eventi": 3325,
     "giorniPieni": 2
    }
   ]
