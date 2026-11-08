@@ -1,11 +1,11 @@
 {
- "aggiornato": "2026-11-08T13:25:47.978Z",
+ "aggiornato": "2026-11-08T22:06:03.299Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 494,
+   "eventi": 486,
    "secondi": 6
   },
   {
@@ -13,7 +13,7 @@
    "nome": "TicketOne",
    "ok": true,
    "eventi": 3325,
-   "secondi": 107
+   "secondi": 97
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 62,
-   "secondi": 59
+   "secondi": 60
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 100,
-   "secondi": 172
+   "eventi": 113,
+   "secondi": 144
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2964,
- "confrontabili": 699,
+ "eventi": 2974,
+ "confrontabili": 700,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 451,
+ "durataSecondi": 417,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -166,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454387,
+    "byte": 454389,
     "linkInterni": 110,
     "esempi": [
      "/feed/",
@@ -219,8 +219,7 @@
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 0,
-   "errore": "rete: fetch failed"
+   "eventi": 34
   },
   {
    "fonte": "siti",
@@ -297,7 +296,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88869,
+    "byte": 88871,
     "linkInterni": 56,
     "esempi": [
      "/it/festival/musica",
