@@ -1,12 +1,12 @@
 {
- "aggiornato": "2026-11-08T06:02:06.161Z",
+ "aggiornato": "2026-11-08T13:25:47.978Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 495,
-   "secondi": 7
+   "eventi": 494,
+   "secondi": 6
   },
   {
    "id": "to",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 62,
-   "secondi": 65
+   "secondi": 59
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 113,
-   "secondi": 158
+   "eventi": 100,
+   "secondi": 172
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2975,
- "confrontabili": 701,
+ "eventi": 2964,
+ "confrontabili": 699,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 453,
+ "durataSecondi": 451,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -166,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454385,
+    "byte": 454387,
     "linkInterni": 110,
     "esempi": [
      "/feed/",
@@ -219,7 +219,8 @@
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 34
+   "eventi": 0,
+   "errore": "rete: fetch failed"
   },
   {
    "fonte": "siti",
@@ -296,7 +297,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88859,
+    "byte": 88869,
     "linkInterni": 56,
     "esempi": [
      "/it/festival/musica",
@@ -330,7 +331,7 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94802,
+     "byte": 94812,
      "ldJson": 3,
      "microdata": false,
      "og": [],
