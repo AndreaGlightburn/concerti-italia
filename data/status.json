@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-09T06:30:18.727Z",
+ "aggiornato": "2026-11-09T22:22:14.834Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 486,
+   "eventi": 485,
    "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3301,
-   "secondi": 104
+   "eventi": 3340,
+   "secondi": 125
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 62,
-   "secondi": 63
+   "eventi": 71,
+   "secondi": 67
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 112,
-   "secondi": 155
+   "eventi": 119,
+   "secondi": 144
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2956,
- "confrontabili": 695,
+ "eventi": 3000,
+ "confrontabili": 707,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 439,
+ "durataSecondi": 454,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 36,
-   "link": 36,
-   "riserva": 36
+   "eventi": 45,
+   "link": 45,
+   "riserva": 45
   },
   {
    "fonte": "biglietterie",
@@ -98,21 +98,21 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 758615,
-    "linkInterni": 102,
+    "byte": 740435,
+    "linkInterni": 100,
     "esempi": [
      "/eventi/",
      "/feed/",
      "/comments/feed/",
      "/wp-json/oembed/1.0/embed",
      "/wp-content/plugins/accessibility-onetap/assets/css/accessibility-onetap-front-end.min.css",
-     "/wp-content/cache/wpfc-minified/q963lzix/hu1na.css",
+     "/wp-content/cache/wpfc-minified/q963lzix/44v2r.css",
      "/wp-content/plugins/accessibility-onetap/assets/fonts/eicons/css/elementor-icons.min.css",
      "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css",
      "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css",
-     "/wp-content/cache/wpfc-minified/1bre01ak/hu1na.css",
-     "/wp-content/uploads/fusion-styles/ff323bc0e0742948d245e167d3984663.min.css",
-     "/wp-content/cache/wpfc-minified/lagtmlt1/hu20g.css",
+     "/wp-content/cache/wpfc-minified/1bre01ak/44v2r.css",
+     "/wp-content/uploads/fusion-styles/a01f617cee63329e9f6b5bce7b0850f0.min.css",
+     "/wp-content/cache/wpfc-minified/d3ps14vq/44ve1.css",
      "/wp-json/",
      "/wp-json/wp/v2/pages/795",
      "/xmlrpc.php",
@@ -129,11 +129,11 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/artist/jazzmi/?affiliate=IGA",
      "ticketone.it/event/ed-maverick-santeria-toscana-31-21774702/",
      "ticketone.it/event/anneke-van-giersbergen-and-band-santeria-toscana-31-21434491/",
      "ticketone.it/event/the-molotovs-santeria-toscana-31-22080230/",
-     "ticketone.it/event/levante-santeria-toscana-31-22149188/"
+     "ticketone.it/event/levante-santeria-toscana-31-22149188/",
+     "ticketone.it/event/levante-santeria-toscana-31-22149187/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 10,
    "link": 10,
-   "riserva": 9
+   "riserva": 10
   },
   {
    "fonte": "siti",
@@ -166,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454389,
+    "byte": 454336,
     "linkInterni": 110,
     "esempi": [
      "/feed/",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 13,
+   "eventi": 18,
    "link": 18,
-   "riserva": 13
+   "riserva": 18
   },
   {
    "fonte": "siti",
@@ -219,7 +219,7 @@
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 34
+   "eventi": 36
   },
   {
    "fonte": "siti",
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 299844,
+    "byte": 299865,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -356,7 +356,7 @@
   "ticketone": [
    {
     "richieste": 189,
-    "eventi": 3301,
+    "eventi": 3340,
     "giorniPieni": 2
    }
   ]
