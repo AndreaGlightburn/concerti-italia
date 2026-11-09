@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-08T22:06:03.299Z",
+ "aggiornato": "2026-11-09T06:30:18.727Z",
  "fonti": [
   {
    "id": "tm",
@@ -12,8 +12,8 @@
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3325,
-   "secondi": 97
+   "eventi": 3301,
+   "secondi": 104
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 62,
-   "secondi": 60
+   "secondi": 63
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 113,
-   "secondi": 144
+   "eventi": 112,
+   "secondi": 155
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2974,
- "confrontabili": 700,
+ "eventi": 2956,
+ "confrontabili": 695,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 417,
+ "durataSecondi": 439,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 14,
+   "eventi": 13,
    "link": 18,
-   "riserva": 14
+   "riserva": 13
   },
   {
    "fonte": "siti",
@@ -296,7 +296,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88871,
+    "byte": 88869,
     "linkInterni": 56,
     "esempi": [
      "/it/festival/musica",
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 187,
-    "eventi": 3325,
+    "richieste": 189,
+    "eventi": 3301,
     "giorniPieni": 2
    }
   ]
