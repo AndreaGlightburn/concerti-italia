@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-09T22:22:14.834Z",
+ "aggiornato": "2026-11-10T07:19:30.455Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 485,
+   "eventi": 489,
    "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3340,
-   "secondi": 125
+   "eventi": 3328,
+   "secondi": 122
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 71,
-   "secondi": 67
+   "secondi": 78
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 119,
-   "secondi": 144
+   "eventi": 118,
+   "secondi": 155
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3000,
- "confrontabili": 707,
- "nuoviPreferiti": 0,
+ "eventi": 2995,
+ "confrontabili": 704,
+ "nuoviPreferiti": 3,
  "avvisiInviati": 0,
- "durataSecondi": 454,
+ "durataSecondi": 482,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 10,
+   "eventi": 9,
    "link": 10,
-   "riserva": 10
+   "riserva": 9
   },
   {
    "fonte": "siti",
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 299865,
+    "byte": 299844,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 189,
-    "eventi": 3340,
+    "richieste": 193,
+    "eventi": 3328,
     "giorniPieni": 2
    }
   ]
