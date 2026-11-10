@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-10T07:19:30.455Z",
+ "aggiornato": "2026-11-10T19:44:14.918Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 489,
+   "eventi": 490,
    "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3328,
-   "secondi": 122
+   "eventi": 3365,
+   "secondi": 121
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 71,
-   "secondi": 78
+   "secondi": 79
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 118,
-   "secondi": 155
+   "eventi": 121,
+   "secondi": 167
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2995,
- "confrontabili": 704,
- "nuoviPreferiti": 3,
+ "eventi": 3028,
+ "confrontabili": 709,
+ "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 482,
+ "durataSecondi": 492,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -98,21 +98,21 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 740435,
-    "linkInterni": 100,
+    "byte": 739707,
+    "linkInterni": 101,
     "esempi": [
      "/eventi/",
      "/feed/",
      "/comments/feed/",
      "/wp-json/oembed/1.0/embed",
      "/wp-content/plugins/accessibility-onetap/assets/css/accessibility-onetap-front-end.min.css",
-     "/wp-content/cache/wpfc-minified/q963lzix/44v2r.css",
+     "/wp-content/cache/wpfc-minified/q963lzix/5t7to.css",
      "/wp-content/plugins/accessibility-onetap/assets/fonts/eicons/css/elementor-icons.min.css",
-     "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-public.css",
-     "/wp-content/plugins/cookie-law-info/legacy/public/css/cookie-law-info-gdpr.css",
-     "/wp-content/cache/wpfc-minified/1bre01ak/44v2r.css",
-     "/wp-content/uploads/fusion-styles/a01f617cee63329e9f6b5bce7b0850f0.min.css",
-     "/wp-content/cache/wpfc-minified/d3ps14vq/44ve1.css",
+     "/wp-content/cache/wpfc-minified/qt1ajq4s/5t7to.css",
+     "/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css",
+     "/wp-content/uploads/complianz/css/banner-1-optin.css",
+     "/wp-content/uploads/fusion-styles/46d87739dc43393bbb38b346a7018efd.min.css",
+     "/wp-content/cache/wpfc-minified/gnekejd/5um61.css",
      "/wp-json/",
      "/wp-json/wp/v2/pages/795",
      "/xmlrpc.php",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 10,
    "link": 10,
-   "riserva": 9
+   "riserva": 10
   },
   {
    "fonte": "siti",
@@ -212,8 +212,8 @@
    "fonte": "siti",
    "url": "https://www.circolomagnolia.it/",
    "regione": "Lombardia",
-   "eventi": 20,
-   "link": 20
+   "eventi": 21,
+   "link": 21
   },
   {
    "fonte": "siti",
@@ -232,8 +232,8 @@
    "fonte": "siti",
    "url": "https://www.newageclub.it/",
    "regione": "Veneto",
-   "eventi": 23,
-   "link": 23
+   "eventi": 24,
+   "link": 24
   },
   {
    "fonte": "siti",
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 193,
-    "eventi": 3328,
+    "richieste": 197,
+    "eventi": 3365,
     "giorniPieni": 2
    }
   ]
