@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-11T06:21:25.867Z",
+ "aggiornato": "2026-11-11T19:36:34.520Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 490,
+   "eventi": 502,
    "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3350,
-   "secondi": 133
+   "eventi": 3411,
+   "secondi": 101
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 71,
-   "secondi": 74
+   "secondi": 63
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 119,
-   "secondi": 156
+   "eventi": 122,
+   "secondi": 150
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3013,
- "confrontabili": 707,
+ "eventi": 3059,
+ "confrontabili": 736,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 487,
+ "durataSecondi": 440,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -98,21 +98,21 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 739707,
-    "linkInterni": 101,
+    "byte": 733365,
+    "linkInterni": 100,
     "esempi": [
      "/eventi/",
      "/feed/",
      "/comments/feed/",
      "/wp-json/oembed/1.0/embed",
      "/wp-content/plugins/accessibility-onetap/assets/css/accessibility-onetap-front-end.min.css",
-     "/wp-content/cache/wpfc-minified/q963lzix/5t7to.css",
+     "/wp-content/cache/wpfc-minified/q963lzix/6l6w8.css",
      "/wp-content/plugins/accessibility-onetap/assets/fonts/eicons/css/elementor-icons.min.css",
-     "/wp-content/cache/wpfc-minified/qt1ajq4s/5t7to.css",
+     "/wp-content/cache/wpfc-minified/qt1ajq4s/6l6w8.css",
      "/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css",
      "/wp-content/uploads/complianz/css/banner-1-optin.css",
-     "/wp-content/uploads/fusion-styles/46d87739dc43393bbb38b346a7018efd.min.css",
-     "/wp-content/cache/wpfc-minified/gnekejd/5um61.css",
+     "/wp-content/uploads/fusion-styles/0f2e095312dceef02b24767bd76a32f7.min.css",
+     "/wp-content/cache/wpfc-minified/ln9eo4lc/6l7k4.css",
      "/wp-json/",
      "/wp-json/wp/v2/pages/795",
      "/xmlrpc.php",
@@ -129,11 +129,11 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/event/ed-maverick-santeria-toscana-31-21774702/",
      "ticketone.it/event/anneke-van-giersbergen-and-band-santeria-toscana-31-21434491/",
      "ticketone.it/event/the-molotovs-santeria-toscana-31-22080230/",
      "ticketone.it/event/levante-santeria-toscana-31-22149188/",
-     "ticketone.it/event/levante-santeria-toscana-31-22149187/"
+     "ticketone.it/event/levante-santeria-toscana-31-22149187/",
+     "ticketone.it/event/la-municipal-la-municipal-le-nostre-guerre-perdute-santeria-toscana-31-21584846/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 10,
    "link": 10,
-   "riserva": 9
+   "riserva": 10
   },
   {
    "fonte": "siti",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 17,
+   "eventi": 18,
    "link": 18,
-   "riserva": 17
+   "riserva": 18
   },
   {
    "fonte": "siti",
@@ -232,8 +232,8 @@
    "fonte": "siti",
    "url": "https://www.newageclub.it/",
    "regione": "Veneto",
-   "eventi": 24,
-   "link": 24
+   "eventi": 25,
+   "link": 25
   },
   {
    "fonte": "siti",
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 299865,
+    "byte": 299844,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 191,
-    "eventi": 3350,
+    "richieste": 193,
+    "eventi": 3411,
     "giorniPieni": 2
    }
   ]
