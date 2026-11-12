@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-11T19:36:34.520Z",
+ "aggiornato": "2026-11-12T07:11:14.476Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 502,
+   "eventi": 499,
    "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3411,
-   "secondi": 101
+   "eventi": 3388,
+   "secondi": 99
   },
   {
    "id": "vt",
@@ -27,13 +27,13 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 71,
-   "secondi": 63
+   "secondi": 64
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 122,
+   "eventi": 118,
    "secondi": 150
   },
   {
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3059,
- "confrontabili": 736,
+ "eventi": 3040,
+ "confrontabili": 731,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 440,
+ "durataSecondi": 428,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -146,17 +146,17 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 10,
+   "eventi": 9,
    "link": 10,
-   "riserva": 10
+   "riserva": 9
   },
   {
    "fonte": "siti",
    "url": "https://www.bluenotemilano.com/",
    "regione": "Lombardia",
-   "eventi": 9,
-   "link": 9,
-   "riserva": 9
+   "eventi": 8,
+   "link": 8,
+   "riserva": 8
   },
   {
    "fonte": "siti",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 18,
+   "eventi": 16,
    "link": 18,
-   "riserva": 18
+   "riserva": 16
   },
   {
    "fonte": "siti",
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 299844,
+    "byte": 299842,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 193,
-    "eventi": 3411,
+    "richieste": 191,
+    "eventi": 3388,
     "giorniPieni": 2
    }
   ]
