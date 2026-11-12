@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-12T07:11:14.476Z",
+ "aggiornato": "2026-11-12T19:55:19.479Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 499,
-   "secondi": 6
+   "eventi": 502,
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3388,
-   "secondi": 99
+   "eventi": 3417,
+   "secondi": 121
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 71,
-   "secondi": 64
+   "eventi": 72,
+   "secondi": 109
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 118,
-   "secondi": 150
+   "eventi": 119,
+   "secondi": 157
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3040,
- "confrontabili": 731,
+ "eventi": 3071,
+ "confrontabili": 733,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 428,
+ "durataSecondi": 517,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 45,
-   "link": 45,
-   "riserva": 45
+   "eventi": 46,
+   "link": 46,
+   "riserva": 46
   },
   {
    "fonte": "biglietterie",
@@ -98,8 +98,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 733365,
-    "linkInterni": 100,
+    "byte": 781971,
+    "linkInterni": 107,
     "esempi": [
      "/eventi/",
      "/feed/",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 10,
    "link": 10,
-   "riserva": 9
+   "riserva": 10
   },
   {
    "fonte": "siti",
@@ -166,8 +166,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454435,
-    "linkInterni": 110,
+    "byte": 454420,
+    "linkInterni": 109,
     "esempi": [
      "/feed/",
      "/comments/feed/",
@@ -205,7 +205,7 @@
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
    "eventi": 16,
-   "link": 18,
+   "link": 17,
    "riserva": 16
   },
   {
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 299842,
+    "byte": 257855,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -296,8 +296,8 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88869,
-    "linkInterni": 56,
+    "byte": 88789,
+    "linkInterni": 55,
     "esempi": [
      "/it/festival/musica",
      "/en/festival-eng/music",
@@ -308,7 +308,6 @@
      "/plugins/system/cookiespolicynotificationbar/assets/css/balloon.min.css",
      "/media/system/css/joomla-fontawesome.min.css",
      "/templates/yootheme/css/theme.9.css",
-     "/templates/yootheme/css/theme.update.css",
      "/media/plg_system_jcepro/site/css/content.min.css",
      "/media/mod_languages/css/template.min.css",
      "/it/festival/musica.md",
@@ -323,14 +322,15 @@
      "/it/festival/lirica",
      "/it/festival/bmotion",
      "/it/festival/bmotion/danza",
-     "/it/festival/bmotion/teatro"
+     "/it/festival/bmotion/teatro",
+     "/it/festival/bmotion/musica"
     ],
     "ldJson": 3,
     "ticketone": [],
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94812,
+     "byte": 94732,
      "ldJson": 3,
      "microdata": false,
      "og": [],
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 191,
-    "eventi": 3388,
+    "richieste": 195,
+    "eventi": 3417,
     "giorniPieni": 2
    }
   ]
