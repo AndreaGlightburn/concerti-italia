@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-13T06:46:47.457Z",
+ "aggiornato": "2026-11-13T19:42:32.805Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 499,
+   "eventi": 501,
    "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3392,
-   "secondi": 102
+   "eventi": 3419,
+   "secondi": 124
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 71,
-   "secondi": 69
+   "secondi": 71
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 117,
-   "secondi": 153
+   "eventi": 116,
+   "secondi": 233
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3044,
- "confrontabili": 732,
+ "eventi": 3062,
+ "confrontabili": 739,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 440,
+ "durataSecondi": 628,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -98,8 +98,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 781971,
-    "linkInterni": 107,
+    "byte": 766020,
+    "linkInterni": 105,
     "esempi": [
      "/eventi/",
      "/feed/",
@@ -166,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454435,
+    "byte": 454434,
     "linkInterni": 109,
     "esempi": [
      "/feed/",
@@ -239,9 +239,9 @@
    "fonte": "siti",
    "url": "https://www.teatrolafenice.it/event-category/concerti-2026-27/",
    "regione": "Veneto",
-   "eventi": 25,
-   "link": 25,
-   "riserva": 25
+   "eventi": 24,
+   "link": 24,
+   "riserva": 24
   },
   {
    "fonte": "siti",
@@ -296,7 +296,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88789,
+    "byte": 88781,
     "linkInterni": 55,
     "esempi": [
      "/it/festival/musica",
@@ -355,9 +355,9 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 195,
-    "eventi": 3392,
-    "giorniPieni": 2
+    "richieste": 196,
+    "eventi": 3419,
+    "giorniPieni": 3
    }
   ]
  }
