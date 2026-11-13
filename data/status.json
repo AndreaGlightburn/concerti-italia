@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-12T19:55:19.479Z",
+ "aggiornato": "2026-11-13T06:46:47.457Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 502,
+   "eventi": 499,
    "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3417,
-   "secondi": 121
+   "eventi": 3392,
+   "secondi": 102
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 72,
-   "secondi": 109
+   "eventi": 71,
+   "secondi": 69
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 119,
-   "secondi": 157
+   "eventi": 117,
+   "secondi": 153
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3071,
- "confrontabili": 733,
+ "eventi": 3044,
+ "confrontabili": 732,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 517,
+ "durataSecondi": 440,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 46,
-   "link": 46,
-   "riserva": 46
+   "eventi": 45,
+   "link": 45,
+   "riserva": 45
   },
   {
    "fonte": "biglietterie",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 10,
+   "eventi": 9,
    "link": 10,
-   "riserva": 10
+   "riserva": 9
   },
   {
    "fonte": "siti",
@@ -166,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454420,
+    "byte": 454435,
     "linkInterni": 109,
     "esempi": [
      "/feed/",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 16,
+   "eventi": 15,
    "link": 17,
-   "riserva": 16
+   "riserva": 15
   },
   {
    "fonte": "siti",
@@ -356,7 +356,7 @@
   "ticketone": [
    {
     "richieste": 195,
-    "eventi": 3417,
+    "eventi": 3392,
     "giorniPieni": 2
    }
   ]
