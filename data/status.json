@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-13T19:42:32.805Z",
+ "aggiornato": "2026-11-14T06:24:02.806Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 501,
+   "eventi": 497,
    "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3419,
-   "secondi": 124
+   "eventi": 3377,
+   "secondi": 112
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 71,
-   "secondi": 71
+   "eventi": 70,
+   "secondi": 67
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 116,
-   "secondi": 233
+   "eventi": 113,
+   "secondi": 172
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3062,
- "confrontabili": 739,
+ "eventi": 3020,
+ "confrontabili": 732,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 628,
+ "durataSecondi": 592,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 45,
-   "link": 45,
-   "riserva": 45
+   "eventi": 44,
+   "link": 44,
+   "riserva": 44
   },
   {
    "fonte": "biglietterie",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 7,
    "link": 10,
-   "riserva": 9
+   "riserva": 7
   },
   {
    "fonte": "siti",
@@ -166,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454434,
+    "byte": 454464,
     "linkInterni": 109,
     "esempi": [
      "/feed/",
@@ -212,8 +212,8 @@
    "fonte": "siti",
    "url": "https://www.circolomagnolia.it/",
    "regione": "Lombardia",
-   "eventi": 21,
-   "link": 21
+   "eventi": 20,
+   "link": 20
   },
   {
    "fonte": "siti",
@@ -296,7 +296,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88781,
+    "byte": 88789,
     "linkInterni": 55,
     "esempi": [
      "/it/festival/musica",
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 196,
-    "eventi": 3419,
+    "richieste": 198,
+    "eventi": 3377,
     "giorniPieni": 3
    }
   ]
