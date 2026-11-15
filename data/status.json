@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-14T22:24:36.625Z",
+ "aggiornato": "2026-11-15T06:32:49.633Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 492,
-   "secondi": 6
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3377,
-   "secondi": 141
+   "eventi": 3327,
+   "secondi": 119
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 70,
-   "secondi": 68
+   "eventi": 66,
+   "secondi": 63
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 113,
-   "secondi": 156
+   "eventi": 108,
+   "secondi": 146
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 3019,
- "confrontabili": 729,
+ "eventi": 2970,
+ "confrontabili": 721,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 492,
+ "durataSecondi": 452,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 44,
-   "link": 44,
-   "riserva": 44
+   "eventi": 40,
+   "link": 40,
+   "riserva": 40
   },
   {
    "fonte": "biglietterie",
@@ -146,16 +146,16 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 7,
+   "eventi": 5,
    "link": 10,
-   "riserva": 7
+   "riserva": 5
   },
   {
    "fonte": "siti",
    "url": "https://www.bluenotemilano.com/",
    "regione": "Lombardia",
    "eventi": 8,
-   "link": 8,
+   "link": 9,
    "riserva": 8
   },
   {
@@ -204,22 +204,22 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 15,
+   "eventi": 14,
    "link": 17,
-   "riserva": 15
+   "riserva": 14
   },
   {
    "fonte": "siti",
    "url": "https://www.circolomagnolia.it/",
    "regione": "Lombardia",
-   "eventi": 20,
-   "link": 20
+   "eventi": 19,
+   "link": 19
   },
   {
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 36
+   "eventi": 34
   },
   {
    "fonte": "siti",
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257855,
+    "byte": 257853,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -355,9 +355,9 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 198,
-    "eventi": 3377,
-    "giorniPieni": 3
+    "richieste": 191,
+    "eventi": 3327,
+    "giorniPieni": 2
    }
   ]
  }
