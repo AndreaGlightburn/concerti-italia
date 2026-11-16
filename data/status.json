@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-16T06:30:36.094Z",
+ "aggiornato": "2026-11-16T22:02:24.321Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 489,
-   "secondi": 6
+   "eventi": 495,
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3287,
-   "secondi": 118
+   "eventi": 3315,
+   "secondi": 122
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 65,
-   "secondi": 65
+   "eventi": 75,
+   "secondi": 78
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 110,
-   "secondi": 162
+   "eventi": 103,
+   "secondi": 183
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2935,
- "confrontabili": 714,
+ "eventi": 2971,
+ "confrontabili": 715,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 459,
+ "durataSecondi": 518,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 24,
-   "link": 24
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 39,
-   "link": 39,
-   "riserva": 39
+   "eventi": 50,
+   "link": 50,
+   "riserva": 50
   },
   {
    "fonte": "biglietterie",
@@ -98,8 +98,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 766020,
-    "linkInterni": 105,
+    "byte": 734621,
+    "linkInterni": 100,
     "esempi": [
      "/eventi/",
      "/feed/",
@@ -129,11 +129,11 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/event/anneke-van-giersbergen-and-band-santeria-toscana-31-21434491/",
      "ticketone.it/event/the-molotovs-santeria-toscana-31-22080230/",
      "ticketone.it/event/levante-santeria-toscana-31-22149188/",
      "ticketone.it/event/levante-santeria-toscana-31-22149187/",
-     "ticketone.it/event/la-municipal-la-municipal-le-nostre-guerre-perdute-santeria-toscana-31-21584846/"
+     "ticketone.it/event/la-municipal-la-municipal-le-nostre-guerre-perdute-santeria-toscana-31-21584846/",
+     "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857039/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
@@ -146,17 +146,17 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 8,
+   "eventi": 9,
    "link": 10,
-   "riserva": 8
+   "riserva": 9
   },
   {
    "fonte": "siti",
    "url": "https://www.bluenotemilano.com/",
    "regione": "Lombardia",
-   "eventi": 8,
+   "eventi": 9,
    "link": 9,
-   "riserva": 8
+   "riserva": 9
   },
   {
    "fonte": "siti",
@@ -166,8 +166,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454655,
-    "linkInterni": 109,
+    "byte": 454303,
+    "linkInterni": 108,
     "esempi": [
      "/feed/",
      "/comments/feed/",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 13,
-   "link": 17,
-   "riserva": 13
+   "eventi": 17,
+   "link": 18,
+   "riserva": 17
   },
   {
    "fonte": "siti",
@@ -219,7 +219,48 @@
    "fonte": "siti",
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
-   "eventi": 34
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati",
+   "diag": {
+    "byte": 184953,
+    "linkInterni": 36,
+    "esempi": [
+     "/xmlrpc.php",
+     "/feed/",
+     "/wp-json/oembed/1.0/embed",
+     "/wp-content/plugins/click-to-chat-for-whatsapp/new/inc/assets/css/main.css",
+     "/wp-content/plugins/buf-eventi/assets/front.css",
+     "/wp-content/themes/pro/framework/dist/css/site/stacks/integrity-light.css",
+     "/wp-content/plugins/add-search-to-menu/public/css/ivory-search.min.css",
+     "/wp-json/",
+     "/wp-json/wp/v2/pages/7",
+     "/wp-content/uploads/2020/04/cropped-live-fav-32x32.png",
+     "/wp-content/uploads/2020/04/cropped-live-fav-192x192.png",
+     "/wp-content/uploads/2020/04/cropped-live-fav-180x180.png",
+     "/wp-content/plugins/add-search-to-menu/public/css/ivory-ajax-search.min.css",
+     "/wp-content/plugins/user-registration/assets/css/sweetalert2/sweetalert2.min.css",
+     "/wp-content/plugins/user-registration/assets/css/user-registration.css",
+     "/wp-content/plugins/user-registration/assets/css/ltr_only_support.css",
+     "/wp-includes/css/dashicons.min.css",
+     "/wp-content/plugins/user-registration/assets/css/user-registration-smallscreen.css",
+     "/chi-siamo/",
+     "/tutti-gli-eventi/",
+     "/info/",
+     "/news/",
+     "/foto/",
+     "/contatti/",
+     "/my-account/"
+    ],
+    "ldJson": 0,
+    "ticketone": [],
+    "vivaticket": [
+     "vivaticket.com/it/ticket/kamelot/296226",
+     "vivaticket.com/it/ticket/messa/296076",
+     "vivaticket.com/it/ticket/kamelot/296226",
+     "vivaticket.com/it/ticket/messa/296076"
+    ]
+   }
   },
   {
    "fonte": "siti",
@@ -355,8 +396,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 189,
-    "eventi": 3287,
+    "richieste": 191,
+    "eventi": 3315,
     "giorniPieni": 2
    }
   ]
