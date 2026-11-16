@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-15T18:52:07.515Z",
+ "aggiornato": "2026-11-16T06:30:36.094Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 492,
-   "secondi": 7
+   "eventi": 489,
+   "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3327,
-   "secondi": 111
+   "eventi": 3287,
+   "secondi": 118
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 66,
+   "eventi": 65,
    "secondi": 65
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 112,
-   "secondi": 146
+   "eventi": 110,
+   "secondi": 162
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2969,
- "confrontabili": 722,
+ "eventi": 2935,
+ "confrontabili": 714,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 450,
+ "durataSecondi": 459,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 40,
-   "link": 40,
-   "riserva": 40
+   "eventi": 39,
+   "link": 39,
+   "riserva": 39
   },
   {
    "fonte": "biglietterie",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 8,
    "link": 10,
-   "riserva": 9
+   "riserva": 8
   },
   {
    "fonte": "siti",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 14,
+   "eventi": 13,
    "link": 17,
-   "riserva": 14
+   "riserva": 13
   },
   {
    "fonte": "siti",
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257876,
+    "byte": 257855,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -355,8 +355,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 191,
-    "eventi": 3327,
+    "richieste": 189,
+    "eventi": 3287,
     "giorniPieni": 2
    }
   ]
