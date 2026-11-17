@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-16T22:02:24.321Z",
+ "aggiornato": "2026-11-17T07:55:23.697Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 495,
-   "secondi": 7
+   "secondi": 8
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3315,
-   "secondi": 122
+   "eventi": 3292,
+   "secondi": 94
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 75,
-   "secondi": 78
+   "eventi": 74,
+   "secondi": 123
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 103,
-   "secondi": 183
+   "eventi": 102,
+   "secondi": 150
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2971,
- "confrontabili": 715,
+ "eventi": 2950,
+ "confrontabili": 712,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 518,
+ "durataSecondi": 475,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,8 +59,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 23,
-   "link": 23
+   "eventi": 22,
+   "link": 23,
+   "linkFalliti": 1
   },
   {
    "fonte": "biglietterie",
@@ -146,9 +147,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 8,
    "link": 10,
-   "riserva": 9
+   "riserva": 8
   },
   {
    "fonte": "siti",
@@ -396,8 +397,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 191,
-    "eventi": 3315,
+    "richieste": 183,
+    "eventi": 3292,
     "giorniPieni": 2
    }
   ]
