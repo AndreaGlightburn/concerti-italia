@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-17T07:55:23.697Z",
+ "aggiornato": "2026-11-17T20:56:31.788Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 495,
-   "secondi": 8
+   "eventi": 496,
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3292,
-   "secondi": 94
+   "eventi": 3326,
+   "secondi": 121
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 74,
-   "secondi": 123
+   "eventi": 75,
+   "secondi": 77
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 102,
-   "secondi": 150
+   "eventi": 100,
+   "secondi": 162
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2950,
+ "eventi": 2982,
  "confrontabili": 712,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 475,
+ "durataSecondi": 493,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,9 +59,8 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 22,
-   "link": 23,
-   "linkFalliti": 1
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "biglietterie",
@@ -99,7 +98,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 734621,
+    "byte": 734416,
     "linkInterni": 100,
     "esempi": [
      "/eventi/",
@@ -130,11 +129,11 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/event/the-molotovs-santeria-toscana-31-22080230/",
      "ticketone.it/event/levante-santeria-toscana-31-22149188/",
      "ticketone.it/event/levante-santeria-toscana-31-22149187/",
      "ticketone.it/event/la-municipal-la-municipal-le-nostre-guerre-perdute-santeria-toscana-31-21584846/",
-     "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857039/"
+     "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857039/",
+     "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857038/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
@@ -167,8 +166,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454303,
-    "linkInterni": 108,
+    "byte": 454289,
+    "linkInterni": 107,
     "esempi": [
      "/feed/",
      "/comments/feed/",
@@ -281,9 +280,9 @@
    "fonte": "siti",
    "url": "https://www.teatrolafenice.it/event-category/concerti-2026-27/",
    "regione": "Veneto",
-   "eventi": 24,
-   "link": 24,
-   "riserva": 24
+   "eventi": 22,
+   "link": 22,
+   "riserva": 22
   },
   {
    "fonte": "siti",
@@ -338,7 +337,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88789,
+    "byte": 88781,
     "linkInterni": 55,
     "esempi": [
      "/it/festival/musica",
@@ -372,7 +371,7 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94732,
+     "byte": 94724,
      "ldJson": 3,
      "microdata": false,
      "og": [],
@@ -398,7 +397,7 @@
   "ticketone": [
    {
     "richieste": 183,
-    "eventi": 3292,
+    "eventi": 3326,
     "giorniPieni": 2
    }
   ]
