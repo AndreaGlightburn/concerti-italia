@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-18T07:29:11.828Z",
+ "aggiornato": "2026-11-18T20:32:02.028Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 496,
-   "secondi": 8
+   "eventi": 501,
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3298,
-   "secondi": 111
+   "eventi": 3308,
+   "secondi": 123
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 73,
+   "eventi": 71,
    "secondi": 70
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 98,
-   "secondi": 149
+   "eventi": 102,
+   "secondi": 156
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2955,
- "confrontabili": 708,
+ "eventi": 2965,
+ "confrontabili": 713,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 443,
+ "durataSecondi": 470,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 49,
-   "link": 49,
-   "riserva": 49
+   "eventi": 47,
+   "link": 47,
+   "riserva": 47
   },
   {
    "fonte": "biglietterie",
@@ -98,8 +98,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 734416,
-    "linkInterni": 100,
+    "byte": 732587,
+    "linkInterni": 99,
     "esempi": [
      "/eventi/",
      "/feed/",
@@ -129,11 +129,11 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/event/levante-santeria-toscana-31-22149188/",
      "ticketone.it/event/levante-santeria-toscana-31-22149187/",
      "ticketone.it/event/la-municipal-la-municipal-le-nostre-guerre-perdute-santeria-toscana-31-21584846/",
      "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857039/",
-     "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857038/"
+     "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857038/",
+     "ticketone.it/event/paola-turci-live-a-dismisura-santeria-toscana-31-21971978/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 7,
+   "eventi": 9,
    "link": 10,
-   "riserva": 7
+   "riserva": 9
   },
   {
    "fonte": "siti",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 16,
+   "eventi": 18,
    "link": 18,
-   "riserva": 16
+   "riserva": 18
   },
   {
    "fonte": "siti",
@@ -223,7 +223,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 184153,
+    "byte": 184284,
     "linkInterni": 36,
     "esempi": [
      "/xmlrpc.php",
@@ -395,7 +395,7 @@
   "ticketone": [
    {
     "richieste": 193,
-    "eventi": 3298,
+    "eventi": 3308,
     "giorniPieni": 2
    }
   ]
