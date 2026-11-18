@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-17T20:56:31.788Z",
+ "aggiornato": "2026-11-18T07:29:11.828Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 496,
-   "secondi": 7
+   "secondi": 8
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3326,
-   "secondi": 121
+   "eventi": 3298,
+   "secondi": 111
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 75,
-   "secondi": 77
+   "eventi": 73,
+   "secondi": 70
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 100,
-   "secondi": 162
+   "eventi": 98,
+   "secondi": 149
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2982,
- "confrontabili": 712,
+ "eventi": 2955,
+ "confrontabili": 708,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 493,
+ "durataSecondi": 443,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 23,
-   "link": 23
+   "eventi": 22,
+   "link": 22
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 50,
-   "link": 50,
-   "riserva": 50
+   "eventi": 49,
+   "link": 49,
+   "riserva": 49
   },
   {
    "fonte": "biglietterie",
@@ -146,9 +146,9 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 8,
+   "eventi": 7,
    "link": 10,
-   "riserva": 8
+   "riserva": 7
   },
   {
    "fonte": "siti",
@@ -204,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 17,
+   "eventi": 16,
    "link": 18,
-   "riserva": 17
+   "riserva": 16
   },
   {
    "fonte": "siti",
@@ -223,7 +223,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 184953,
+    "byte": 184153,
     "linkInterni": 36,
     "esempi": [
      "/xmlrpc.php",
@@ -255,9 +255,7 @@
     "ldJson": 0,
     "ticketone": [],
     "vivaticket": [
-     "vivaticket.com/it/ticket/kamelot/296226",
      "vivaticket.com/it/ticket/messa/296076",
-     "vivaticket.com/it/ticket/kamelot/296226",
      "vivaticket.com/it/ticket/messa/296076"
     ]
    }
@@ -337,7 +335,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88781,
+    "byte": 88789,
     "linkInterni": 55,
     "esempi": [
      "/it/festival/musica",
@@ -371,7 +369,7 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94724,
+     "byte": 94732,
      "ldJson": 3,
      "microdata": false,
      "og": [],
@@ -396,8 +394,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 183,
-    "eventi": 3326,
+    "richieste": 193,
+    "eventi": 3298,
     "giorniPieni": 2
    }
   ]
