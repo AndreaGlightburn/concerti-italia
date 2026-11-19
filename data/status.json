@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-18T20:32:02.028Z",
+ "aggiornato": "2026-11-19T07:26:18.106Z",
  "fonti": [
   {
    "id": "tm",
@@ -12,8 +12,8 @@
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3308,
-   "secondi": 123
+   "eventi": 3289,
+   "secondi": 135
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 71,
-   "secondi": 70
+   "eventi": 73,
+   "secondi": 71
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 102,
-   "secondi": 156
+   "eventi": 100,
+   "secondi": 153
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2965,
- "confrontabili": 713,
+ "eventi": 2949,
+ "confrontabili": 711,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 470,
+ "durataSecondi": 482,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,8 +59,8 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 22,
-   "link": 22
+   "eventi": 24,
+   "link": 24
   },
   {
    "fonte": "biglietterie",
@@ -146,17 +146,17 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 9,
+   "eventi": 8,
    "link": 10,
-   "riserva": 9
+   "riserva": 8
   },
   {
    "fonte": "siti",
    "url": "https://www.bluenotemilano.com/",
    "regione": "Lombardia",
-   "eventi": 9,
-   "link": 9,
-   "riserva": 9
+   "eventi": 8,
+   "link": 8,
+   "riserva": 8
   },
   {
    "fonte": "siti",
@@ -166,8 +166,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454289,
-    "linkInterni": 107,
+    "byte": 454445,
+    "linkInterni": 108,
     "esempi": [
      "/feed/",
      "/comments/feed/",
@@ -394,8 +394,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 193,
-    "eventi": 3308,
+    "richieste": 197,
+    "eventi": 3289,
     "giorniPieni": 2
    }
   ]
