@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-19T07:26:18.106Z",
+ "aggiornato": "2026-11-19T20:37:47.092Z",
  "fonti": [
   {
    "id": "tm",
@@ -12,8 +12,8 @@
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3289,
-   "secondi": 135
+   "eventi": 3353,
+   "secondi": 107
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 73,
-   "secondi": 71
+   "eventi": 72,
+   "secondi": 67
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 100,
-   "secondi": 153
+   "eventi": 108,
+   "secondi": 158
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2949,
- "confrontabili": 711,
+ "eventi": 2990,
+ "confrontabili": 725,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 482,
+ "durataSecondi": 451,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,8 +59,8 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 24,
-   "link": 24
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "biglietterie",
@@ -98,8 +98,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 732587,
-    "linkInterni": 99,
+    "byte": 712433,
+    "linkInterni": 96,
     "esempi": [
      "/eventi/",
      "/feed/",
@@ -146,17 +146,16 @@
    "fonte": "siti",
    "url": "https://www.fabriquemilano.it/it/",
    "regione": "Lombardia",
-   "eventi": 8,
-   "link": 10,
-   "riserva": 8
+   "eventi": 14,
+   "link": 14
   },
   {
    "fonte": "siti",
    "url": "https://www.bluenotemilano.com/",
    "regione": "Lombardia",
-   "eventi": 8,
-   "link": 8,
-   "riserva": 8
+   "eventi": 10,
+   "link": 10,
+   "riserva": 10
   },
   {
    "fonte": "siti",
@@ -335,8 +334,8 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88789,
-    "linkInterni": 55,
+    "byte": 88896,
+    "linkInterni": 54,
     "esempi": [
      "/it/festival/musica",
      "/en/festival-eng/music",
@@ -369,16 +368,16 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94732,
+     "byte": 94843,
      "ldJson": 3,
      "microdata": false,
      "og": [],
      "date": [
-      "5.0.53",
-      "5.0.53",
-      "5.0.53",
-      "5.0.53",
-      "5.0.53"
+      "5.0.56",
+      "5.0.56",
+      "5.0.56",
+      "5.0.56",
+      "5.0.56"
      ]
     }
    }
@@ -394,8 +393,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 197,
-    "eventi": 3289,
+    "richieste": 201,
+    "eventi": 3353,
     "giorniPieni": 2
    }
   ]
