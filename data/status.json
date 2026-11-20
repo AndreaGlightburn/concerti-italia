@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-19T20:37:47.092Z",
+ "aggiornato": "2026-11-20T07:16:27.938Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 501,
-   "secondi": 7
+   "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3353,
-   "secondi": 107
+   "eventi": 3321,
+   "secondi": 96
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 72,
-   "secondi": 67
+   "eventi": 70,
+   "secondi": 100
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 108,
-   "secondi": 158
+   "eventi": 107,
+   "secondi": 143
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2990,
- "confrontabili": 725,
+ "eventi": 2962,
+ "confrontabili": 720,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 451,
+ "durataSecondi": 445,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 23,
-   "link": 23
+   "eventi": 22,
+   "link": 22
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 47,
-   "link": 47,
-   "riserva": 47
+   "eventi": 46,
+   "link": 46,
+   "riserva": 46
   },
   {
    "fonte": "biglietterie",
@@ -203,9 +203,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 18,
+   "eventi": 17,
    "link": 18,
-   "riserva": 18
+   "riserva": 17
   },
   {
    "fonte": "siti",
@@ -289,7 +289,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257855,
+    "byte": 257853,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -368,7 +368,7 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94843,
+     "byte": 94839,
      "ldJson": 3,
      "microdata": false,
      "og": [],
@@ -393,8 +393,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 201,
-    "eventi": 3353,
+    "richieste": 189,
+    "eventi": 3321,
     "giorniPieni": 2
    }
   ]
