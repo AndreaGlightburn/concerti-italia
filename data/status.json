@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-21T07:08:36.164Z",
+ "aggiornato": "2026-11-21T19:16:04.800Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 491,
-   "secondi": 6
+   "eventi": 489,
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
    "eventi": 3313,
-   "secondi": 102
+   "secondi": 120
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 68,
-   "secondi": 62
+   "eventi": 67,
+   "secondi": 66
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
    "eventi": 107,
-   "secondi": 141
+   "secondi": 161
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2949,
- "confrontabili": 715,
+ "eventi": 2947,
+ "confrontabili": 716,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 411,
+ "durataSecondi": 462,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 43,
-   "link": 43,
-   "riserva": 43
+   "eventi": 42,
+   "link": 42,
+   "riserva": 42
   },
   {
    "fonte": "biglietterie",
@@ -165,7 +165,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454445,
+    "byte": 454367,
     "linkInterni": 108,
     "esempi": [
      "/feed/",
@@ -291,7 +291,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257855,
+    "byte": 257876,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -333,56 +333,7 @@
    "url": "https://www.operaestate.it/it/festival/musica",
    "regione": "Veneto",
    "eventi": 0,
-   "link": 5,
-   "nota": "pagine evento senza dati strutturati",
-   "diag": {
-    "byte": 88896,
-    "linkInterni": 54,
-    "esempi": [
-     "/it/festival/musica",
-     "/en/festival-eng/music",
-     "/it/component/finder/search",
-     "/images/layout/opera-estate-logo.svg",
-     "/media/vendor/joomla-custom-elements/css/joomla-alert.min.css",
-     "/plugins/system/cookiespolicynotificationbar/assets/css/cpnb-style.min.css",
-     "/plugins/system/cookiespolicynotificationbar/assets/css/balloon.min.css",
-     "/media/system/css/joomla-fontawesome.min.css",
-     "/templates/yootheme/css/theme.9.css",
-     "/media/plg_system_jcepro/site/css/content.min.css",
-     "/media/mod_languages/css/template.min.css",
-     "/it/festival/musica.md",
-     "/it/",
-     "/it/news",
-     "/it/archivio",
-     "/it/progetti-formativi-2",
-     "/it/progetti-formativi-2/culturafutura",
-     "/it/festival/programma",
-     "/it/festival/danza",
-     "/it/festival/teatro",
-     "/it/festival/lirica",
-     "/it/festival/bmotion",
-     "/it/festival/bmotion/danza",
-     "/it/festival/bmotion/teatro",
-     "/it/festival/bmotion/musica"
-    ],
-    "ldJson": 3,
-    "ticketone": [],
-    "vivaticket": [],
-    "primoEvento": {
-     "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94839,
-     "ldJson": 3,
-     "microdata": false,
-     "og": [],
-     "date": [
-      "5.0.56",
-      "5.0.56",
-      "5.0.56",
-      "5.0.56",
-      "5.0.56"
-     ]
-    }
-   }
+   "errore": "HTTP 500"
   },
   {
    "fonte": "siti",
