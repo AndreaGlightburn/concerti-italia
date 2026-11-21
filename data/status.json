@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-20T20:21:17.765Z",
+ "aggiornato": "2026-11-21T07:08:36.164Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 491,
-   "secondi": 7
+   "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3358,
-   "secondi": 122
+   "eventi": 3313,
+   "secondi": 102
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 69,
-   "secondi": 70
+   "eventi": 68,
+   "secondi": 62
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
    "eventi": 107,
-   "secondi": 162
+   "secondi": 141
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2986,
- "confrontabili": 723,
+ "eventi": 2949,
+ "confrontabili": 715,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 474,
+ "durataSecondi": 411,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 22,
-   "link": 22
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 45,
-   "link": 45,
-   "riserva": 45
+   "eventi": 43,
+   "link": 43,
+   "riserva": 43
   },
   {
    "fonte": "biglietterie",
@@ -165,10 +165,36 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 167,
-    "linkInterni": 0,
-    "esempi": [],
-    "ldJson": 0,
+    "byte": 454445,
+    "linkInterni": 108,
+    "esempi": [
+     "/feed/",
+     "/comments/feed/",
+     "/wp-json/oembed/1.0/embed",
+     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/magnific-popup.css",
+     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/lightbox.css",
+     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/slick.css",
+     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/aigpl-pro-public.min.css",
+     "/wp-content/plugins/contact-form-7/includes/css/styles.css",
+     "/wp-content/plugins/custom-related-posts/dist/public.css",
+     "/wp-content/plugins/parcheggio-partner/lib/dependencies/css/bootstrap.css",
+     "/wp-content/plugins/parcheggio-partner/lib/dist/css/bootstrap-slider.css",
+     "/wp-content/plugins/parcheggio-partner/lib/select/css/bootstrap-select.min.css",
+     "/wp-content/plugins/parcheggio-partner/lib/autocomplete/easy-autocomplete.css",
+     "/wp-content/plugins/parcheggio-partner/timepicker/css/bootstrap-timepicker.css",
+     "/wp-content/plugins/parcheggio-partner/custom.css",
+     "/wp-content/plugins/popup-builder/public/css/theme.css",
+     "/wp-content/plugins/salient-nectar-slider/css/nectar-slider.css",
+     "/wp-content/uploads/useanyfont/uaf.css",
+     "/wp-content/plugins/profile-builder/assets/css/placeholder-labels.css",
+     "/wp-content/themes/TEatro/css/font-awesome.min.css",
+     "/wp-content/themes/TEatro/css/grid-system.css",
+     "/wp-content/themes/TEatro/css/style.css",
+     "/wp-content/themes/TEatro/css/header/header-secondary-nav.css",
+     "/wp-content/themes/TEatro/css/off-canvas/simple-dropdown.css",
+     "/wp-content/themes/TEatro/css/elements/element-fancy-box.css"
+    ],
+    "ldJson": 1,
     "ticketone": [],
     "vivaticket": []
    }
@@ -196,7 +222,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 185547,
+    "byte": 184295,
     "linkInterni": 36,
     "esempi": [
      "/xmlrpc.php",
@@ -229,7 +255,9 @@
     "ticketone": [],
     "vivaticket": [
      "vivaticket.com/it/ticket/messa/296076",
-     "vivaticket.com/it/ticket/messa/296076"
+     "vivaticket.com/it/ticket/world-of-dance-milan-2026/319718",
+     "vivaticket.com/it/ticket/messa/296076",
+     "vivaticket.com/it/ticket/world-of-dance-milan-2026/319718"
     ]
    }
   },
@@ -263,12 +291,41 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 167,
-    "linkInterni": 0,
-    "esempi": [],
-    "ldJson": 0,
+    "byte": 257855,
+    "linkInterni": 57,
+    "esempi": [
+     "/wp-json/oembed/1.0/embed",
+     "/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css",
+     "/wp-content/plugins/complianz-gdpr-premium/assets/css/cookieblocker.min.css",
+     "/wp-content/plugins/pojo-accessibility/assets/build/fonts.css",
+     "/wp-content/plugins/pojo-accessibility/assets/build/skip-link.css",
+     "/wp-content/themes/hello-elementor/assets/css/reset.css",
+     "/wp-content/themes/hello-elementor/assets/css/theme.css",
+     "/wp-content/themes/hello-elementor/assets/css/header-footer.css",
+     "/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-pulse-grow.min.css",
+     "/wp-content/plugins/elementor/assets/css/frontend.min.css",
+     "/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css",
+     "/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css",
+     "/wp-content/plugins/elementor/assets/css/widget-heading.min.css",
+     "/wp-content/plugins/elementor/assets/css/widget-image.min.css",
+     "/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css",
+     "/wp-content/plugins/elementor/assets/css/widget-spacer.min.css",
+     "/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css",
+     "/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css",
+     "/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css",
+     "/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css",
+     "/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css",
+     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-common.min.css",
+     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-carousel.min.css",
+     "/wp-content/plugins/elementor-pro/assets/css/widget-lottie.min.css",
+     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-grid.min.css"
+    ],
+    "ldJson": 1,
     "ticketone": [],
-    "vivaticket": []
+    "vivaticket": [
+     "vivaticket.com/it",
+     "vivaticket.com/it/"
+    ]
    }
   },
   {
@@ -338,8 +395,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 193,
-    "eventi": 3358,
+    "richieste": 197,
+    "eventi": 3313,
     "giorniPieni": 2
    }
   ]
