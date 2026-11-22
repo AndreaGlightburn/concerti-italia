@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-21T19:16:04.800Z",
+ "aggiornato": "2026-11-22T06:48:59.146Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 489,
-   "secondi": 7
+   "eventi": 481,
+   "secondi": 8
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3313,
-   "secondi": 120
+   "eventi": 3267,
+   "secondi": 114
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 67,
-   "secondi": 66
+   "eventi": 63,
+   "secondi": 72
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 107,
-   "secondi": 161
+   "eventi": 105,
+   "secondi": 185
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2947,
- "confrontabili": 716,
+ "eventi": 2901,
+ "confrontabili": 706,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 462,
+ "durataSecondi": 486,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -59,15 +59,15 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 23,
-   "link": 23
+   "eventi": 22,
+   "link": 22
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 42,
-   "link": 42,
-   "riserva": 42
+   "eventi": 39,
+   "link": 39,
+   "riserva": 39
   },
   {
    "fonte": "biglietterie",
@@ -203,9 +203,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 17,
+   "eventi": 16,
    "link": 18,
-   "riserva": 17
+   "riserva": 16
   },
   {
    "fonte": "siti",
@@ -219,47 +219,7 @@
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
    "eventi": 0,
-   "link": 0,
-   "nota": "nessun evento né link a eventi trovati",
-   "diag": {
-    "byte": 184295,
-    "linkInterni": 36,
-    "esempi": [
-     "/xmlrpc.php",
-     "/feed/",
-     "/wp-json/oembed/1.0/embed",
-     "/wp-content/plugins/click-to-chat-for-whatsapp/new/inc/assets/css/main.css",
-     "/wp-content/plugins/buf-eventi/assets/front.css",
-     "/wp-content/themes/pro/framework/dist/css/site/stacks/integrity-light.css",
-     "/wp-content/plugins/add-search-to-menu/public/css/ivory-search.min.css",
-     "/wp-json/",
-     "/wp-json/wp/v2/pages/7",
-     "/wp-content/uploads/2020/04/cropped-live-fav-32x32.png",
-     "/wp-content/uploads/2020/04/cropped-live-fav-192x192.png",
-     "/wp-content/uploads/2020/04/cropped-live-fav-180x180.png",
-     "/wp-content/plugins/add-search-to-menu/public/css/ivory-ajax-search.min.css",
-     "/wp-content/plugins/user-registration/assets/css/sweetalert2/sweetalert2.min.css",
-     "/wp-content/plugins/user-registration/assets/css/user-registration.css",
-     "/wp-content/plugins/user-registration/assets/css/ltr_only_support.css",
-     "/wp-includes/css/dashicons.min.css",
-     "/wp-content/plugins/user-registration/assets/css/user-registration-smallscreen.css",
-     "/chi-siamo/",
-     "/tutti-gli-eventi/",
-     "/info/",
-     "/news/",
-     "/foto/",
-     "/contatti/",
-     "/my-account/"
-    ],
-    "ldJson": 0,
-    "ticketone": [],
-    "vivaticket": [
-     "vivaticket.com/it/ticket/messa/296076",
-     "vivaticket.com/it/ticket/world-of-dance-milan-2026/319718",
-     "vivaticket.com/it/ticket/messa/296076",
-     "vivaticket.com/it/ticket/world-of-dance-milan-2026/319718"
-    ]
-   }
+   "errore": "rete: fetch failed"
   },
   {
    "fonte": "siti",
@@ -272,8 +232,8 @@
    "fonte": "siti",
    "url": "https://www.newageclub.it/",
    "regione": "Veneto",
-   "eventi": 25,
-   "link": 25
+   "eventi": 24,
+   "link": 24
   },
   {
    "fonte": "siti",
@@ -291,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257876,
+    "byte": 257855,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -346,8 +306,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 197,
-    "eventi": 3313,
+    "richieste": 193,
+    "eventi": 3267,
     "giorniPieni": 2
    }
   ]
