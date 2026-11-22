@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-22T06:48:59.146Z",
+ "aggiornato": "2026-11-22T19:41:23.960Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 481,
-   "secondi": 8
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3267,
-   "secondi": 114
+   "eventi": 3266,
+   "secondi": 125
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 63,
-   "secondi": 72
+   "secondi": 67
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
    "eventi": 105,
-   "secondi": 185
+   "secondi": 176
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2901,
+ "eventi": 2899,
  "confrontabili": 706,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 486,
+ "durataSecondi": 490,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -165,7 +165,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454367,
+    "byte": 454097,
     "linkInterni": 108,
     "esempi": [
      "/feed/",
@@ -251,7 +251,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257855,
+    "byte": 257889,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -307,7 +307,7 @@
   "ticketone": [
    {
     "richieste": 193,
-    "eventi": 3267,
+    "eventi": 3266,
     "giorniPieni": 2
    }
   ]
