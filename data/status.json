@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-22T19:41:23.960Z",
+ "aggiornato": "2026-11-23T07:39:34.453Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 481,
+   "eventi": 480,
    "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3266,
-   "secondi": 125
+   "eventi": 3233,
+   "secondi": 97
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 63,
-   "secondi": 67
+   "eventi": 62,
+   "secondi": 65
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 105,
-   "secondi": 176
+   "eventi": 103,
+   "secondi": 140
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2899,
- "confrontabili": 706,
+ "eventi": 2872,
+ "confrontabili": 701,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 490,
+ "durataSecondi": 409,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,10 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 39,
+   "eventi": 38,
    "link": 39,
-   "riserva": 39
+   "riserva": 38,
+   "linkFalliti": 1
   },
   {
    "fonte": "biglietterie",
@@ -80,7 +81,7 @@
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
    "eventi": 2,
-   "link": 2,
+   "link": 3,
    "riserva": 2
   },
   {
@@ -165,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454097,
+    "byte": 454164,
     "linkInterni": 108,
     "esempi": [
      "/feed/",
@@ -203,9 +204,9 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 16,
+   "eventi": 15,
    "link": 18,
-   "riserva": 16
+   "riserva": 15
   },
   {
    "fonte": "siti",
@@ -219,7 +220,47 @@
    "url": "https://www.liveclub.it/",
    "regione": "Lombardia",
    "eventi": 0,
-   "errore": "rete: fetch failed"
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati",
+   "diag": {
+    "byte": 181891,
+    "linkInterni": 36,
+    "esempi": [
+     "/xmlrpc.php",
+     "/feed/",
+     "/wp-json/oembed/1.0/embed",
+     "/wp-content/plugins/click-to-chat-for-whatsapp/new/inc/assets/css/main.css",
+     "/wp-content/plugins/buf-eventi/assets/front.css",
+     "/wp-content/themes/pro/framework/dist/css/site/stacks/integrity-light.css",
+     "/wp-content/plugins/add-search-to-menu/public/css/ivory-search.min.css",
+     "/wp-json/",
+     "/wp-json/wp/v2/pages/7",
+     "/wp-content/uploads/2020/04/cropped-live-fav-32x32.png",
+     "/wp-content/uploads/2020/04/cropped-live-fav-192x192.png",
+     "/wp-content/uploads/2020/04/cropped-live-fav-180x180.png",
+     "/wp-content/plugins/add-search-to-menu/public/css/ivory-ajax-search.min.css",
+     "/wp-content/plugins/user-registration/assets/css/sweetalert2/sweetalert2.min.css",
+     "/wp-content/plugins/user-registration/assets/css/user-registration.css",
+     "/wp-content/plugins/user-registration/assets/css/ltr_only_support.css",
+     "/wp-includes/css/dashicons.min.css",
+     "/wp-content/plugins/user-registration/assets/css/user-registration-smallscreen.css",
+     "/chi-siamo/",
+     "/tutti-gli-eventi/",
+     "/info/",
+     "/news/",
+     "/foto/",
+     "/contatti/",
+     "/my-account/"
+    ],
+    "ldJson": 0,
+    "ticketone": [],
+    "vivaticket": [
+     "vivaticket.com/it/ticket/world-of-dance-milan-2026/319718",
+     "vivaticket.com/it/ticket/mammoth/294541",
+     "vivaticket.com/it/ticket/world-of-dance-milan-2026/319718",
+     "vivaticket.com/it/ticket/mammoth/294541"
+    ]
+   }
   },
   {
    "fonte": "siti",
@@ -232,8 +273,8 @@
    "fonte": "siti",
    "url": "https://www.newageclub.it/",
    "regione": "Veneto",
-   "eventi": 24,
-   "link": 24
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "siti",
@@ -251,7 +292,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257889,
+    "byte": 257855,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -306,9 +347,9 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 193,
-    "eventi": 3266,
-    "giorniPieni": 2
+    "richieste": 190,
+    "eventi": 3233,
+    "giorniPieni": 1
    }
   ]
  }
