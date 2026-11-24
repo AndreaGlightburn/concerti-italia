@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-23T07:39:34.453Z",
+ "aggiornato": "2026-11-23T23:54:16.891Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 480,
+   "eventi": 483,
    "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3233,
-   "secondi": 97
+   "eventi": 3237,
+   "secondi": 98
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 62,
-   "secondi": 65
+   "eventi": 63,
+   "secondi": 63
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 103,
-   "secondi": 140
+   "eventi": 104,
+   "secondi": 136
   },
   {
    "id": "bit",
@@ -44,8 +44,8 @@
    "eventi": 0
   }
  ],
- "eventi": 2872,
- "confrontabili": 701,
+ "eventi": 2871,
+ "confrontabili": 708,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
  "durataSecondi": 409,
@@ -59,30 +59,30 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 22,
-   "link": 22
+   "eventi": 23,
+   "link": 23
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 38,
-   "link": 39,
-   "riserva": 38,
+   "eventi": 39,
+   "link": 40,
+   "riserva": 39,
    "linkFalliti": 1
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/",
    "eventi": 1,
-   "link": 2,
+   "link": 1,
    "riserva": 1
   },
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
-   "eventi": 2,
-   "link": 3,
-   "riserva": 2
+   "eventi": 1,
+   "link": 5,
+   "riserva": 1
   },
   {
    "fonte": "siti",
@@ -99,21 +99,21 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 711395,
-    "linkInterni": 96,
+    "byte": 676851,
+    "linkInterni": 91,
     "esempi": [
      "/eventi/",
      "/feed/",
      "/comments/feed/",
      "/wp-json/oembed/1.0/embed",
      "/wp-content/plugins/accessibility-onetap/assets/css/accessibility-onetap-front-end.min.css",
-     "/wp-content/cache/wpfc-minified/q963lzix/6l6w8.css",
+     "/wp-content/cache/wpfc-minified/q963lzix/87hfs.css",
      "/wp-content/plugins/accessibility-onetap/assets/fonts/eicons/css/elementor-icons.min.css",
-     "/wp-content/cache/wpfc-minified/qt1ajq4s/6l6w8.css",
+     "/wp-content/cache/wpfc-minified/qt1ajq4s/87hfs.css",
      "/wp-content/plugins/complianz-gdpr/assets/css/cookieblocker.min.css",
      "/wp-content/uploads/complianz/css/banner-1-optin.css",
      "/wp-content/uploads/fusion-styles/0f2e095312dceef02b24767bd76a32f7.min.css",
-     "/wp-content/cache/wpfc-minified/ln9eo4lc/6l7k4.css",
+     "/wp-content/cache/wpfc-minified/ln9eo4lc/87hfs.css",
      "/wp-json/",
      "/wp-json/wp/v2/pages/795",
      "/xmlrpc.php",
@@ -130,11 +130,11 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/event/levante-santeria-toscana-31-22149187/",
      "ticketone.it/event/la-municipal-la-municipal-le-nostre-guerre-perdute-santeria-toscana-31-21584846/",
      "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857039/",
      "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857038/",
-     "ticketone.it/event/paola-turci-live-a-dismisura-santeria-toscana-31-21971978/"
+     "ticketone.it/event/paola-turci-live-a-dismisura-santeria-toscana-31-21971978/",
+     "ticketone.it/event/levante-santeria-toscana-31-22149187/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
@@ -166,7 +166,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454164,
+    "byte": 454081,
     "linkInterni": 108,
     "esempi": [
      "/feed/",
@@ -205,7 +205,7 @@
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
    "eventi": 15,
-   "link": 18,
+   "link": 15,
    "riserva": 15
   },
   {
@@ -223,7 +223,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 181891,
+    "byte": 184338,
     "linkInterni": 36,
     "esempi": [
      "/xmlrpc.php",
@@ -273,8 +273,8 @@
    "fonte": "siti",
    "url": "https://www.newageclub.it/",
    "regione": "Veneto",
-   "eventi": 23,
-   "link": 23
+   "eventi": 24,
+   "link": 24
   },
   {
    "fonte": "siti",
@@ -292,7 +292,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 257855,
+    "byte": 258147,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -334,7 +334,56 @@
    "url": "https://www.operaestate.it/it/festival/musica",
    "regione": "Veneto",
    "eventi": 0,
-   "errore": "HTTP 500"
+   "link": 5,
+   "nota": "pagine evento senza dati strutturati",
+   "diag": {
+    "byte": 88896,
+    "linkInterni": 54,
+    "esempi": [
+     "/it/festival/musica",
+     "/en/festival-eng/music",
+     "/it/component/finder/search",
+     "/images/layout/opera-estate-logo.svg",
+     "/media/vendor/joomla-custom-elements/css/joomla-alert.min.css",
+     "/plugins/system/cookiespolicynotificationbar/assets/css/cpnb-style.min.css",
+     "/plugins/system/cookiespolicynotificationbar/assets/css/balloon.min.css",
+     "/media/system/css/joomla-fontawesome.min.css",
+     "/templates/yootheme/css/theme.9.css",
+     "/media/plg_system_jcepro/site/css/content.min.css",
+     "/media/mod_languages/css/template.min.css",
+     "/it/festival/musica.md",
+     "/it/",
+     "/it/news",
+     "/it/archivio",
+     "/it/progetti-formativi-2",
+     "/it/progetti-formativi-2/culturafutura",
+     "/it/festival/programma",
+     "/it/festival/danza",
+     "/it/festival/teatro",
+     "/it/festival/lirica",
+     "/it/festival/bmotion",
+     "/it/festival/bmotion/danza",
+     "/it/festival/bmotion/teatro",
+     "/it/festival/bmotion/musica"
+    ],
+    "ldJson": 3,
+    "ticketone": [],
+    "vivaticket": [],
+    "primoEvento": {
+     "url": "https://www.operaestate.it/it/festival/bmotion/danza",
+     "byte": 94839,
+     "ldJson": 3,
+     "microdata": false,
+     "og": [],
+     "date": [
+      "5.0.56",
+      "5.0.56",
+      "5.0.56",
+      "5.0.56",
+      "5.0.56"
+     ]
+    }
+   }
   },
   {
    "fonte": "siti",
@@ -347,9 +396,9 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 190,
-    "eventi": 3233,
-    "giorniPieni": 1
+    "richieste": 191,
+    "eventi": 3237,
+    "giorniPieni": 2
    }
   ]
  }
