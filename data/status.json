@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-23T23:54:16.891Z",
+ "aggiornato": "2026-11-24T09:54:39.322Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 483,
-   "secondi": 7
+   "eventi": 484,
+   "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3237,
-   "secondi": 98
+   "eventi": 3240,
+   "secondi": 104
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 63,
-   "secondi": 63
+   "secondi": 72
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 104,
-   "secondi": 136
+   "eventi": 102,
+   "secondi": 157
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2871,
+ "eventi": 2872,
  "confrontabili": 708,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 409,
+ "durataSecondi": 442,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -99,8 +99,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 676851,
-    "linkInterni": 91,
+    "byte": 683899,
+    "linkInterni": 92,
     "esempi": [
      "/eventi/",
      "/feed/",
@@ -166,36 +166,10 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454081,
-    "linkInterni": 108,
-    "esempi": [
-     "/feed/",
-     "/comments/feed/",
-     "/wp-json/oembed/1.0/embed",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/magnific-popup.css",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/lightbox.css",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/slick.css",
-     "/wp-content/plugins/album-and-image-gallery-plus-lightbox-pro/assets/css/aigpl-pro-public.min.css",
-     "/wp-content/plugins/contact-form-7/includes/css/styles.css",
-     "/wp-content/plugins/custom-related-posts/dist/public.css",
-     "/wp-content/plugins/parcheggio-partner/lib/dependencies/css/bootstrap.css",
-     "/wp-content/plugins/parcheggio-partner/lib/dist/css/bootstrap-slider.css",
-     "/wp-content/plugins/parcheggio-partner/lib/select/css/bootstrap-select.min.css",
-     "/wp-content/plugins/parcheggio-partner/lib/autocomplete/easy-autocomplete.css",
-     "/wp-content/plugins/parcheggio-partner/timepicker/css/bootstrap-timepicker.css",
-     "/wp-content/plugins/parcheggio-partner/custom.css",
-     "/wp-content/plugins/popup-builder/public/css/theme.css",
-     "/wp-content/plugins/salient-nectar-slider/css/nectar-slider.css",
-     "/wp-content/uploads/useanyfont/uaf.css",
-     "/wp-content/plugins/profile-builder/assets/css/placeholder-labels.css",
-     "/wp-content/themes/TEatro/css/font-awesome.min.css",
-     "/wp-content/themes/TEatro/css/grid-system.css",
-     "/wp-content/themes/TEatro/css/style.css",
-     "/wp-content/themes/TEatro/css/header/header-secondary-nav.css",
-     "/wp-content/themes/TEatro/css/off-canvas/simple-dropdown.css",
-     "/wp-content/themes/TEatro/css/elements/element-fancy-box.css"
-    ],
-    "ldJson": 1,
+    "byte": 167,
+    "linkInterni": 0,
+    "esempi": [],
+    "ldJson": 0,
     "ticketone": [],
     "vivaticket": []
    }
@@ -280,9 +254,9 @@
    "fonte": "siti",
    "url": "https://www.teatrolafenice.it/event-category/concerti-2026-27/",
    "regione": "Veneto",
-   "eventi": 22,
-   "link": 22,
-   "riserva": 22
+   "eventi": 20,
+   "link": 20,
+   "riserva": 20
   },
   {
    "fonte": "siti",
@@ -292,41 +266,12 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 258147,
-    "linkInterni": 57,
-    "esempi": [
-     "/wp-json/oembed/1.0/embed",
-     "/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css",
-     "/wp-content/plugins/complianz-gdpr-premium/assets/css/cookieblocker.min.css",
-     "/wp-content/plugins/pojo-accessibility/assets/build/fonts.css",
-     "/wp-content/plugins/pojo-accessibility/assets/build/skip-link.css",
-     "/wp-content/themes/hello-elementor/assets/css/reset.css",
-     "/wp-content/themes/hello-elementor/assets/css/theme.css",
-     "/wp-content/themes/hello-elementor/assets/css/header-footer.css",
-     "/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-pulse-grow.min.css",
-     "/wp-content/plugins/elementor/assets/css/frontend.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css",
-     "/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-heading.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-image.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-spacer.min.css",
-     "/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css",
-     "/wp-content/plugins/elementor/assets/css/conditionals/e-swiper.min.css",
-     "/wp-content/plugins/elementor/assets/css/widget-image-carousel.min.css",
-     "/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css",
-     "/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-shrink.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-common.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-carousel.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-lottie.min.css",
-     "/wp-content/plugins/elementor-pro/assets/css/widget-loop-grid.min.css"
-    ],
-    "ldJson": 1,
+    "byte": 167,
+    "linkInterni": 0,
+    "esempi": [],
+    "ldJson": 0,
     "ticketone": [],
-    "vivaticket": [
-     "vivaticket.com/it",
-     "vivaticket.com/it/"
-    ]
+    "vivaticket": []
    }
   },
   {
@@ -396,8 +341,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 191,
-    "eventi": 3237,
+    "richieste": 187,
+    "eventi": 3240,
     "giorniPieni": 2
    }
   ]
