@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-24T22:27:06.998Z",
+ "aggiornato": "2026-11-25T08:35:10.403Z",
  "fonti": [
   {
    "id": "tm",
@@ -12,8 +12,8 @@
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3255,
-   "secondi": 126
+   "eventi": 3235,
+   "secondi": 118
   },
   {
    "id": "vt",
@@ -26,7 +26,7 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 71,
+   "eventi": 70,
    "secondi": 74
   },
   {
@@ -34,7 +34,7 @@
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
    "eventi": 103,
-   "secondi": 149
+   "secondi": 160
   },
   {
    "id": "bit",
@@ -44,8 +44,8 @@
    "eventi": 0
   }
  ],
- "eventi": 2896,
- "confrontabili": 708,
+ "eventi": 2877,
+ "confrontabili": 705,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
  "durataSecondi": 474,
@@ -59,8 +59,8 @@
   {
    "fonte": "biglietterie",
    "url": "https://dice.fm/browse/milano-5d68e89f7f285e094f60b00e/music/gig",
-   "eventi": 23,
-   "link": 23
+   "eventi": 22,
+   "link": 22
   },
   {
    "fonte": "biglietterie",
@@ -336,7 +336,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88880,
+    "byte": 88896,
     "linkInterni": 54,
     "esempi": [
      "/it/festival/musica",
@@ -395,8 +395,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 187,
-    "eventi": 3255,
+    "richieste": 185,
+    "eventi": 3235,
     "giorniPieni": 2
    }
   ]
