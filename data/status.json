@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-25T21:42:16.296Z",
+ "aggiornato": "2026-11-26T08:18:24.906Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 483,
-   "secondi": 8
+   "eventi": 484,
+   "secondi": 7
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3269,
-   "secondi": 110
+   "eventi": 3250,
+   "secondi": 105
   },
   {
    "id": "vt",
@@ -27,14 +27,14 @@
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
    "eventi": 72,
-   "secondi": 73
+   "secondi": 67
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 103,
-   "secondi": 152
+   "eventi": 102,
+   "secondi": 150
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2900,
- "confrontabili": 720,
+ "eventi": 2883,
+ "confrontabili": 716,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 459,
+ "durataSecondi": 438,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -80,7 +80,7 @@
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
    "eventi": 1,
-   "link": 4,
+   "link": 2,
    "riserva": 1
   },
   {
@@ -280,9 +280,9 @@
    "fonte": "siti",
    "url": "https://www.teatrolafenice.it/event-category/concerti-2026-27/",
    "regione": "Veneto",
-   "eventi": 20,
-   "link": 20,
-   "riserva": 20
+   "eventi": 19,
+   "link": 19,
+   "riserva": 19
   },
   {
    "fonte": "siti",
@@ -292,7 +292,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 258147,
+    "byte": 258145,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -337,7 +337,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88896,
+    "byte": 88888,
     "linkInterni": 54,
     "esempi": [
      "/it/festival/musica",
@@ -371,7 +371,7 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94839,
+     "byte": 94831,
      "ldJson": 3,
      "microdata": false,
      "og": [],
@@ -396,8 +396,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 187,
-    "eventi": 3269,
+    "richieste": 189,
+    "eventi": 3250,
     "giorniPieni": 2
    }
   ]
