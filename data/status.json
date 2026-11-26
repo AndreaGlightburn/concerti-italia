@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-26T08:18:24.906Z",
+ "aggiornato": "2026-11-26T21:32:24.321Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
-   "eventi": 484,
-   "secondi": 7
+   "eventi": 483,
+   "secondi": 8
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3250,
-   "secondi": 105
+   "eventi": 3266,
+   "secondi": 128
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 72,
-   "secondi": 67
+   "eventi": 74,
+   "secondi": 66
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
-   "eventi": 102,
-   "secondi": 150
+   "eventi": 87,
+   "secondi": 142
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2883,
- "confrontabili": 716,
+ "eventi": 2885,
+ "confrontabili": 718,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 438,
+ "durataSecondi": 463,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -65,9 +65,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.mailticket.it/",
-   "eventi": 49,
-   "link": 49,
-   "riserva": 49
+   "eventi": 51,
+   "link": 51,
+   "riserva": 51
   },
   {
    "fonte": "biglietterie",
@@ -98,8 +98,8 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 634580,
-    "linkInterni": 84,
+    "byte": 703439,
+    "linkInterni": 95,
     "esempi": [
      "/eventi/",
      "/feed/",
@@ -129,17 +129,18 @@
     ],
     "ldJson": 1,
     "ticketone": [
-     "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857039/",
      "ticketone.it/event/anna-castiglia-la-paura-in-tasca-tour-2026-santeria-toscana-31-21857038/",
      "ticketone.it/event/paola-turci-live-a-dismisura-santeria-toscana-31-21971978/",
      "ticketone.it/event/levante-santeria-toscana-31-22149187/",
-     "ticketone.it/event/sonohra-santeria-toscana-31-22293423/"
+     "ticketone.it/event/sonohra-santeria-toscana-31-22293423/",
+     "ticketone.it/event/the-zen-circus-santeria-toscana-31-22389841/"
     ],
     "vivaticket": [
      "vivaticket.com/it/ticket/catch-your-breath/303185",
      "vivaticket.it/it/event/catch-your-breath/303185?qubsq=5a54285a-85dd-4ce9-ba4f-f1c38a2e7ece&qubsp=90c93189-9b96-45d3-999c-7295299cda0c&qubsts=1780929851&qubsc=bestunion&qubse=vivaticketserver&qubsrt=Safetynet&qubsh=60876cfab2154757c841d0c2e8645e49",
      "vivaticket.com/it/ticket/quintorigo-john-de-leo-rospo-grigio-in-cattivita-tour-2027/322903",
-     "vivaticket.com/it/ticket/nesli/326503"
+     "vivaticket.com/it/ticket/nesli/326503",
+     "vivaticket.com/it/ticket/la-crus-dentro-me-2027/326867"
     ]
    }
   },
@@ -166,7 +167,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 454081,
+    "byte": 454066,
     "linkInterni": 108,
     "esempi": [
      "/feed/",
@@ -204,9 +205,17 @@
    "fonte": "siti",
    "url": "https://www.unipolforum.it/it/",
    "regione": "Lombardia",
-   "eventi": 15,
-   "link": 15,
-   "riserva": 15
+   "eventi": 0,
+   "link": 0,
+   "nota": "nessun evento né link a eventi trovati",
+   "diag": {
+    "byte": 12010,
+    "linkInterni": 0,
+    "esempi": [],
+    "ldJson": 0,
+    "ticketone": [],
+    "vivaticket": []
+   }
   },
   {
    "fonte": "siti",
@@ -292,7 +301,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 258145,
+    "byte": 258147,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -337,7 +346,7 @@
    "link": 5,
    "nota": "pagine evento senza dati strutturati",
    "diag": {
-    "byte": 88888,
+    "byte": 88896,
     "linkInterni": 54,
     "esempi": [
      "/it/festival/musica",
@@ -371,7 +380,7 @@
     "vivaticket": [],
     "primoEvento": {
      "url": "https://www.operaestate.it/it/festival/bmotion/danza",
-     "byte": 94831,
+     "byte": 94839,
      "ldJson": 3,
      "microdata": false,
      "og": [],
@@ -396,8 +405,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 189,
-    "eventi": 3250,
+    "richieste": 191,
+    "eventi": 3266,
     "giorniPieni": 2
    }
   ]
