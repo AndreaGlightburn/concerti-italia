@@ -1,19 +1,19 @@
 {
- "aggiornato": "2026-11-27T21:17:27.048Z",
+ "aggiornato": "2026-11-28T07:49:47.327Z",
  "fonti": [
   {
    "id": "tm",
    "nome": "Ticketmaster",
    "ok": true,
    "eventi": 481,
-   "secondi": 7
+   "secondi": 6
   },
   {
    "id": "to",
    "nome": "TicketOne",
    "ok": true,
-   "eventi": 3283,
-   "secondi": 99
+   "eventi": 3244,
+   "secondi": 113
   },
   {
    "id": "vt",
@@ -26,15 +26,15 @@
    "id": "bigl",
    "nome": "Altre biglietterie (DICE, Ticketsms, Mailticket, Do It Yourself)",
    "ok": true,
-   "eventi": 77,
-   "secondi": 71
+   "eventi": 75,
+   "secondi": 66
   },
   {
    "id": "web",
    "nome": "Siti di locali, palazzetti e festival",
    "ok": true,
    "eventi": 105,
-   "secondi": 145
+   "secondi": 137
   },
   {
    "id": "bit",
@@ -44,11 +44,11 @@
    "eventi": 0
   }
  ],
- "eventi": 2915,
- "confrontabili": 724,
+ "eventi": 2875,
+ "confrontabili": 718,
  "nuoviPreferiti": 0,
  "avvisiInviati": 0,
- "durataSecondi": 429,
+ "durataSecondi": 494,
  "pagine": [
   {
    "fonte": "vivaticket",
@@ -79,9 +79,9 @@
   {
    "fonte": "biglietterie",
    "url": "https://www.diyticket.it/search/all",
-   "eventi": 3,
-   "link": 6,
-   "riserva": 3
+   "eventi": 1,
+   "link": 1,
+   "riserva": 1
   },
   {
    "fonte": "siti",
@@ -293,7 +293,7 @@
    "link": 0,
    "nota": "nessun evento né link a eventi trovati",
    "diag": {
-    "byte": 258168,
+    "byte": 258147,
     "linkInterni": 57,
     "esempi": [
      "/wp-json/oembed/1.0/embed",
@@ -397,8 +397,8 @@
  "diagnostica": {
   "ticketone": [
    {
-    "richieste": 187,
-    "eventi": 3283,
+    "richieste": 201,
+    "eventi": 3244,
     "giorniPieni": 2
    }
   ]
